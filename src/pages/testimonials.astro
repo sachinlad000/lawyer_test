@@ -1,0 +1,438 @@
+---
+/**
+ * Testimonials Page
+ * =================
+ * Client testimonials with ethical disclaimer and case type filters.
+ * 
+ * CLIENT EDITABLE: Update testimonials below.
+ */
+
+import Layout from '../layouts/Layout.astro';
+import TestimonialCard from '../components/sections/TestimonialCard.astro';
+import { Star, Filter, AlertCircle } from '@lucide/astro';
+
+// CLIENT EDITABLE: All testimonials
+const testimonials = [
+  {
+    name: "Rajesh Kumar",
+    role: "Business Owner",
+    content: "Advocate Sharma handled my property dispute with exceptional professionalism. His deep understanding of property laws and strategic approach helped us achieve a favorable settlement within 8 months. His team kept me informed at every step.",
+    rating: 5,
+    caseType: "Property",
+  },
+  {
+    name: "Priya Mehta",
+    role: "IT Professional",
+    content: "During my difficult divorce case, Advocate Sharma provided not just legal expertise but also the emotional support I needed. He ensured my custody rights were protected and the settlement was fair. I cannot thank him enough.",
+    rating: 5,
+    caseType: "Family",
+  },
+  {
+    name: "Amit Singh",
+    role: "Company Director",
+    content: "Our company has relied on Advocate Sharma's corporate law expertise for over 5 years. His contract drafting and compliance advice have been invaluable for our business growth. Highly recommended for any business legal needs.",
+    rating: 5,
+    caseType: "Corporate",
+  },
+  {
+    name: "Sunita Devi",
+    role: "Homemaker",
+    content: "I was falsely implicated in a case and was devastated. Advocate Sharma took up my case and fought tirelessly. Thanks to his brilliant defense strategy, I was acquitted of all charges. He restored my faith in justice.",
+    rating: 5,
+    caseType: "Criminal",
+  },
+  {
+    name: "Vikram Patel",
+    role: "Retailer",
+    content: "Won my consumer complaint against a major appliance brand thanks to Advocate Sharma. He made the entire process simple and got me adequate compensation for the defective product. Very satisfied with the outcome.",
+    rating: 5,
+    caseType: "Consumer",
+  },
+  {
+    name: "Ananya Sharma",
+    role: "Teacher",
+    content: "Advocate Sharma helped me secure maintenance for myself and my children after separation. His knowledge of family laws and compassionate approach made a difficult time more bearable. Professional and caring.",
+    rating: 5,
+    caseType: "Family",
+  },
+  {
+    name: "Mohit Agarwal",
+    role: "Real Estate Developer",
+    content: "I've worked with many lawyers over the years, but Advocate Sharma stands out. His attention to detail in property documentation has saved us from potential disputes multiple times. An invaluable legal partner.",
+    rating: 5,
+    caseType: "Property",
+  },
+  {
+    name: "Kavita Joshi",
+    role: "Healthcare Professional",
+    content: "Got my anticipatory bail within 24 hours thanks to Advocate Sharma's swift action and preparation. He was available round the clock and his calm demeanor helped me stay composed during a stressful time.",
+    rating: 5,
+    caseType: "Criminal",
+  },
+];
+
+const caseTypes = ["All", "Property", "Family", "Corporate", "Criminal", "Consumer"];
+
+// Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yourdomain.com" },
+    { "@type": "ListItem", "position": 2, "name": "Testimonials", "item": "https://yourdomain.com/testimonials" }
+  ]
+};
+---
+
+<Layout 
+  title="Client Testimonials"
+  description="Read what our clients say about Advocate Sharma & Associates. Real experiences from real clients across civil, criminal, and corporate cases."
+  keywords="lawyer reviews, advocate testimonials, client reviews, legal services feedback"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Testimonials</span>
+      </nav>
+      <h1 class="page-title">Client Testimonials</h1>
+      <p class="page-subtitle">What our clients say about their experience with us</p>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="disclaimer-section">
+    <div class="container">
+      <div class="disclaimer-box">
+        <AlertCircle size={24} />
+        <div class="disclaimer-content">
+          <strong>Important Disclaimer:</strong> These testimonials represent individual client experiences and outcomes. 
+          Results may vary based on the specific facts and circumstances of each case. 
+          Past performance does not guarantee future outcomes. Testimonials do not constitute a guarantee or prediction of the outcome of your case.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-value">500+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">4.9</span>
+          <div class="stat-stars">
+            {Array.from({ length: 5 }, () => <Star size={16} fill="currentColor" />)}
+          </div>
+          <span class="stat-label">Average Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">95%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Grid -->
+  <section class="testimonials-section section-padding">
+    <div class="container">
+      <!-- Filter -->
+      <div class="filter-bar" data-animate="animate-fade-in">
+        <div class="filter-label">
+          <Filter size={18} />
+          Filter by Case Type:
+        </div>
+        <div class="filter-buttons">
+          {caseTypes.map((type, index) => (
+            <button 
+              class={`filter-btn ${index === 0 ? 'active' : ''}`}
+              data-filter={type.toLowerCase()}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="testimonials-grid">
+        {testimonials.map((testimonial, index) => (
+          <div 
+            class="testimonial-item" 
+            data-category={testimonial.caseType.toLowerCase()}
+            data-animate="animate-fade-in-up"
+            style={`animation-delay: ${index * 50}ms;`}
+          >
+            <TestimonialCard {...testimonial} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews CTA -->
+  <section class="reviews-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>See More Reviews</h2>
+        <p>Check out our ratings on Google to see what more clients are saying.</p>
+        <a 
+          href="https://www.google.com/maps/search/?api=1&query=Advocate+Sharma" 
+          class="btn btn-accent btn-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Google Reviews
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    color: white;
+    padding: 3rem 0 4rem;
+    text-align: center;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .breadcrumb a { color: rgba(255, 255, 255, 0.7); }
+  .breadcrumb a:hover { color: var(--color-accent-500); }
+  .breadcrumb span { color: rgba(255, 255, 255, 0.5); }
+  .breadcrumb span:last-child { color: var(--color-accent-500); }
+  
+  .page-title {
+    color: white;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Disclaimer */
+  .disclaimer-section {
+    background: var(--color-neutral-100);
+    padding: 1.5rem 0;
+  }
+  
+  .disclaimer-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: white;
+    border-left: 4px solid var(--color-accent-500);
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: var(--color-neutral-600);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+  
+  .disclaimer-box svg {
+    color: var(--color-accent-500);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+  
+  /* Stats Bar */
+  .stats-bar {
+    background: white;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+  
+  .stats-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--color-primary-900);
+    line-height: 1;
+  }
+  
+  .stat-stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    color: var(--color-accent-500);
+    margin: 0.25rem 0;
+  }
+  
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-neutral-500);
+  }
+  
+  /* Testimonials Section */
+  .testimonials-section {
+    background: var(--color-neutral-50);
+  }
+  
+  /* Filter */
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+  
+  @media (min-width: 768px) {
+    .filter-bar {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  
+  .filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--color-neutral-700);
+    white-space: nowrap;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-neutral-600);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .filter-btn:hover {
+    border-color: var(--color-primary-500);
+    color: var(--color-primary-900);
+  }
+  
+  .filter-btn.active {
+    background: var(--color-primary-900);
+    border-color: var(--color-primary-900);
+    color: white;
+  }
+  
+  /* Grid */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+  
+  .testimonial-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .testimonial-item.hidden {
+    display: none;
+  }
+  
+  /* Reviews CTA */
+  .reviews-cta {
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    color: white;
+    padding: 4rem 0;
+  }
+  
+  .reviews-cta .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .reviews-cta h2 {
+    color: white;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1rem;
+  }
+  
+  .reviews-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        testimonialItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>

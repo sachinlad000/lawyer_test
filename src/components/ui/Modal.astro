@@ -1,0 +1,171 @@
+---
+/**
+ * Modal Component
+ * ===============
+ * Accessible modal dialog with keyboard navigation support.
+ */
+
+import { X } from '@lucide/astro';
+
+interface Props {
+  id: string;
+  title: string;
+  class?: string;
+}
+
+const { id, title, class: className = '' } = Astro.props;
+---
+
+<div 
+  class:list={['modal-overlay', className]} 
+  id={id}
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby={`${id}-title`}
+  data-modal
+>
+  <div class="modal-container">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id={`${id}-title`} class="modal-title">{title}</h3>
+        <button 
+          class="modal-close" 
+          aria-label="Close modal"
+          data-modal-close
+        >
+          <X size={24} />
+        </button>
+      </div>
+      <div class="modal-body">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+  }
+  
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-container {
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95) translateY(20px);
+    transition: transform var(--transition-base);
+  }
+  
+  .modal-overlay.active .modal-container {
+    transform: scale(1) translateY(0);
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-neutral-200);
+    background: var(--color-neutral-50);
+  }
+  
+  .modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-primary-900);
+  }
+  
+  .modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-neutral-500);
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+  }
+  
+  .modal-close:hover {
+    background: var(--color-neutral-200);
+    color: var(--color-primary-900);
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modals = document.querySelectorAll('[data-modal]');
+    
+    modals.forEach(modal => {
+      const closeBtn = modal.querySelector('[data-modal-close]');
+      const overlay = modal as HTMLElement;
+      
+      // Close on close button click
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+      
+      // Close on overlay click
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    
+    // Open modal triggers
+    const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-modal-trigger');
+        const modal = document.getElementById(modalId || '');
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+  });
+</script>

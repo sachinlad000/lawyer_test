@@ -1,0 +1,156 @@
+---
+/**
+ * FAQ Accordion Component
+ * =======================
+ * Accessible accordion for FAQs with smooth animations.
+ */
+
+import { ChevronDown } from '@lucide/astro';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<div class:list={['faq-accordion', className]}>
+  {items.map((item, index) => (
+    <div class="faq-item" data-faq-item>
+      <button 
+        class="faq-question" 
+        aria-expanded="false"
+        aria-controls={`faq-answer-${index}`}
+        data-faq-toggle
+      >
+        <span>{item.question}</span>
+        <ChevronDown size={20} class="faq-icon" />
+      </button>
+      <div 
+        class="faq-answer" 
+        id={`faq-answer-${index}`}
+        data-faq-content
+      >
+        <div class="faq-answer-inner">
+          <p set:html={item.answer} />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .faq-item {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-neutral-200);
+    transition: box-shadow var(--transition-fast);
+  }
+  
+  .faq-item:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .faq-item.active {
+    border-color: var(--color-primary-500);
+  }
+  
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-neutral-800);
+    transition: color var(--transition-fast);
+  }
+  
+  .faq-question:hover {
+    color: var(--color-primary-900);
+  }
+  
+  .faq-icon {
+    flex-shrink: 0;
+    color: var(--color-accent-500);
+    transition: transform var(--transition-base);
+  }
+  
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+  }
+  
+  .faq-answer-inner {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--color-neutral-600);
+    line-height: 1.7;
+  }
+  
+  .faq-answer-inner p {
+    margin: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+    
+    faqItems.forEach(item => {
+      const toggle = item.querySelector('[data-faq-toggle]');
+      const content = item.querySelector('[data-faq-content]') as HTMLElement;
+      
+      if (toggle && content) {
+        toggle.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+              const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+              const otherToggle = otherItem.querySelector('[data-faq-toggle]');
+              if (otherContent) otherContent.style.maxHeight = '0';
+              if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+          
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove('active');
+            content.style.maxHeight = '0';
+            toggle.setAttribute('aria-expanded', 'false');
+          } else {
+            item.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+    });
+  });
+</script>

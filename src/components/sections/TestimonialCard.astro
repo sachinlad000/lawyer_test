@@ -1,0 +1,169 @@
+---
+/**
+ * Testimonial Card Component
+ * ==========================
+ * Individual testimonial card with client info and rating.
+ */
+
+import { Star, Quote } from '@lucide/astro';
+
+interface Props {
+  name: string;
+  role?: string;
+  content: string;
+  rating: number;
+  caseType?: string;
+  image?: string;
+}
+
+const { name, role, content, rating, caseType, image } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <div class="quote-icon">
+    <Quote size={24} />
+  </div>
+  
+  <!-- Rating -->
+  <div class="rating">
+    {Array.from({ length: 5 }, (_, i) => (
+      <Star 
+        size={18} 
+        class={i < rating ? 'star-filled' : 'star-empty'} 
+        fill={i < rating ? 'currentColor' : 'none'}
+      />
+    ))}
+  </div>
+  
+  <!-- Content -->
+  <p class="testimonial-content">{content}</p>
+  
+  <!-- Client Info -->
+  <div class="client-info">
+    <div class="client-avatar">
+      {image ? (
+        <img src={image} alt={name} loading="lazy" />
+      ) : (
+        <span class="avatar-placeholder">{name.charAt(0)}</span>
+      )}
+    </div>
+    <div class="client-details">
+      <span class="client-name">{name}</span>
+      {role && <span class="client-role">{role}</span>}
+    </div>
+    {caseType && (
+      <span class="case-badge">{caseType}</span>
+    )}
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    position: relative;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+  }
+  
+  .testimonial-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+  
+  .quote-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-100);
+    color: var(--color-accent-600);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  
+  .rating {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .star-filled {
+    color: var(--color-accent-500);
+  }
+  
+  .star-empty {
+    color: var(--color-neutral-300);
+  }
+  
+  .testimonial-content {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-neutral-700);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  
+  .client-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .client-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-primary-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .client-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px); /* Privacy blur for client photos */
+  }
+  
+  .avatar-placeholder {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary-900);
+  }
+  
+  .client-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .client-name {
+    font-weight: 600;
+    color: var(--color-neutral-900);
+  }
+  
+  .client-role {
+    font-size: 0.875rem;
+    color: var(--color-neutral-500);
+  }
+  
+  .case-badge {
+    padding: 0.25rem 0.75rem;
+    background: var(--color-primary-100);
+    color: var(--color-primary-900);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+  }
+</style>

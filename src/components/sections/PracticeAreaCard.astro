@@ -1,0 +1,142 @@
+---
+/**
+ * Practice Area Card Component
+ * ============================
+ * Individual practice area card with icon and description.
+ */
+
+import { 
+  Scale, Users, Building2, Heart, Home, Shield, 
+  Gavel, FileText, Briefcase, Globe, Landmark, AlertTriangle
+} from '@lucide/astro';
+
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  href: string;
+  featured?: boolean;
+}
+
+const { title, description, icon, href, featured = false } = Astro.props;
+
+const icons: Record<string, any> = {
+  'civil': Scale,
+  'criminal': Gavel,
+  'corporate': Building2,
+  'family': Heart,
+  'property': Home,
+  'consumer': Shield,
+  'cyber': Globe,
+  'ipr': FileText,
+  'gst': Briefcase,
+  'constitutional': Landmark,
+  'default': AlertTriangle,
+};
+
+const IconComponent = icons[icon] || icons['default'];
+---
+
+<a href={href} class:list={['practice-card', featured && 'featured']}>
+  <div class="card-icon">
+    <IconComponent size={28} />
+  </div>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-description">{description}</p>
+  <span class="card-link">
+    Learn More
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </span>
+</a>
+
+<style>
+  .practice-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    border: 2px solid transparent;
+  }
+  
+  .practice-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-6px);
+    border-color: var(--color-accent-500);
+  }
+  
+  .practice-card:hover .card-icon {
+    background: var(--color-accent-500);
+    color: var(--color-primary-900);
+  }
+  
+  .practice-card.featured {
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    color: white;
+  }
+  
+  .practice-card.featured .card-title,
+  .practice-card.featured .card-description {
+    color: white;
+  }
+  
+  .practice-card.featured .card-description {
+    opacity: 0.9;
+  }
+  
+  .practice-card.featured .card-icon {
+    background: var(--color-accent-500);
+    color: var(--color-primary-900);
+  }
+  
+  .practice-card.featured .card-link {
+    color: var(--color-accent-500);
+  }
+  
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary-100);
+    color: var(--color-primary-900);
+    border-radius: 0.75rem;
+    margin-bottom: 1.25rem;
+    transition: all var(--transition-fast);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary-900);
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-description {
+    flex: 1;
+    font-size: 0.9375rem;
+    color: var(--color-neutral-600);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary-900);
+    transition: gap var(--transition-fast);
+  }
+  
+  .practice-card:hover .card-link {
+    gap: 0.75rem;
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+/**
+ * Button Component
+ * ================
+ * Reusable button with multiple variants.
+ */
+
+import { Phone, MessageCircle, Mail, Calendar } from '@lucide/astro';
+
+interface Props {
+  variant?: 'primary' | 'accent' | 'outline' | 'whatsapp' | 'call';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  icon?: 'phone' | 'whatsapp' | 'email' | 'calendar' | 'none';
+  class?: string;
+  fullWidth?: boolean;
+}
+
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  href, 
+  type = 'button',
+  icon = 'none',
+  class: className = '',
+  fullWidth = false,
+} = Astro.props;
+
+const Element = href ? 'a' : 'button';
+
+const sizeClasses = {
+  sm: 'btn-sm',
+  md: '',
+  lg: 'btn-lg',
+};
+
+const icons = {
+  phone: Phone,
+  whatsapp: MessageCircle,
+  email: Mail,
+  calendar: Calendar,
+  none: null,
+};
+
+const IconComponent = icons[icon];
+---
+
+<Element 
+  href={href}
+  type={!href ? type : undefined}
+  class:list={[
+    'btn',
+    `btn-${variant}`,
+    sizeClasses[size],
+    fullWidth && 'w-full',
+    className
+  ]}
+>
+  {IconComponent && <IconComponent size={size === 'sm' ? 16 : size === 'lg' ? 22 : 18} />}
+  <slot />
+</Element>
+
+<style>
+  .w-full {
+    width: 100%;
+  }
+</style>

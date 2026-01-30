@@ -1,0 +1,57 @@
+---
+/**
+ * Card Component
+ * ==============
+ * Reusable card with optional hover effects.
+ */
+
+interface Props {
+  class?: string;
+  hover?: boolean;
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+}
+
+const { 
+  class: className = '',
+  hover = true,
+  padding = 'md'
+} = Astro.props;
+
+const paddingClasses = {
+  none: '',
+  sm: 'card-padding-sm',
+  md: 'card-padding-md',
+  lg: 'card-padding-lg',
+};
+---
+
+<div class:list={['card-wrapper', hover && 'card-hover', paddingClasses[padding], className]}>
+  <slot />
+</div>
+
+<style>
+  .card-wrapper {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+  
+  .card-hover:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+  
+  .card-padding-sm {
+    padding: 1rem;
+  }
+  
+  .card-padding-md {
+    padding: 1.5rem;
+  }
+  
+  .card-padding-lg {
+    padding: 2rem;
+  }
+</style>

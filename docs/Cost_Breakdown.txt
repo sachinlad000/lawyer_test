@@ -1,0 +1,155 @@
+# COST BREAKDOWN & PAYMENT TERMS
+
+## Pradnya pednekar Professional Website
+
+---
+
+| Document Information | |
+|----------------------|--------------------------|
+| **Version** | 1.0 |
+| **Date** | January 29, 2026 |
+| **Prepared By** | Sachin lad |
+
+---
+
+# 1. PROJECT SCOPE SUMMARY
+
+| Item | Description |
+|------|-------------|
+| Project Type | Professional Static Website |
+| Technology | Astro v5 + Tailwind CSS |
+| Pages | 10+ (Home, About, Practice Areas, Portfolio, Testimonials, Contact, Disclaimer, Privacy, Terms, 404, Thank You) |
+| Hosting | Cloudflare/Netlify (Free tier) |
+| Timeline | 4-5 weeks |
+
+---
+
+# 2. DEVELOPMENT COSTS
+
+## 2.1 One-Time Development Fee
+
+| Component | Description | Amount (₹) |
+|-----------|-------------|------------|
+| Website Design & Development | | 13,000 |
+| UI/UX Design | Custom design based on brand colors |  |
+| Home Page Development | Hero, sections, CTAs, animations | Included |
+| About Page Development | Biography, credentials, courts | Included |
+| Practice Areas Page | All practice areas with details | Included |
+| Portfolio Page | Case studies with filtering | Included |
+| Testimonials Page | Client reviews with categories | Included |
+| Contact Page | Form, map, contact methods | Included |
+| Legal Pages (3) | Disclaimer, Privacy, Terms | Included |
+| Utility Pages | 404, Thank You | Included |
+| | | |
+| **Technical Features** | | |
+| Mobile Responsive Design | All breakpoints | Included |
+| SEO Optimization | Meta tags, schemas, sitemap | Included |
+| Google Analytics Setup | Basic configuration | Included |
+| Contact Form Integration | Netlify/Formspree | Included |
+| WhatsApp Integration | Click-to-chat button | Included |
+| Performance Optimization | Speed optimization | Included |
+| | | |
+| **SUBTOTAL (Development)** | | **[Amount]** |
+
+
+
+# 3. HOSTING & DOMAIN COSTS (ANNUAL)
+
+> **Note:** These are third-party costs paid directly by the client, NOT to the developer.
+
+## 3.1 Hosting
+
+| Option | Annual Cost | Included with |
+|--------|-------------|---------------|
+| Cloudflare Pages | **FREE** | Free SSL, CDN |
+| Netlify Free Tier | **FREE** | 100 form submissions/month |
+| Netlify Pro (if needed) | ~₹1,500/month | Unlimited forms |
+
+**Recommendation:** Cloudflare Pages (Free) or Netlify (Free tier)
+
+## 3.2 Domain
+
+| Domain Type | Approx. Annual Cost |
+|-------------|---------------------|
+| .com domain | ₹800 - ₹1,500/year |
+| .in domain | ₹400 - ₹800/year |
+| .co.in domain | ₹300 - ₹600/year |
+
+**Recommended Registrars:** GoDaddy, Namecheap, Google Domains
+
+---
+
+# 4. ONGOING COSTS (OPTIONAL)
+
+## 4.1 Maintenance Plans
+
+| Plan | Frequency | Includes | Monthly Cost (₹) |
+|------|-----------|----------|------------------|
+| **Basic** | Yearly | Bug fixes, minor text updates ,new page creation | 5000 |
+
+
+
+# 5. WHAT'S INCLUDED vs. NOT INCLUDED
+
+## ✅ INCLUDED in Development Fee
+
+- Complete website design and development
+- 10+ pages as specified in BRD
+- Mobile responsive design
+- SEO optimization (on-page)
+- Google Analytics integration
+- Contact form setup
+- WhatsApp integration
+- Performance optimization
+- 1 month post-launch support (bug fixes)
+- Deployment to hosting platform
+- Basic training on content updates
+
+## ❌ NOT INCLUDED (Separate Costs)
+
+- Domain registration (client purchases directly)
+- Hosting fees (free options available)
+- Logo design (unless added)
+- Professional photography
+- Content writing services
+- Ongoing maintenance after 1 month
+- Marketing/advertising campaigns
+- Third-party premium tools
+- Custom illustrations
+
+---
+
+# 6. TERMS & CONDITIONS
+
+## 6.1 Scope Changes
+
+- Additional features will be quoted separately
+- Scope changes may affect timeline and cost
+
+## 6.2 Intellectual Property
+
+- Upon final payment, client owns the website code
+- Developer retains right to portfolio showcase
+- Third-party assets (fonts, icons) under their respective licenses
+
+## 6.3 Support Period
+
+- 1 month of free support included
+- Support covers bug fixes and minor corrections
+- New features and major changes not included
+- Extended support available under maintenance plan
+
+---
+
+# 7. COST SUMMARY
+
+| Item | One-Time (₹) | Annual (₹) |
+|------|--------------|------------|
+| Website Development | 13,000 | - |
+| Domain (client pays directly) | - | 1,000 - 5,000|
+| Hosting (free option) | - | ₹0 |
+| Maintenance (optional) | - | 5,000 |
+| TOTAL (First Year) | 13,000 | 14,000 - 15,000 |
+| TOTAL (Subsequent Years) | - | ₹1,500 (domain)+ Maintenance (Optional) + Paid email service (if required)|
+
+END OF COST BREAKDOWN

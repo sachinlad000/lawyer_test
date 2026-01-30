@@ -1,0 +1,496 @@
+---
+/**
+ * Portfolio / Case Studies Page
+ * =============================
+ * Anonymized case studies with Problem → Strategy → Outcome format.
+ * 
+ * CLIENT EDITABLE: Update case studies below (ensure client anonymity).
+ */
+
+import Layout from '../layouts/Layout.astro';
+import { 
+  Briefcase, CheckCircle, AlertTriangle, ArrowRight,
+  Scale, Building2, Heart, Home, Shield, Filter
+} from '@lucide/astro';
+
+// CLIENT EDITABLE: Case studies (all information must be anonymized)
+const caseStudies = [
+  {
+    id: 1,
+    title: "Client A vs. Major Construction Company",
+    year: "2023",
+    category: "property",
+    icon: Home,
+    problem: "Our client had invested ₹85 lakhs in a residential apartment with an established developer. Despite promises of delivery in 2019, the project remained incomplete. The builder was unresponsive and refused to refund the amount.",
+    strategy: "Filed a comprehensive complaint with RERA Authority and simultaneously initiated proceedings in Consumer Forum. Presented detailed documentation of delays, builder's defaults, and client's financial hardship. Pressed for both refund and compensation.",
+    outcome: "Secured complete refund of ₹85 lakhs plus 10% annual interest. Additionally, compensation of ₹3 lakhs awarded for mental agony and legal costs. Total recovery exceeded ₹1.1 Crore.",
+    duration: "14 months",
+    highlight: "₹1.1 Cr+ Recovery"
+  },
+  {
+    id: 2,
+    title: "Matter of Mr. X - Anticipatory Bail",
+    year: "2023",
+    category: "criminal",
+    icon: Scale,
+    problem: "A senior professional was falsely implicated in an extortion case by business rivals. FIR was lodged with serious allegations, and there was imminent threat of arrest which could damage reputation and career irreparably.",
+    strategy: "Immediately filed for anticipatory bail in Sessions Court with comprehensive documentation proving the malafide intention of complainant. Presented client's clean background, permanent residence, and willingness to cooperate with investigation.",
+    outcome: "Anticipatory bail granted within 48 hours. Later, chargesheet was never filed due to lack of evidence, and the case was closed. Client's reputation and career remained intact.",
+    duration: "48 hours (bail), 8 months (closure)",
+    highlight: "Bail in 48 Hours"
+  },
+  {
+    id: 3,
+    title: "Partnership Dispute - XYZ Enterprises",
+    year: "2022",
+    category: "corporate",
+    icon: Building2,
+    problem: "Three partners in a trading firm reached an impasse over business directions. One partner was alleged to be siphoning funds. The dispute threatened to destroy a business worth ₹5 Crores and years of goodwill.",
+    strategy: "Initiated mediation to preserve business relationships and value. Simultaneously conducted forensic accounting to verify fund usage. Proposed structured buyout plan that addressed all parties' concerns.",
+    outcome: "Successful mediation resulted in clean partition of business. One partner bought out others at fair market value. All parties satisfied, no litigation required, and business continuity maintained.",
+    duration: "6 months",
+    highlight: "Mediated Settlement"
+  },
+  {
+    id: 4,
+    title: "Divorce & Custody - In Re: A Family",
+    year: "2023",
+    category: "family",
+    icon: Heart,
+    problem: "Mother seeking divorce from an abusive spouse while ensuring full custody of two minor children. Husband was wealthy and threatening to use financial power to snatch custody. Mother had limited financial resources.",
+    strategy: "Filed for divorce under domestic violence provisions. Simultaneously secured interim maintenance and residence orders. Built comprehensive evidence of abuse and established mother as primary caregiver since birth.",
+    outcome: "Divorce granted with full custody to mother. Father granted supervised visitation only. Secured maintenance of ₹75,000/month for mother and children, plus children's education expenses.",
+    duration: "18 months",
+    highlight: "Full Custody Secured"
+  },
+  {
+    id: 5,
+    title: "Consumer vs. Leading Insurance Company",
+    year: "2022",
+    category: "consumer",
+    icon: Shield,
+    problem: "Mediclaim of ₹15 lakhs rejected on technical grounds after insured underwent major surgery. Insurance company cited 'pre-existing condition' clause despite no disclosure requirement being violated.",
+    strategy: "Filed detailed complaint in State Consumer Commission with expert medical opinion. Challenged insurer's interpretation of 'pre-existing condition'. Cited relevant IRDA circulars and precedent judgments.",
+    outcome: "Full claim of ₹15 lakhs ordered to be paid with 12% interest from date of rejection. Additional ₹2 lakhs compensation for harassment and ₹50,000 for legal costs.",
+    duration: "10 months",
+    highlight: "₹17.5L Awarded"
+  },
+  {
+    id: 6,
+    title: "Property Title Dispute - Ancestral Land",
+    year: "2021",
+    category: "property",
+    icon: Home,
+    problem: "Client's ancestral agricultural land (5 acres) was being claimed by distant relatives based on alleged forged documents. The relatives had even begun construction on the land while matter was pending.",
+    strategy: "Obtained immediate injunction stopping construction. Challenged document authenticity through forensic examination. Traced complete chain of title through revenue records spanning 60 years.",
+    outcome: "Court declared client as rightful owner. Forged documents were criminally prosecuted. Illegal construction ordered to be demolished at claimant's cost. Costs awarded to client.",
+    duration: "24 months",
+    highlight: "Title Cleared"
+  },
+];
+
+const categories = [
+  { id: "all", label: "All Cases", icon: Briefcase },
+  { id: "property", label: "Property", icon: Home },
+  { id: "criminal", label: "Criminal", icon: Scale },
+  { id: "corporate", label: "Corporate", icon: Building2 },
+  { id: "family", label: "Family", icon: Heart },
+  { id: "consumer", label: "Consumer", icon: Shield },
+];
+
+// Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yourdomain.com" },
+    { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://yourdomain.com/portfolio" }
+  ]
+};
+---
+
+<Layout 
+  title="Case Studies & Portfolio"
+  description="Explore our successful case studies across civil, criminal, and corporate matters. Real results for real clients."
+  keywords="legal case studies, successful cases, court victories, lawyer portfolio, litigation success"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Portfolio</span>
+      </nav>
+      <h1 class="page-title">Case Studies</h1>
+      <p class="page-subtitle">Real results from real cases (anonymized for client privacy)</p>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="disclaimer-section">
+    <div class="container">
+      <div class="disclaimer-box">
+        <AlertTriangle size={24} />
+        <div class="disclaimer-content">
+          <strong>Results Disclaimer:</strong> The case outcomes presented here represent specific matters with unique facts and circumstances. 
+          <strong>Past results do not guarantee similar outcomes in future cases.</strong> 
+          All client information has been anonymized to protect confidentiality. Case details are simplified for presentation purposes.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Content -->
+  <section class="portfolio-section section-padding">
+    <div class="container">
+      <!-- Filter -->
+      <div class="filter-bar" data-animate="animate-fade-in">
+        <div class="filter-label">
+          <Filter size={18} />
+          Filter by Category:
+        </div>
+        <div class="filter-buttons">
+          {categories.map((cat, index) => (
+            <button 
+              class={`filter-btn ${index === 0 ? 'active' : ''}`}
+              data-filter={cat.id}
+            >
+              <cat.icon size={16} />
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Case Studies Grid -->
+      <div class="cases-grid">
+        {caseStudies.map((study, index) => (
+          <article 
+            class="case-card" 
+            data-category={study.category}
+            data-animate="animate-fade-in-up"
+            style={`animation-delay: ${index * 100}ms;`}
+          >
+            <div class="case-header">
+              <div class="case-icon">
+                <study.icon size={24} />
+              </div>
+              <div class="case-meta">
+                <span class="case-year">{study.year}</span>
+                <span class="case-category">{study.category}</span>
+              </div>
+            </div>
+            
+            <h3 class="case-title">{study.title}</h3>
+            
+            <div class="case-highlight">
+              <CheckCircle size={18} />
+              {study.highlight}
+            </div>
+            
+            <div class="case-sections">
+              <div class="case-section">
+                <h4>The Problem</h4>
+                <p>{study.problem}</p>
+              </div>
+              
+              <div class="case-section">
+                <h4>Our Strategy</h4>
+                <p>{study.strategy}</p>
+              </div>
+              
+              <div class="case-section">
+                <h4>The Outcome</h4>
+                <p>{study.outcome}</p>
+              </div>
+            </div>
+            
+            <div class="case-footer">
+              <div class="case-duration">
+                <span class="duration-label">Duration:</span>
+                <span class="duration-value">{study.duration}</span>
+              </div>
+              <a href="/contact" class="case-cta">
+                Discuss Similar Case
+                <ArrowRight size={16} />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="portfolio-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Have a Similar Case?</h2>
+        <p>Every case is unique. Let us analyze your situation and develop a winning strategy.</p>
+        <a href="/contact" class="btn btn-accent btn-lg">Get Free Case Assessment</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    color: white;
+    padding: 3rem 0 4rem;
+    text-align: center;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .breadcrumb a { color: rgba(255, 255, 255, 0.7); }
+  .breadcrumb a:hover { color: var(--color-accent-500); }
+  .breadcrumb span { color: rgba(255, 255, 255, 0.5); }
+  .breadcrumb span:last-child { color: var(--color-accent-500); }
+  
+  .page-title {
+    color: white;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-subtitle { font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); }
+  
+  /* Disclaimer */
+  .disclaimer-section {
+    background: var(--color-neutral-100);
+    padding: 1.5rem 0;
+  }
+  
+  .disclaimer-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: white;
+    border-left: 4px solid #dc2626;
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: var(--color-neutral-700);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+  
+  .disclaimer-box svg { color: #dc2626; flex-shrink: 0; margin-top: 0.125rem; }
+  
+  /* Portfolio Section */
+  .portfolio-section { background: var(--color-neutral-50); }
+  
+  /* Filter */
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+  
+  @media (min-width: 768px) {
+    .filter-bar { flex-direction: row; align-items: center; }
+  }
+  
+  .filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--color-neutral-700);
+    white-space: nowrap;
+  }
+  
+  .filter-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-neutral-600);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .filter-btn:hover { border-color: var(--color-primary-500); color: var(--color-primary-900); }
+  .filter-btn.active { background: var(--color-primary-900); border-color: var(--color-primary-900); color: white; }
+  
+  /* Cases Grid */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .cases-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  .case-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+  }
+  
+  .case-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+    border-color: var(--color-accent-500);
+  }
+  
+  .case-card.hidden { display: none; }
+  
+  .case-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  
+  .case-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary-100);
+    color: var(--color-primary-900);
+    border-radius: 0.75rem;
+  }
+  
+  .case-meta { text-align: right; }
+  
+  .case-year {
+    display: block;
+    font-weight: 600;
+    color: var(--color-neutral-800);
+  }
+  
+  .case-category {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background: var(--color-neutral-100);
+    font-size: 0.75rem;
+    text-transform: capitalize;
+    border-radius: 0.25rem;
+    color: var(--color-neutral-600);
+  }
+  
+  .case-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary-900);
+  }
+  
+  .case-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-accent-600) 100%);
+    color: var(--color-primary-900);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .case-sections { border-top: 1px solid var(--color-neutral-100); padding-top: 1.5rem; }
+  
+  .case-section { margin-bottom: 1.25rem; }
+  .case-section:last-child { margin-bottom: 0; }
+  
+  .case-section h4 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-neutral-500);
+    margin-bottom: 0.5rem;
+  }
+  
+  .case-section p {
+    font-size: 0.9375rem;
+    color: var(--color-neutral-600);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .case-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-neutral-100);
+  }
+  
+  .duration-label { font-size: 0.8125rem; color: var(--color-neutral-500); }
+  .duration-value { font-weight: 600; color: var(--color-neutral-800); }
+  
+  .case-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary-900);
+    transition: gap var(--transition-fast);
+  }
+  
+  .case-cta:hover { color: var(--color-accent-600); gap: 0.75rem; }
+  
+  /* CTA */
+  .portfolio-cta {
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    color: white;
+    padding: 4rem 0;
+  }
+  
+  .portfolio-cta .cta-content { text-align: center; max-width: 600px; margin: 0 auto; }
+  .portfolio-cta h2 { color: white; font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem; }
+  .portfolio-cta p { color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const caseCards = document.querySelectorAll('.case-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        caseCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>

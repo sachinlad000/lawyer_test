@@ -1,0 +1,107 @@
+---
+/**
+ * Practice Areas Section Component
+ * =================================
+ * Grid of practice areas for the home page.
+ */
+
+import PracticeAreaCard from './PracticeAreaCard.astro';
+
+// CLIENT EDITABLE: Practice areas
+const practiceAreas = [
+  {
+    title: "Civil Law",
+    description: "Expert representation in property disputes, contract matters, and civil litigation with a focus on achieving favorable settlements.",
+    icon: "civil",
+    href: "/practice-areas#civil",
+    featured: true,
+  },
+  {
+    title: "Criminal Law",
+    description: "Robust defense in criminal matters including bail applications, trial representation, and appeals in all courts.",
+    icon: "criminal",
+    href: "/practice-areas#criminal",
+  },
+  {
+    title: "Corporate Law",
+    description: "Comprehensive legal solutions for businesses including contracts, compliance, mergers, and corporate governance.",
+    icon: "corporate",
+    href: "/practice-areas#corporate",
+  },
+  {
+    title: "Family Law",
+    description: "Compassionate handling of divorce, custody, maintenance, and domestic matters with sensitivity and expertise.",
+    icon: "family",
+    href: "/practice-areas#family",
+  },
+  {
+    title: "Property Law",
+    description: "Complete property legal services including title verification, registration, and dispute resolution.",
+    icon: "property",
+    href: "/practice-areas#property",
+  },
+  {
+    title: "Consumer Protection",
+    description: "Fighting for consumer rights in cases of defective products, deficient services, and unfair trade practices.",
+    icon: "consumer",
+    href: "/practice-areas#consumer",
+  },
+];
+---
+
+<section class="practice-areas section-padding" id="practice-areas">
+  <div class="container">
+    <div class="section-header" data-animate="animate-fade-in-up">
+      <span class="section-subtitle">Our Expertise</span>
+      <h2 class="section-title">Practice Areas</h2>
+      <p class="section-description">
+        We provide comprehensive legal services across multiple domains, 
+        ensuring expert representation for all your legal needs.
+      </p>
+    </div>
+    
+    <div class="practice-grid">
+      {practiceAreas.map((area, index) => (
+        <div data-animate="animate-fade-in-up" class={`delay-${(index + 1) * 100}`}>
+          <PracticeAreaCard {...area} />
+        </div>
+      ))}
+    </div>
+    
+    <div class="section-cta" data-animate="animate-fade-in-up">
+      <a href="/practice-areas" class="btn btn-primary btn-lg">
+        View All Practice Areas
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .practice-areas {
+    background: var(--color-neutral-100);
+  }
+  
+  .practice-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  @media (min-width: 640px) {
+    .practice-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .practice-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+  
+  .section-cta {
+    text-align: center;
+  }
+</style>

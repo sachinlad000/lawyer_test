@@ -1,0 +1,158 @@
+---
+/**
+ * Thank You Page
+ * ==============
+ * Success page after form submission.
+ */
+
+import Layout from '../layouts/Layout.astro';
+import { CheckCircle, ArrowLeft, Phone, MessageCircle } from '@lucide/astro';
+---
+
+<Layout 
+  title="Thank You"
+  description="Thank you for contacting us. We will respond shortly."
+  noindex={true}
+>
+  <section class="thank-you-section">
+    <div class="container">
+      <div class="thank-you-content" data-animate="animate-fade-in-up">
+        <div class="success-icon">
+          <CheckCircle size={64} />
+        </div>
+        
+        <h1>Thank You!</h1>
+        <p class="message">
+          Your message has been received successfully. We appreciate you reaching out to us.
+        </p>
+        
+        <div class="next-steps">
+          <h2>What Happens Next?</h2>
+          <ol>
+            <li>Our team will review your message within 24 hours</li>
+            <li>You'll receive a call or email to discuss your matter</li>
+            <li>We'll schedule a consultation if needed</li>
+          </ol>
+        </div>
+        
+        <p class="urgent-text">
+          <strong>Need Urgent Assistance?</strong><br>
+          For time-sensitive matters, please contact us directly:
+        </p>
+        
+        <div class="contact-options">
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-primary">
+            <Phone size={20} />
+            Call Now
+          </a>
+          <a 
+            href="https://wa.me/91XXXXXXXXXX?text=Hello, I just submitted a form on your website and need urgent assistance."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-whatsapp"
+          >
+            <MessageCircle size={20} />
+            WhatsApp
+          </a>
+        </div>
+        
+        <a href="/" class="back-link">
+          <ArrowLeft size={18} />
+          Back to Homepage
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thank-you-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    background: linear-gradient(180deg, var(--color-neutral-50) 0%, white 100%);
+  }
+  
+  .thank-you-content {
+    max-width: 600px;
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .success-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: var(--color-primary-900);
+    margin-bottom: 1rem;
+  }
+  
+  .message {
+    font-size: 1.125rem;
+    color: var(--color-neutral-600);
+    margin-bottom: 2rem;
+  }
+  
+  .next-steps {
+    background: var(--color-neutral-50);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  
+  .next-steps h2 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+  
+  .next-steps ol {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: var(--color-neutral-600);
+  }
+  
+  .next-steps li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .urgent-text {
+    color: var(--color-neutral-600);
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-neutral-500);
+    font-size: 0.9375rem;
+  }
+  
+  .back-link:hover {
+    color: var(--color-primary-900);
+  }
+</style>

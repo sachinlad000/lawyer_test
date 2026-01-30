@@ -1,0 +1,157 @@
+---
+/**
+ * Main Layout Component
+ * =====================
+ * Base layout for all pages with SEO meta tags, fonts, and common elements.
+ * 
+ * CLIENT EDITABLE: Update the following in this file:
+ * - Site title and description
+ * - Social media URLs
+ * - Google Analytics ID
+ */
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  noindex?: boolean;
+}
+
+const { 
+  title, 
+  description = "Experienced Advocate in India providing expert legal services in Civil, Criminal, Corporate Law. Free consultation available. Bar Council Registered.",
+  keywords = "advocate, lawyer, legal services, India, civil law, criminal law, corporate law, legal consultation",
+  ogImage = "/images/og-image.jpg",
+  ogType = "website",
+  canonicalUrl,
+  noindex = false
+} = Astro.props;
+
+// CLIENT EDITABLE: Update these values
+const siteConfig = {
+  siteName: "Advocate Sharma & Associates", // Your firm name
+  siteUrl: "https://yourdomain.com", // Your website URL
+  phone: "+91-XXXXXXXXXX", // Your phone number
+  whatsapp: "91XXXXXXXXXX", // WhatsApp number (no + or spaces)
+  email: "contact@yourdomain.com", // Your email
+  address: "123, Law Chambers, High Court Road, City, State - 400001", // Your address
+  googleAnalyticsId: "G-XXXXXXXXXX", // Your GA4 ID
+};
+
+const fullTitle = `${title} | ${siteConfig.siteName}`;
+const currentUrl = canonicalUrl || Astro.url.href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={currentUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteConfig.siteUrl}${ogImage}`} />
+    <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:locale" content="en_IN" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteConfig.siteUrl}${ogImage}`} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Google Fonts - Preload for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" 
+      rel="stylesheet" 
+    />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0A2463" />
+    
+    <!-- Slot for page-specific head content (like JSON-LD) -->
+    <slot name="head" />
+    
+    <!-- Google Analytics 4 -->
+    {siteConfig.googleAnalyticsId && siteConfig.googleAnalyticsId !== "G-XXXXXXXXXX" && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}`}></script>
+        <script is:inline define:vars={{ gaId: siteConfig.googleAnalyticsId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <Header />
+    
+    <main id="main-content">
+      <slot />
+    </main>
+    
+    <Footer />
+    
+    <!-- WhatsApp Floating Button -->
+    <WhatsAppFloat />
+    
+    <!-- Intersection Observer for scroll animations -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              const animationType = entry.target.getAttribute('data-animate');
+              if (animationType) {
+                entry.target.classList.add(animationType);
+              }
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        });
+        
+        animatedElements.forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

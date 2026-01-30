@@ -1,0 +1,506 @@
+---
+/**
+ * Homepage
+ * ========
+ * Main landing page with all key sections and complete SEO.
+ * 
+ * CLIENT EDITABLE: Update schema data and content throughout.
+ */
+
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import PracticeAreas from '../components/sections/PracticeAreas.astro';
+import TrustIndicators from '../components/sections/TrustIndicators.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import FAQAccordion from '../components/ui/FAQAccordion.astro';
+import { Phone, MessageCircle, MapPin, Mail, ArrowRight } from '@lucide/astro';
+
+// CLIENT EDITABLE: Schema data for SEO
+const schemaData = {
+  name: "Advocate Sharma & Associates",
+  alternateName: "Advocate Sharma",
+  description: "Experienced Advocate in India providing expert legal services in Civil, Criminal, Corporate Law. Free consultation available.",
+  url: "https://yourdomain.com",
+  telephone: "+91-XXXXXXXXXX",
+  email: "contact@yourdomain.com",
+  address: {
+    streetAddress: "123, Law Chambers, High Court Road",
+    addressLocality: "Your City",
+    addressRegion: "Your State",
+    postalCode: "400001",
+    addressCountry: "IN"
+  },
+  geo: {
+    latitude: "19.0760", // Replace with actual coordinates
+    longitude: "72.8777"
+  },
+  openingHours: "Mo-Sa 09:00-19:00",
+  priceRange: "₹₹",
+  foundingDate: "2009",
+  areaServed: ["Your City", "Your District", "Your State"],
+  founder: {
+    name: "Advocate Name",
+    jobTitle: "Senior Advocate",
+    education: "LL.B., LL.M.",
+    barCouncilNumber: "XX/XXXX"
+  }
+};
+
+// JSON-LD Schemas
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "@id": `${schemaData.url}/#organization`,
+  "name": schemaData.name,
+  "alternateName": schemaData.alternateName,
+  "description": schemaData.description,
+  "url": schemaData.url,
+  "telephone": schemaData.telephone,
+  "email": schemaData.email,
+  "address": {
+    "@type": "PostalAddress",
+    ...schemaData.address
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": schemaData.geo.latitude,
+    "longitude": schemaData.geo.longitude
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "09:00",
+    "closes": "19:00"
+  },
+  "priceRange": schemaData.priceRange,
+  "areaServed": schemaData.areaServed.map(area => ({
+    "@type": "City",
+    "name": area
+  })),
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Legal Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Civil Law Services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Criminal Law Services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Corporate Law Services"
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://facebook.com/yourpage",
+    "https://linkedin.com/in/yourprofile",
+    "https://twitter.com/yourhandle"
+  ]
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": schemaData.founder.name,
+  "jobTitle": schemaData.founder.jobTitle,
+  "worksFor": {
+    "@id": `${schemaData.url}/#organization`
+  },
+  "alumniOf": schemaData.founder.education,
+  "knowsAbout": ["Civil Law", "Criminal Law", "Corporate Law", "Family Law", "Property Law"]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": schemaData.name,
+  "url": schemaData.url,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${schemaData.url}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// FAQ Data
+const faqs = [
+  {
+    question: "What types of cases do you handle?",
+    answer: "We handle a wide range of legal matters including Civil Law (property disputes, contracts), Criminal Law (bail, defense), Corporate Law (compliance, contracts), Family Law (divorce, custody), and more specialized areas like Cyber Law and Intellectual Property."
+  },
+  {
+    question: "Do you offer free consultations?",
+    answer: "Yes, we offer a free 15-minute initial consultation to understand your case and advise you on the best course of action. This helps you make an informed decision before proceeding with formal legal representation."
+  },
+  {
+    question: "What are your consultation fees?",
+    answer: "Our fees vary depending on the complexity of the case and the type of service required. After the initial consultation, we provide a transparent fee structure with no hidden charges. We also offer flexible payment plans for certain cases."
+  },
+  {
+    question: "Which courts do you practice in?",
+    answer: "We practice across multiple jurisdictions including District Courts, High Courts, and can also represent matters in the Supreme Court of India through our network of Senior Advocates. We handle cases throughout the state and can travel for important matters."
+  },
+  {
+    question: "How long does a typical case take?",
+    answer: "The duration depends on the nature of the case, court backlog, and complexity involved. Simple matters may resolve in weeks, while complex litigation can take months to years. We always provide realistic timelines and keep you updated on progress."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<Layout 
+  title="Expert Legal Services in India"
+  description="Advocate Sharma & Associates - 15+ years of experience in Civil, Criminal, and Corporate Law. Bar Council Registered. Free consultation available."
+  keywords="advocate in India, lawyer, legal services, civil law, criminal law, corporate law, property disputes, family law, high court advocate"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero />
+
+  <!-- Practice Areas -->
+  <PracticeAreas />
+  
+  <!-- Trust Indicators -->
+  <TrustIndicators />
+
+  <!-- About Preview Section -->
+  <section class="about-preview section-padding">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image" data-animate="animate-slide-in-left">
+          <div class="image-placeholder">
+            <span class="placeholder-icon">👨‍⚖️</span>
+            <span class="placeholder-text">About Photo</span>
+            <span class="placeholder-size">800x600px</span>
+          </div>
+          <div class="experience-badge">
+            <span class="badge-value">15+</span>
+            <span class="badge-label">Years</span>
+          </div>
+        </div>
+        
+        <div class="about-content" data-animate="animate-slide-in-right">
+          <span class="section-subtitle">About Us</span>
+          <h2 class="section-title">Fighting For Your Justice With Expertise & Integrity</h2>
+          <p class="about-text">
+            With over 15 years of experience practicing law in India, Advocate Sharma has built 
+            a reputation for professional excellence, ethical practice, and unwavering commitment 
+            to client success. Our firm combines traditional values with modern legal strategies 
+            to deliver the best outcomes for our clients.
+          </p>
+          <ul class="about-list">
+            <li>Bar Council of India Registered Advocate</li>
+            <li>Practicing in High Court & District Courts</li>
+            <li>Specialized in Civil, Criminal & Corporate Law</li>
+            <li>Personalized attention to every case</li>
+          </ul>
+          <a href="/about" class="btn btn-primary">
+            Learn More About Us
+            <ArrowRight size={18} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <Testimonials />
+
+  <!-- FAQ Section -->
+  <section class="faq-section section-padding">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-header" data-animate="animate-fade-in-up">
+          <span class="section-subtitle">FAQs</span>
+          <h2 class="section-title">Common Questions</h2>
+          <p class="section-description">
+            Find answers to frequently asked questions about our legal services and process.
+          </p>
+        </div>
+        
+        <div class="faq-content" data-animate="animate-fade-in-up">
+          <FAQAccordion items={faqs} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content" data-animate="animate-fade-in-up">
+        <h2 class="cta-title">Need Legal Assistance?</h2>
+        <p class="cta-text">
+          Get a free 15-minute consultation to discuss your case. 
+          We're here to help you navigate the legal system.
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn-accent btn-lg">
+            Schedule Consultation
+          </a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-outline btn-lg cta-phone">
+            <Phone size={20} />
+            Call Now
+          </a>
+        </div>
+        <div class="cta-contact-info">
+          <a href="mailto:contact@yourdomain.com">
+            <Mail size={18} />
+            contact@yourdomain.com
+          </a>
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener">
+            <MessageCircle size={18} />
+            WhatsApp Us
+          </a>
+          <span>
+            <MapPin size={18} />
+            High Court Road, Your City
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* About Preview Section */
+  .about-preview {
+    background: white;
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  @media (min-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+    }
+  }
+  
+  .about-image {
+    position: relative;
+  }
+  
+  .image-placeholder {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--color-neutral-100) 0%, var(--color-neutral-200) 100%);
+    border: 2px dashed var(--color-neutral-300);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-neutral-500);
+  }
+  
+  .placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .placeholder-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .placeholder-size {
+    font-size: 0.875rem;
+    opacity: 0.7;
+  }
+  
+  .experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    background: var(--color-accent-500);
+    color: var(--color-primary-900);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .experience-badge .badge-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    line-height: 1;
+  }
+  
+  .experience-badge .badge-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  
+  .about-content .section-subtitle {
+    display: inline-block;
+  }
+  
+  .about-content .section-title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-text {
+    color: var(--color-neutral-600);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+  
+  .about-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--color-neutral-700);
+  }
+  
+  .about-list li::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--color-accent-100);
+    color: var(--color-accent-600);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  
+  /* FAQ Section */
+  .faq-section {
+    background: var(--color-neutral-100);
+  }
+  
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .faq-grid {
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+    }
+  }
+  
+  .faq-header .section-title,
+  .faq-header .section-description {
+    text-align: left;
+  }
+  
+  .faq-header {
+    margin-bottom: 0;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    color: white;
+    padding: 4rem 0;
+  }
+  
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta-title {
+    color: white;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+  
+  .cta-text {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-phone {
+    border-color: white;
+    color: white;
+  }
+  
+  .cta-phone:hover {
+    background: white;
+    color: var(--color-primary-900);
+  }
+  
+  .cta-contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+  
+  .cta-contact-info a,
+  .cta-contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9375rem;
+  }
+  
+  .cta-contact-info a:hover {
+    color: var(--color-accent-500);
+  }
+</style>

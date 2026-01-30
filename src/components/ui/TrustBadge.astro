@@ -1,0 +1,118 @@
+---
+/**
+ * Trust Badge Component
+ * =====================
+ * Displays trust indicators like experience, success rate, etc.
+ */
+
+import { Award, Users, Briefcase, Scale, CheckCircle, Star } from '@lucide/astro';
+
+interface Props {
+  type: 'experience' | 'cases' | 'clients' | 'success' | 'verified' | 'rating';
+  value: string;
+  label: string;
+  variant?: 'default' | 'compact' | 'large';
+}
+
+const { type, value, label, variant = 'default' } = Astro.props;
+
+const icons = {
+  experience: Award,
+  cases: Briefcase,
+  clients: Users,
+  success: CheckCircle,
+  verified: Scale,
+  rating: Star,
+};
+
+const IconComponent = icons[type];
+---
+
+<div class:list={['trust-badge-wrapper', `variant-${variant}`]}>
+  <div class="badge-icon">
+    <IconComponent size={variant === 'large' ? 28 : variant === 'compact' ? 18 : 22} />
+  </div>
+  <div class="badge-content">
+    <span class="badge-value">{value}</span>
+    <span class="badge-label">{label}</span>
+  </div>
+</div>
+
+<style>
+  .trust-badge-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    color: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .variant-compact {
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+  
+  .variant-large {
+    padding: 1.25rem 1.75rem;
+    gap: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-accent-500);
+    color: var(--color-primary-900);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .variant-compact .badge-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .variant-large .badge-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .badge-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  
+  .badge-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+  }
+  
+  .variant-compact .badge-value {
+    font-size: 1.25rem;
+  }
+  
+  .variant-large .badge-value {
+    font-size: 2rem;
+  }
+  
+  .badge-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+  
+  .variant-compact .badge-label {
+    font-size: 0.75rem;
+  }
+  
+  .variant-large .badge-label {
+    font-size: 1rem;
+  }
+</style>
