@@ -3,15 +3,24 @@
  * Practice Areas Page
  * ===================
  * Detailed practice areas with categories and descriptions.
- * 
+ *
  * CLIENT EDITABLE: Update practice area details below.
  */
 
-import Layout from '../layouts/Layout.astro';
-import { 
-  Scale, Gavel, Building2, Heart, Home, Shield, 
-  Globe, FileText, Briefcase, AlertCircle, ArrowRight
-} from '@lucide/astro';
+import Layout from "../layouts/Layout.astro";
+import {
+  Scale,
+  Gavel,
+  Building2,
+  Heart,
+  Home,
+  Shield,
+  Globe,
+  FileText,
+  Briefcase,
+  AlertCircle,
+  ArrowRight,
+} from "@lucide/astro";
 
 // CLIENT EDITABLE: Practice areas data
 const practiceCategories = [
@@ -19,145 +28,268 @@ const practiceCategories = [
     id: "civil",
     title: "Civil Law",
     icon: Scale,
-    description: "Comprehensive civil litigation services protecting your rights in property, contract, and recovery matters.",
+    description:
+      "Comprehensive civil litigation services protecting your rights in property, contract, and recovery matters.",
     areas: [
       {
         title: "Property Disputes",
-        description: "Expert handling of property-related matters including boundary disputes, title verification, partition suits, and injunctions. We ensure thorough documentation and strategic litigation for favorable outcomes.",
-        cases: ["Partition Suits", "Title Disputes", "Boundary Issues", "Property Injunctions", "Easement Rights"]
+        description:
+          "Expert handling of property-related matters including boundary disputes, title verification, partition suits, and injunctions. We ensure thorough documentation and strategic litigation for favorable outcomes.",
+        cases: [
+          "Partition Suits",
+          "Title Disputes",
+          "Boundary Issues",
+          "Property Injunctions",
+          "Easement Rights",
+        ],
       },
       {
         title: "Contract Matters",
-        description: "Drafting, review, and litigation of commercial and personal contracts. From breach of contract cases to specific performance claims, we protect your contractual rights.",
-        cases: ["Breach of Contract", "Specific Performance", "Contract Drafting", "Agreement Review", "Dispute Resolution"]
+        description:
+          "Drafting, review, and litigation of commercial and personal contracts. From breach of contract cases to specific performance claims, we protect your contractual rights.",
+        cases: [
+          "Breach of Contract",
+          "Specific Performance",
+          "Contract Drafting",
+          "Agreement Review",
+          "Dispute Resolution",
+        ],
       },
       {
         title: "Recovery Suits",
-        description: "Efficient recovery of dues through legal channels including money suits, cheque bounce cases, and execution proceedings.",
-        cases: ["Money Recovery", "Cheque Bounce (NI Act)", "Execution Petitions", "Debt Recovery", "Commercial Disputes"]
-      }
-    ]
+        description:
+          "Efficient recovery of dues through legal channels including money suits, cheque bounce cases, and execution proceedings.",
+        cases: [
+          "Money Recovery",
+          "Cheque Bounce (NI Act)",
+          "Execution Petitions",
+          "Debt Recovery",
+          "Commercial Disputes",
+        ],
+      },
+    ],
   },
   {
     id: "criminal",
     title: "Criminal Law",
     icon: Gavel,
-    description: "Robust criminal defense ensuring your rights are protected at every stage of the legal process.",
+    description:
+      "Robust criminal defense ensuring your rights are protected at every stage of the legal process.",
     areas: [
       {
         title: "Bail Applications",
-        description: "Swift and strategic bail applications in Sessions Courts and High Courts. Regular and anticipatory bail with focus on securing your liberty while protecting your rights.",
-        cases: ["Regular Bail", "Anticipatory Bail", "Interim Bail", "Default Bail", "Bail Appeals"]
+        description:
+          "Swift and strategic bail applications in Sessions Courts and High Courts. Regular and anticipatory bail with focus on securing your liberty while protecting your rights.",
+        cases: [
+          "Regular Bail",
+          "Anticipatory Bail",
+          "Interim Bail",
+          "Default Bail",
+          "Bail Appeals",
+        ],
       },
       {
         title: "Trial Defense",
-        description: "Comprehensive criminal trial representation from investigation stage to final arguments. Focused approach on building strong defense and protecting accused rights.",
-        cases: ["IPC Offenses", "POCSO Cases", "Economic Offenses", "White Collar Crimes", "Appeals & Revisions"]
+        description:
+          "Comprehensive criminal trial representation from investigation stage to final arguments. Focused approach on building strong defense and protecting accused rights.",
+        cases: [
+          "IPC Offenses",
+          "POCSO Cases",
+          "Economic Offenses",
+          "White Collar Crimes",
+          "Appeals & Revisions",
+        ],
       },
       {
         title: "Quashing Petitions",
-        description: "High Court interventions to quash criminal proceedings in cases of abuse of process, lack of evidence, or settlement between parties.",
-        cases: ["FIR Quashing", "Chargesheet Quashing", "Compoundable Offenses", "Matrimonial Cases Quashing"]
-      }
-    ]
+        description:
+          "High Court interventions to quash criminal proceedings in cases of abuse of process, lack of evidence, or settlement between parties.",
+        cases: [
+          "FIR Quashing",
+          "Chargesheet Quashing",
+          "Compoundable Offenses",
+          "Matrimonial Cases Quashing",
+        ],
+      },
+    ],
   },
   {
     id: "corporate",
     title: "Corporate Law",
     icon: Building2,
-    description: "Complete legal solutions for businesses from startups to established enterprises.",
+    description:
+      "Complete legal solutions for businesses from startups to established enterprises.",
     areas: [
       {
         title: "Corporate Compliance",
-        description: "Ensuring your business stays compliant with all regulatory requirements. Company incorporation, annual filings, board resolutions, and statutory compliance.",
-        cases: ["Company Registration", "LLP Formation", "Annual Compliance", "ROC Filings", "FEMA Compliance"]
+        description:
+          "Ensuring your business stays compliant with all regulatory requirements. Company incorporation, annual filings, board resolutions, and statutory compliance.",
+        cases: [
+          "Company Registration",
+          "LLP Formation",
+          "Annual Compliance",
+          "ROC Filings",
+          "FEMA Compliance",
+        ],
       },
       {
         title: "Commercial Contracts",
-        description: "Drafting and negotiation of business agreements that protect your interests. From vendor contracts to shareholder agreements, we cover all commercial needs.",
-        cases: ["Shareholder Agreements", "Partnership Deeds", "Vendor Contracts", "Service Agreements", "NDAs"]
+        description:
+          "Drafting and negotiation of business agreements that protect your interests. From vendor contracts to shareholder agreements, we cover all commercial needs.",
+        cases: [
+          "Shareholder Agreements",
+          "Partnership Deeds",
+          "Vendor Contracts",
+          "Service Agreements",
+          "NDAs",
+        ],
       },
       {
         title: "Business Disputes",
-        description: "Resolution of commercial disputes through litigation, arbitration, or mediation. Protecting your business interests efficiently.",
-        cases: ["Commercial Litigation", "Arbitration", "Partner Disputes", "Director Removal", "Company Winding Up"]
-      }
-    ]
+        description:
+          "Resolution of commercial disputes through litigation, arbitration, or mediation. Protecting your business interests efficiently.",
+        cases: [
+          "Commercial Litigation",
+          "Arbitration",
+          "Partner Disputes",
+          "Director Removal",
+          "Company Winding Up",
+        ],
+      },
+    ],
   },
   {
     id: "family",
     title: "Family Law",
     icon: Heart,
-    description: "Compassionate handling of family matters with sensitivity and expertise.",
+    description:
+      "Compassionate handling of family matters with sensitivity and expertise.",
     areas: [
       {
         title: "Divorce & Separation",
-        description: "Guiding clients through contested and mutual consent divorces with care. Protecting your interests while minimizing emotional stress.",
-        cases: ["Mutual Consent Divorce", "Contested Divorce", "Annulment", "Judicial Separation", "Restitution of Conjugal Rights"]
+        description:
+          "Guiding clients through contested and mutual consent divorces with care. Protecting your interests while minimizing emotional stress.",
+        cases: [
+          "Mutual Consent Divorce",
+          "Contested Divorce",
+          "Annulment",
+          "Judicial Separation",
+          "Restitution of Conjugal Rights",
+        ],
       },
       {
         title: "Child Custody",
-        description: "Fighting for the best interests of children in custody disputes. Comprehensive representation in guardianship and visitation matters.",
-        cases: ["Custody Petitions", "Visitation Rights", "Guardianship", "Child Relocation", "International Custody"]
+        description:
+          "Fighting for the best interests of children in custody disputes. Comprehensive representation in guardianship and visitation matters.",
+        cases: [
+          "Custody Petitions",
+          "Visitation Rights",
+          "Guardianship",
+          "Child Relocation",
+          "International Custody",
+        ],
       },
       {
         title: "Maintenance & Alimony",
-        description: "Securing fair maintenance for spouses and children. Representation in proceedings under CrPC 125, Hindu Marriage Act, and other personal laws.",
-        cases: ["Wife Maintenance", "Child Support", "Interim Maintenance", "Permanent Alimony", "Modification Petitions"]
-      }
-    ]
+        description:
+          "Securing fair maintenance for spouses and children. Representation in proceedings under CrPC 125, Hindu Marriage Act, and other personal laws.",
+        cases: [
+          "Wife Maintenance",
+          "Child Support",
+          "Interim Maintenance",
+          "Permanent Alimony",
+          "Modification Petitions",
+        ],
+      },
+    ],
   },
   {
     id: "property",
     title: "Property Law",
     icon: Home,
-    description: "Complete property legal services from documentation to dispute resolution.",
+    description:
+      "Complete property legal services from documentation to dispute resolution.",
     areas: [
       {
         title: "Property Documentation",
-        description: "Comprehensive title verification, due diligence, and documentation for property transactions ensuring safe transfers.",
-        cases: ["Title Search", "Due Diligence", "Sale Deed Drafting", "Agreement to Sell", "Lease Agreements"]
+        description:
+          "Comprehensive title verification, due diligence, and documentation for property transactions ensuring safe transfers.",
+        cases: [
+          "Title Search",
+          "Due Diligence",
+          "Sale Deed Drafting",
+          "Agreement to Sell",
+          "Lease Agreements",
+        ],
       },
       {
         title: "Real Estate Disputes",
-        description: "Litigation in property matters including ownership disputes, builder issues, and society matters.",
-        cases: ["Ownership Disputes", "Builder Litigation", "Society Matters", "Land Acquisition", "Eviction Suits"]
-      }
-    ]
+        description:
+          "Litigation in property matters including ownership disputes, builder issues, and society matters.",
+        cases: [
+          "Ownership Disputes",
+          "Builder Litigation",
+          "Society Matters",
+          "Land Acquisition",
+          "Eviction Suits",
+        ],
+      },
+    ],
   },
   {
     id: "consumer",
     title: "Consumer Protection",
     icon: Shield,
-    description: "Fighting for consumer rights against defective products and deficient services.",
+    description:
+      "Fighting for consumer rights against defective products and deficient services.",
     areas: [
       {
         title: "Consumer Complaints",
-        description: "Filing and pursuing consumer complaints in District, State, and National Consumer Forums for product defects and service deficiencies.",
-        cases: ["Product Defects", "Service Deficiency", "Unfair Trade Practices", "Medical Negligence", "Banking & Insurance"]
-      }
-    ]
-  }
+        description:
+          "Filing and pursuing consumer complaints in District, State, and National Consumer Forums for product defects and service deficiencies.",
+        cases: [
+          "Product Defects",
+          "Service Deficiency",
+          "Unfair Trade Practices",
+          "Medical Negligence",
+          "Banking & Insurance",
+        ],
+      },
+    ],
+  },
 ];
 
 // Schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yourdomain.com" },
-    { "@type": "ListItem", "position": 2, "name": "Practice Areas", "item": "https://yourdomain.com/practice-areas" }
-  ]
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://yourdomain.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Practice Areas",
+      item: "https://yourdomain.com/practice-areas",
+    },
+  ],
 };
 ---
 
-<Layout 
+<Layout
   title="Practice Areas - Legal Services"
   description="Expert legal services in Civil, Criminal, Corporate, Family, Property Law. Comprehensive representation across all courts. Free consultation."
   keywords="civil law, criminal law, corporate law, family law, property law, consumer protection, legal services India"
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(breadcrumbSchema)}
+    />
   </Fragment>
 
   <!-- Page Header -->
@@ -169,7 +301,9 @@ const breadcrumbSchema = {
         <span>Practice Areas</span>
       </nav>
       <h1 class="page-title">Practice Areas</h1>
-      <p class="page-subtitle">Comprehensive legal services across multiple domains of law</p>
+      <p class="page-subtitle">
+        Comprehensive legal services across multiple domains of law
+      </p>
     </div>
   </section>
 
@@ -177,12 +311,14 @@ const breadcrumbSchema = {
   <section class="quick-nav">
     <div class="container">
       <div class="nav-pills">
-        {practiceCategories.map((cat) => (
-          <a href={`#${cat.id}`} class="nav-pill">
-            <cat.icon size={18} />
-            {cat.title}
-          </a>
-        ))}
+        {
+          practiceCategories.map((cat) => (
+            <a href={`#${cat.id}`} class="nav-pill">
+              <cat.icon size={18} />
+              {cat.title}
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -190,42 +326,50 @@ const breadcrumbSchema = {
   <!-- Practice Areas -->
   <section class="practice-areas section-padding">
     <div class="container">
-      {practiceCategories.map((category, catIndex) => (
-        <div class="practice-category" id={category.id} data-animate="animate-fade-in-up">
-          <div class="category-header">
-            <div class="category-icon">
-              <category.icon size={32} />
-            </div>
-            <div class="category-info">
-              <h2 class="category-title">{category.title}</h2>
-              <p class="category-description">{category.description}</p>
-            </div>
-          </div>
-          
-          <div class="areas-grid">
-            {category.areas.map((area) => (
-              <div class="area-card">
-                <h3 class="area-title">{area.title}</h3>
-                <p class="area-description">{area.description}</p>
-                <div class="area-cases">
-                  <span class="cases-label">Common Cases:</span>
-                  <ul class="cases-list">
-                    {area.cases.map((caseItem) => (
-                      <li>{caseItem}</li>
-                    ))}
-                  </ul>
-                </div>
-                <a href="/contact" class="area-cta">
-                  Free Assessment
-                  <ArrowRight size={16} />
-                </a>
+      {
+        practiceCategories.map((category, catIndex) => (
+          <div
+            class="practice-category"
+            id={category.id}
+            data-animate="animate-fade-in-up"
+          >
+            <div class="category-header">
+              <div class="category-icon">
+                <category.icon size={32} />
               </div>
-            ))}
+              <div class="category-info">
+                <h2 class="category-title">{category.title}</h2>
+                <p class="category-description">{category.description}</p>
+              </div>
+            </div>
+
+            <div class="areas-grid">
+              {category.areas.map((area) => (
+                <div class="area-card">
+                  <h3 class="area-title">{area.title}</h3>
+                  <p class="area-description">{area.description}</p>
+                  <div class="area-cases">
+                    <span class="cases-label">Common Cases:</span>
+                    <ul class="cases-list">
+                      {area.cases.map((caseItem) => (
+                        <li>{caseItem}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <a href="/contact" class="area-cta">
+                    Free Assessment
+                    <ArrowRight size={16} />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {catIndex < practiceCategories.length - 1 && (
+              <hr class="category-divider" />
+            )}
           </div>
-          
-          {catIndex < practiceCategories.length - 1 && <hr class="category-divider" />}
-        </div>
-      ))}
+        ))
+      }
     </div>
   </section>
 
@@ -238,9 +382,14 @@ const breadcrumbSchema = {
         </div>
         <div class="cta-text">
           <h3>Not Sure Which Category Fits Your Case?</h3>
-          <p>Schedule a free initial consultation and we'll guide you to the right solution.</p>
+          <p>
+            Schedule a free initial consultation and we'll guide you to the
+            right solution.
+          </p>
         </div>
-        <a href="/contact" class="btn btn-accent btn-lg">Get Free Consultation</a>
+        <a href="/contact" class="btn btn-accent btn-lg"
+          >Get Free Consultation</a
+        >
       </div>
     </div>
   </section>
@@ -249,12 +398,16 @@ const breadcrumbSchema = {
 <style>
   /* Page Header */
   .page-header {
-    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 100%
+    );
     color: white;
     padding: 3rem 0 4rem;
     text-align: center;
   }
-  
+
   .breadcrumb {
     display: flex;
     justify-content: center;
@@ -262,53 +415,60 @@ const breadcrumbSchema = {
     margin-bottom: 1rem;
     font-size: 0.875rem;
   }
-  
+
   .breadcrumb a {
     color: rgba(255, 255, 255, 0.7);
   }
-  
+
   .breadcrumb a:hover {
     color: var(--color-accent-500);
   }
-  
+
   .breadcrumb span {
     color: rgba(255, 255, 255, 0.5);
   }
-  
+
   .breadcrumb span:last-child {
     color: var(--color-accent-500);
   }
-  
+
   .page-title {
     color: white;
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 0.5rem;
   }
-  
+
   .page-subtitle {
     font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
     margin: 0 auto;
   }
-  
+
   /* Quick Nav */
   .quick-nav {
     background: white;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid var(--color-neutral-200);
-    position: sticky;
-    top: 80px;
-    z-index: 50;
+    overflow-x: auto;
   }
-  
+
   .nav-pills {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 0.75rem;
+    padding: 0.5rem 0;
+    min-width: max-content;
   }
-  
+
+  @media (min-width: 768px) {
+    .nav-pills {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
   .nav-pill {
     display: inline-flex;
     align-items: center;
@@ -321,29 +481,29 @@ const breadcrumbSchema = {
     font-weight: 500;
     transition: all var(--transition-fast);
   }
-  
+
   .nav-pill:hover {
     background: var(--color-primary-900);
     color: white;
   }
-  
+
   /* Practice Areas */
   .practice-areas {
     background: var(--color-neutral-50);
   }
-  
+
   .practice-category {
     margin-bottom: 3rem;
     scroll-margin-top: 150px;
   }
-  
+
   .category-header {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
-  
+
   .category-icon {
     width: 70px;
     height: 70px;
@@ -355,38 +515,38 @@ const breadcrumbSchema = {
     border-radius: 1rem;
     flex-shrink: 0;
   }
-  
+
   .category-title {
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .category-description {
     color: var(--color-neutral-600);
     font-size: 1.0625rem;
     margin: 0;
     max-width: 600px;
   }
-  
+
   .areas-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   @media (min-width: 768px) {
     .areas-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (min-width: 1024px) {
     .areas-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
   }
-  
+
   .area-card {
     background: white;
     border-radius: 1rem;
@@ -397,31 +557,31 @@ const breadcrumbSchema = {
     transition: all var(--transition-base);
     border: 2px solid transparent;
   }
-  
+
   .area-card:hover {
     box-shadow: var(--shadow-xl);
     transform: translateY(-4px);
     border-color: var(--color-accent-500);
   }
-  
+
   .area-title {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
     color: var(--color-primary-900);
   }
-  
+
   .area-description {
     font-size: 0.9375rem;
     color: var(--color-neutral-600);
     line-height: 1.7;
     margin-bottom: 1.25rem;
   }
-  
+
   .area-cases {
     flex: 1;
     margin-bottom: 1.5rem;
   }
-  
+
   .cases-label {
     font-size: 0.8125rem;
     font-weight: 600;
@@ -429,7 +589,7 @@ const breadcrumbSchema = {
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   .cases-list {
     display: flex;
     flex-wrap: wrap;
@@ -438,7 +598,7 @@ const breadcrumbSchema = {
     padding: 0;
     margin: 0.5rem 0 0;
   }
-  
+
   .cases-list li {
     padding: 0.25rem 0.625rem;
     background: var(--color-neutral-100);
@@ -446,7 +606,7 @@ const breadcrumbSchema = {
     font-size: 0.75rem;
     border-radius: 0.25rem;
   }
-  
+
   .area-cta {
     display: inline-flex;
     align-items: center;
@@ -455,25 +615,29 @@ const breadcrumbSchema = {
     color: var(--color-primary-900);
     transition: gap var(--transition-fast);
   }
-  
+
   .area-cta:hover {
     color: var(--color-accent-600);
     gap: 0.75rem;
   }
-  
+
   .category-divider {
     margin: 3rem 0;
     border: none;
     border-top: 1px solid var(--color-neutral-200);
   }
-  
+
   /* CTA Banner */
   .cta-banner {
-    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 100%
+    );
     color: white;
     padding: 3rem 0;
   }
-  
+
   .cta-content {
     display: flex;
     flex-direction: column;
@@ -481,7 +645,7 @@ const breadcrumbSchema = {
     text-align: center;
     gap: 1.5rem;
   }
-  
+
   @media (min-width: 768px) {
     .cta-content {
       flex-direction: row;
@@ -489,7 +653,7 @@ const breadcrumbSchema = {
       gap: 2rem;
     }
   }
-  
+
   .cta-icon {
     width: 64px;
     height: 64px;
@@ -501,17 +665,17 @@ const breadcrumbSchema = {
     border-radius: 50%;
     flex-shrink: 0;
   }
-  
+
   .cta-text {
     flex: 1;
   }
-  
+
   .cta-text h3 {
     color: white;
     font-size: 1.25rem;
     margin-bottom: 0.25rem;
   }
-  
+
   .cta-text p {
     color: rgba(255, 255, 255, 0.9);
     margin: 0;

@@ -36,5 +36,7 @@ export const onRequestPost = async ({ request, env }: any) => {
         return new Response("Email failed", { status: 500 });
     }
 
-    return Response.redirect("/thank-you", 303);
+    // Cloudflare Workers requires absolute URL for redirects
+    const url = new URL(request.url);
+    return Response.redirect(`${url.origin}/thank-you`, 303);
 };
