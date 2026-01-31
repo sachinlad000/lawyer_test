@@ -4,35 +4,23 @@
  * ================
  * Responsive header with mobile navigation and practice areas dropdown.
  *
- * CLIENT EDITABLE: Update navigation links and contact info below.
+ * CONFIGURATION: Edit src/config/site.config.ts for navigation and contact info.
  */
 
 import { Scale, Phone, Menu, X, ChevronDown } from "@lucide/astro";
+import { siteConfig } from "../config/site.config";
 
-// CLIENT EDITABLE: Navigation items
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  {
-    label: "Practice Areas",
-    href: "/practice-areas",
-    dropdown: [
-      { label: "Civil Law", href: "/practice-areas#civil" },
-      { label: "Criminal Law", href: "/practice-areas#criminal" },
-      { label: "Corporate Law", href: "/practice-areas#corporate" },
-      { label: "Family Law", href: "/practice-areas#family" },
-      { label: "Property Law", href: "/practice-areas#property" },
-    ],
-  },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Testimonials", href: "/testimonials" },
-  // { label: 'Blog', href: '/blog' },
-  { label: "Contact", href: "/contact" },
-];
+// Navigation comes from central config
+const navItems = siteConfig.navigation.main;
 
-// CLIENT EDITABLE: Contact info
-const phone = "+91-XXXXXXXXXX";
-const phoneClean = phone.replace(/[^0-9+]/g, "");
+// Contact info from central config
+const phone = siteConfig.contact.phone.display;
+const phoneClean = siteConfig.contact.phone.primary.replace(/[^0-9+]/g, "");
+
+// Branding from config
+const advocateName = siteConfig.advocate.name;
+const firmTagline = "& Associates";
+const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Years of Experience`;
 ---
 
 <header class="header">
@@ -41,7 +29,7 @@ const phoneClean = phone.replace(/[^0-9+]/g, "");
       <div class="header-top-content">
         <span class="header-top-text">
           <Scale size={16} />
-          Bar Council Registered | 15+ Years of Experience
+          {barInfo}
         </span>
         <a href={`tel:${phoneClean}`} class="header-top-phone">
           <Phone size={16} />
@@ -58,8 +46,8 @@ const phoneClean = phone.replace(/[^0-9+]/g, "");
         <a href="/" class="navbar-logo">
           <Scale size={32} class="logo-icon" />
           <div class="logo-text">
-            <span class="logo-name">Advocate Sharma</span>
-            <span class="logo-tagline">& Associates</span>
+            <span class="logo-name">{advocateName}</span>
+            <span class="logo-tagline">{firmTagline}</span>
           </div>
         </a>
 
@@ -67,16 +55,16 @@ const phoneClean = phone.replace(/[^0-9+]/g, "");
         <ul class="nav-menu hide-mobile">
           {
             navItems.map((item) => (
-              <li class={item.dropdown ? "nav-item has-dropdown" : "nav-item"}>
+              <li class={item.children ? "nav-item has-dropdown" : "nav-item"}>
                 <a href={item.href} class="nav-link">
                   {item.label}
-                  {item.dropdown && (
+                  {item.children && (
                     <ChevronDown size={16} class="dropdown-icon" />
                   )}
                 </a>
-                {item.dropdown && (
+                {item.children && (
                   <ul class="dropdown-menu">
-                    {item.dropdown.map((subItem) => (
+                    {item.children.map((subItem) => (
                       <li>
                         <a href={subItem.href} class="dropdown-link">
                           {subItem.label}
@@ -117,9 +105,9 @@ const phoneClean = phone.replace(/[^0-9+]/g, "");
                 <a href={item.href} class="mobile-nav-link">
                   {item.label}
                 </a>
-                {item.dropdown && (
+                {item.children && (
                   <ul class="mobile-dropdown">
-                    {item.dropdown.map((subItem) => (
+                    {item.children.map((subItem) => (
                       <li>
                         <a href={subItem.href} class="mobile-dropdown-link">
                           {subItem.label}

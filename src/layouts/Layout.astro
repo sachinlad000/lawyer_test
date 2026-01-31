@@ -4,15 +4,13 @@
  * =====================
  * Base layout for all pages with SEO meta tags, fonts, and common elements.
  * 
- * CLIENT EDITABLE: Update the following in this file:
- * - Site title and description
- * - Social media URLs
- * - Google Analytics ID
+ * CONFIGURATION: Edit src/config/site.config.ts for all site settings.
  */
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { siteConfig } from '../config/site.config';
 import '../styles/global.css';
 
 interface Props {
@@ -27,27 +25,19 @@ interface Props {
 
 const { 
   title, 
-  description = "Experienced Advocate in India providing expert legal services in Civil, Criminal, Corporate Law. Free consultation available. Bar Council Registered.",
-  keywords = "advocate, lawyer, legal services, India, civil law, criminal law, corporate law, legal consultation",
-  ogImage = "/images/og-image.jpg",
-  ogType = "website",
+  description = siteConfig.seo.defaultDescription,
+  keywords = siteConfig.seo.defaultKeywords,
+  ogImage = siteConfig.images.ogImage,
+  ogType = siteConfig.seo.ogType,
   canonicalUrl,
   noindex = false
 } = Astro.props;
 
-// CLIENT EDITABLE: Update these values
-const siteConfig = {
-  siteName: "Advocate Sharma & Associates", // Your firm name
-  siteUrl: "https://yourdomain.com", // Your website URL
-  phone: "+91-XXXXXXXXXX", // Your phone number
-  whatsapp: "91XXXXXXXXXX", // WhatsApp number (no + or spaces)
-  email: "contact@yourdomain.com", // Your email
-  address: "123, Law Chambers, High Court Road, City, State - 400001", // Your address
-  googleAnalyticsId: "G-XXXXXXXXXX", // Your GA4 ID
-};
-
-const fullTitle = `${title} | ${siteConfig.siteName}`;
+const fullTitle = title 
+  ? siteConfig.seo.titleTemplate.replace('%s', title)
+  : siteConfig.seo.defaultTitle;
 const currentUrl = canonicalUrl || Astro.url.href;
+const gaId = siteConfig.analytics.googleAnalyticsId;
 ---
 
 <!doctype html>
@@ -102,10 +92,10 @@ const currentUrl = canonicalUrl || Astro.url.href;
     <slot name="head" />
     
     <!-- Google Analytics 4 -->
-    {siteConfig.googleAnalyticsId && siteConfig.googleAnalyticsId !== "G-XXXXXXXXXX" && (
+    {gaId && gaId !== "G-XXXXXXXXXX" && (
       <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}`}></script>
-        <script is:inline define:vars={{ gaId: siteConfig.googleAnalyticsId }}>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
