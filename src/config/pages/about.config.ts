@@ -31,10 +31,10 @@ export const aboutConfig = {
         title: "Professional Profile",
 
         content: [
-            "With over 15 years of dedicated practice in the legal profession, Advocate Sharma has established a reputation for excellence, integrity, and unwavering commitment to client success.",
-            "After completing his law degree from a prestigious institution, he began his career under the guidance of senior advocates at the High Court. This foundational experience shaped his approach to legal practice – thorough preparation, strategic thinking, and compassionate client representation.",
-            "Today, he leads a team of legal professionals who share his vision of accessible, effective legal services. His practice spans civil litigation, criminal defense, corporate law, and specialized areas, serving clients from all walks of life.",
-            "His philosophy is simple: every client deserves personalized attention, clear communication, and vigorous advocacy. He believes in demystifying the legal process and empowering clients to make informed decisions about their cases.",
+            "With over 15 years of dedicated practice in the legal profession, Advocate Pradnya Pednekar has established a reputation for excellence, integrity, and unwavering commitment to client success.",
+            "After completing her law degree from a prestigious institution, she began her career under the guidance of senior advocates at the High Court. This foundational experience shaped her approach to legal practice – thorough preparation, strategic thinking, and compassionate client representation.",
+            "Today, she leads a team of legal professionals who share her vision of accessible, effective legal services. Her practice spans civil litigation, criminal defense, corporate law, and specialized areas, serving clients from all walks of life.",
+            "Her philosophy is simple: every client deserves personalized attention, clear communication, and vigorous advocacy. She believes in demystifying the legal process and empowering clients to make informed decisions about their cases.",
         ],
     },
 

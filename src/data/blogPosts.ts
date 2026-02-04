@@ -2,19 +2,19 @@
 // In production, use Astro Content Collections instead
 
 export const blogPosts = [
-    {
-        slug: "understanding-property-disputes-india",
-        title: "Understanding Property Disputes in India: A Complete Guide",
-        excerpt: "Property disputes are one of the most common legal issues in India. Learn about types of property disputes, legal remedies, and how to protect your property rights.",
-        date: "2024-01-15",
-        readTime: "8 min read",
-        category: "Property Law",
-        author: {
-            name: "Advocate Sharma",
-            role: "Senior Advocate",
-            bio: "15+ years of experience in Civil, Criminal, and Corporate Law."
-        },
-        content: `
+  {
+    slug: "understanding-property-disputes-india",
+    title: "Understanding Property Disputes in India: A Complete Guide",
+    excerpt: "Property disputes are one of the most common legal issues in India. Learn about types of property disputes, legal remedies, and how to protect your property rights.",
+    date: "2024-01-15",
+    readTime: "8 min read",
+    category: "Property Law",
+    author: {
+      name: "Advocate Pradnya Pednekar",
+      role: "Senior Advocate",
+      bio: "15+ years of experience in Civil, Criminal, and Corporate Law."
+    },
+    content: `
       <p class="lead">Property disputes are among the most prevalent and complex legal issues faced by individuals and families in India.</p>
       <h2>Types of Property Disputes</h2>
       <p>Understanding the nature of your property dispute is the first step toward resolution.</p>
@@ -30,23 +30,23 @@ export const blogPosts = [
         <a href="/contact" class="btn btn-accent">Schedule Free Consultation</a>
       </div>
     `,
-        relatedPosts: [
-            { title: "Title Search: Why It's Essential", slug: "anticipatory-bail-explained" },
-        ]
+    relatedPosts: [
+      { title: "Title Search: Why It's Essential", slug: "anticipatory-bail-explained" },
+    ]
+  },
+  {
+    slug: "anticipatory-bail-explained",
+    title: "Anticipatory Bail: When, Why, and How to Apply",
+    excerpt: "Anticipatory bail can protect you from arrest. Understand the legal provisions and process.",
+    date: "2024-01-10",
+    readTime: "6 min read",
+    category: "Criminal Law",
+    author: {
+      name: "Advocate Pradnya Pednekar",
+      role: "Senior Advocate",
+      bio: "15+ years of experience in Civil, Criminal, and Corporate Law."
     },
-    {
-        slug: "anticipatory-bail-explained",
-        title: "Anticipatory Bail: When, Why, and How to Apply",
-        excerpt: "Anticipatory bail can protect you from arrest. Understand the legal provisions and process.",
-        date: "2024-01-10",
-        readTime: "6 min read",
-        category: "Criminal Law",
-        author: {
-            name: "Advocate Sharma",
-            role: "Senior Advocate",
-            bio: "15+ years of experience in Civil, Criminal, and Corporate Law."
-        },
-        content: `
+    content: `
       <p class="lead">Anticipatory bail is a legal provision that allows a person to seek bail in anticipation of an arrest.</p>
       <h2>What is Anticipatory Bail?</h2>
       <p>Under Section 438 of CrPC, anticipatory bail can be granted by the Sessions Court or High Court.</p>
@@ -58,10 +58,10 @@ export const blogPosts = [
         <a href="/contact" class="btn btn-accent">Get Immediate Help</a>
       </div>
     `,
-        relatedPosts: [
-            { title: "Understanding Property Disputes", slug: "understanding-property-disputes-india" },
-        ]
-    }
+    relatedPosts: [
+      { title: "Understanding Property Disputes", slug: "understanding-property-disputes-india" },
+    ]
+  }
 ];
 
 export type BlogPost = typeof blogPosts[0];

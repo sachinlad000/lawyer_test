@@ -53,7 +53,7 @@ export const testimonialsConfig = {
             categoryColor: "blue",
             rating: 5,
 
-            review: "Advocate Sharma handled my property dispute with exceptional professionalism. The case had been pending for years, but his strategic approach led to a favorable judgment. His team kept me informed at every step. Highly recommended for any property-related matters.",
+            review: "Advocate Pradnya Pednekar handled my property dispute with exceptional professionalism. The case had been pending for years, but her strategic approach led to a favorable judgment. Her team kept me informed at every step. Highly recommended for any property-related matters.",
 
             caseType: "Civil",
             year: "2023",
@@ -67,7 +67,7 @@ export const testimonialsConfig = {
             categoryColor: "red",
             rating: 5,
 
-            review: "When I was falsely accused in a criminal case, Advocate Sharma came to my rescue. He secured anticipatory bail within days and eventually got the case quashed. His knowledge of criminal law is impressive, and his courtroom presence is commanding.",
+            review: "When I was falsely accused in a criminal case, Advocate Pradnya Pednekar came to my rescue. She secured anticipatory bail within days and eventually got the case quashed. Her knowledge of criminal law is impressive, and her courtroom presence is commanding.",
 
             caseType: "Criminal",
             year: "2023",
@@ -81,7 +81,7 @@ export const testimonialsConfig = {
             categoryColor: "purple",
             rating: 5,
 
-            review: "Going through a divorce is emotionally draining, but Advocate Sharma made the legal process much smoother. He handled my custody case with sensitivity and fought for my rights as a parent. Today, I have custody of my children, thanks to his efforts.",
+            review: "Going through a divorce is emotionally draining, but Advocate Pradnya Pednekar made the legal process much smoother. She handled my custody case with sensitivity and fought for my rights as a parent. Today, I have custody of my children, thanks to her efforts.",
 
             caseType: "Family",
             year: "2024",
@@ -95,7 +95,7 @@ export const testimonialsConfig = {
             categoryColor: "orange",
             rating: 5,
 
-            review: "My insurance claim was wrongfully denied, and I didn't know what to do. Advocate Sharma took my case to NCDRC and won. Not only did I get my claim amount, but also compensation for harassment. Excellent service!",
+            review: "My insurance claim was wrongfully denied, and I didn't know what to do. Advocate Pradnya Pednekar took my case to NCDRC and won. Not only did I get my claim amount, but also compensation for harassment. Excellent service!",
 
             caseType: "Consumer",
             year: "2023",
@@ -123,7 +123,7 @@ export const testimonialsConfig = {
             categoryColor: "blue",
             rating: 4,
 
-            review: "I had given a substantial loan to someone who refused to repay. Advocate Sharma filed a recovery suit and obtained a decree in my favor. The execution process was also handled efficiently. Recovered my full amount with interest.",
+            review: "I had given a substantial loan to someone who refused to repay. Advocate Pradnya Pednekar filed a recovery suit and obtained a decree in my favor. The execution process was also handled efficiently. Recovered my full amount with interest.",
 
             caseType: "Civil",
             year: "2023",
@@ -137,7 +137,7 @@ export const testimonialsConfig = {
             categoryColor: "red",
             rating: 5,
 
-            review: "When a family member was arrested, we were in panic. Advocate Sharma's team responded immediately for a bail application. Their quick action and strong arguments secured bail within 48 hours. Forever grateful for their help during a difficult time.",
+            review: "When a family member was arrested, we were in panic. Advocate Pradnya Pednekar's team responded immediately for a bail application. Their quick action and strong arguments secured bail within 48 hours. Forever grateful for their help during a difficult time.",
 
             caseType: "Criminal",
             year: "2024",
@@ -151,7 +151,7 @@ export const testimonialsConfig = {
             categoryColor: "indigo",
             rating: 5,
 
-            review: "The municipal authorities were about to demolish my shop without proper notice. Advocate Sharma filed an urgent writ petition and got a stay from the High Court. He saved my livelihood and successfully challenged the arbitrary action.",
+            review: "The municipal authorities were about to demolish my shop without proper notice. Advocate Pradnya Pednekar filed an urgent writ petition and got a stay from the High Court. She saved my livelihood and successfully challenged the arbitrary action.",
 
             caseType: "Constitutional",
             year: "2023",

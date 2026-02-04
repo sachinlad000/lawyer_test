@@ -5,28 +5,31 @@
  * Testimonials section for homepage with ethical disclaimer.
  */
 
-import TestimonialCard from './TestimonialCard.astro';
+import TestimonialCard from "./TestimonialCard.astro";
 
 // CLIENT EDITABLE: Testimonials
 const testimonials = [
   {
     name: "Rajesh Kumar",
     role: "Business Owner",
-    content: "Advocate Sharma handled my property dispute with exceptional professionalism. His deep understanding of property laws and strategic approach helped us achieve a favorable settlement within 8 months.",
+    content:
+      "Advocate Pradnya Pednekar handled my property dispute with exceptional professionalism.Her deep understanding of property laws and strategic approach helped us achieve a favorable settlement within 8 months.",
     rating: 5,
     caseType: "Property Dispute",
   },
   {
     name: "Priya Mehta",
     role: "IT Professional",
-    content: "During my difficult divorce case, Advocate Sharma provided not just legal expertise but also the emotional support I needed. He ensured my custody rights were protected throughout the process.",
+    content:
+      "During my difficult divorce case, Advocate Pradnya Pednekar provided not just legal expertise but also the emotional support I needed. He ensured my custody rights were protected throughout the process.",
     rating: 5,
     caseType: "Family Law",
   },
   {
     name: "Amit Singh",
     role: "Company Director",
-    content: "Our company has relied on Advocate Sharma's corporate law expertise for over 5 years. His contract drafting and compliance advice have been invaluable for our business growth.",
+    content:
+      "Our company has relied on Advocate Pradnya Pednekar's corporate law expertise for over 5 years.Her contract drafting and compliance advice have been invaluable for our business growth.",
     rating: 5,
     caseType: "Corporate",
   },
@@ -37,28 +40,33 @@ const testimonials = [
   <div class="container">
     <!-- Disclaimer Banner -->
     <div class="disclaimer-banner" data-animate="animate-fade-in">
-      <strong>Disclaimer:</strong> These testimonials represent individual experiences. 
-      Results may vary based on the specific facts and circumstances of each case. 
+      <strong>Disclaimer:</strong> These testimonials represent individual experiences.
+      Results may vary based on the specific facts and circumstances of each case.
       Past performance does not guarantee future outcomes.
     </div>
-    
+
     <div class="section-header" data-animate="animate-fade-in-up">
       <span class="section-subtitle">Client Stories</span>
       <h2 class="section-title">What Our Clients Say</h2>
       <p class="section-description">
-        Our commitment to excellence is reflected in the trust our clients place in us. 
-        Here's what some of them have to say about their experience.
+        Our commitment to excellence is reflected in the trust our clients place
+        in us. Here's what some of them have to say about their experience.
       </p>
     </div>
-    
+
     <div class="testimonials-grid">
-      {testimonials.map((testimonial, index) => (
-        <div data-animate="animate-fade-in-up" class={`delay-${(index + 1) * 100}`}>
-          <TestimonialCard {...testimonial} />
-        </div>
-      ))}
+      {
+        testimonials.map((testimonial, index) => (
+          <div
+            data-animate="animate-fade-in-up"
+            class={`delay-${(index + 1) * 100}`}
+          >
+            <TestimonialCard {...testimonial} />
+          </div>
+        ))
+      }
     </div>
-    
+
     <div class="section-cta" data-animate="animate-fade-in-up">
       <a href="/testimonials" class="btn btn-outline btn-lg">
         Read More Reviews
@@ -71,27 +79,27 @@ const testimonials = [
   .testimonials {
     background: white;
   }
-  
+
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
     margin-bottom: 3rem;
   }
-  
+
   @media (min-width: 768px) {
     .testimonials-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (min-width: 1024px) {
     .testimonials-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
   }
-  
+
   .section-cta {
     text-align: center;
   }

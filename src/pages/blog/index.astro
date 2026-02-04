@@ -3,135 +3,175 @@
  * Blog Index Page
  * ===============
  * Blog listing with categories and pagination.
- * 
+ *
  * CLIENT EDITABLE: Blog posts are in src/content/blog/*.md
  */
 
-import Layout from '../../layouts/Layout.astro';
-import { Calendar, Clock, ArrowRight, Tag, User } from '@lucide/astro';
+import Layout from "../../layouts/Layout.astro";
+import { Calendar, Clock, ArrowRight, Tag, User } from "@lucide/astro";
 
 // Sample blog posts data (replace with content collection when ready)
 const blogPosts = [
   {
     slug: "understanding-property-disputes-india",
     title: "Understanding Property Disputes in India: A Complete Guide",
-    excerpt: "Property disputes are one of the most common legal issues in India. Learn about types of property disputes, legal remedies, and how to protect your property rights.",
+    excerpt:
+      "Property disputes are one of the most common legal issues in India. Learn about types of property disputes, legal remedies, and how to protect your property rights.",
     date: "2024-01-15",
     readTime: "8 min read",
     category: "Property Law",
-    author: "Advocate Sharma",
+    author: "Advocate Pradnya Pednekar",
     featured: true,
   },
   {
     slug: "anticipatory-bail-explained",
     title: "Anticipatory Bail: When, Why, and How to Apply",
-    excerpt: "Anticipatory bail can protect you from arrest. Understand the legal provisions, eligibility criteria, and process for obtaining anticipatory bail in India.",
+    excerpt:
+      "Anticipatory bail can protect you from arrest. Understand the legal provisions, eligibility criteria, and process for obtaining anticipatory bail in India.",
     date: "2024-01-10",
     readTime: "6 min read",
     category: "Criminal Law",
-    author: "Advocate Sharma",
+    author: "Advocate Pradnya Pednekar",
     featured: true,
   },
   {
     slug: "divorce-proceedings-india",
     title: "Divorce Proceedings in India: Everything You Need to Know",
-    excerpt: "Navigating divorce can be challenging. This guide covers types of divorce, grounds, procedure, and rights related to maintenance and custody.",
+    excerpt:
+      "Navigating divorce can be challenging. This guide covers types of divorce, grounds, procedure, and rights related to maintenance and custody.",
     date: "2024-01-05",
     readTime: "10 min read",
     category: "Family Law",
-    author: "Advocate Sharma",
+    author: "Advocate Pradnya Pednekar",
     featured: false,
   },
   {
     slug: "consumer-rights-protection",
     title: "Consumer Rights and Protection Under Consumer Protection Act 2019",
-    excerpt: "Know your rights as a consumer. Learn how the Consumer Protection Act 2019 safeguards you against unfair trade practices and how to file complaints.",
+    excerpt:
+      "Know your rights as a consumer. Learn how the Consumer Protection Act 2019 safeguards you against unfair trade practices and how to file complaints.",
     date: "2023-12-28",
     readTime: "7 min read",
     category: "Consumer Law",
-    author: "Advocate Sharma",
+    author: "Advocate Pradnya Pednekar",
     featured: false,
   },
   {
     slug: "corporate-compliance-checklist",
     title: "Essential Corporate Compliance Checklist for Indian Companies",
-    excerpt: "Ensure your company stays compliant with this comprehensive checklist covering ROC filings, board meetings, and statutory requirements.",
+    excerpt:
+      "Ensure your company stays compliant with this comprehensive checklist covering ROC filings, board meetings, and statutory requirements.",
     date: "2023-12-20",
     readTime: "12 min read",
     category: "Corporate Law",
-    author: "Advocate Sharma",
+    author: "Advocate Pradnya Pednekar",
     featured: false,
   },
   {
     slug: "cheque-bounce-case-procedure",
     title: "Cheque Bounce Cases: Legal Procedure and Remedies Under NI Act",
-    excerpt: "Received a bounced cheque? Learn about the legal procedure, time limits, and remedies available under the Negotiable Instruments Act.",
+    excerpt:
+      "Received a bounced cheque? Learn about the legal procedure, time limits, and remedies available under the Negotiable Instruments Act.",
     date: "2023-12-15",
     readTime: "6 min read",
     category: "Civil Law",
-    author: "Advocate Sharma",
+    author: "Advocate Pradnya Pednekar",
     featured: false,
   },
 ];
 
 const categories = [
   { name: "All", count: blogPosts.length },
-  { name: "Property Law", count: blogPosts.filter(p => p.category === "Property Law").length },
-  { name: "Criminal Law", count: blogPosts.filter(p => p.category === "Criminal Law").length },
-  { name: "Family Law", count: blogPosts.filter(p => p.category === "Family Law").length },
-  { name: "Corporate Law", count: blogPosts.filter(p => p.category === "Corporate Law").length },
-  { name: "Consumer Law", count: blogPosts.filter(p => p.category === "Consumer Law").length },
-  { name: "Civil Law", count: blogPosts.filter(p => p.category === "Civil Law").length },
+  {
+    name: "Property Law",
+    count: blogPosts.filter((p) => p.category === "Property Law").length,
+  },
+  {
+    name: "Criminal Law",
+    count: blogPosts.filter((p) => p.category === "Criminal Law").length,
+  },
+  {
+    name: "Family Law",
+    count: blogPosts.filter((p) => p.category === "Family Law").length,
+  },
+  {
+    name: "Corporate Law",
+    count: blogPosts.filter((p) => p.category === "Corporate Law").length,
+  },
+  {
+    name: "Consumer Law",
+    count: blogPosts.filter((p) => p.category === "Consumer Law").length,
+  },
+  {
+    name: "Civil Law",
+    count: blogPosts.filter((p) => p.category === "Civil Law").length,
+  },
 ];
 
-const featuredPosts = blogPosts.filter(p => p.featured);
-const regularPosts = blogPosts.filter(p => !p.featured);
+const featuredPosts = blogPosts.filter((p) => p.featured);
+const regularPosts = blogPosts.filter((p) => !p.featured);
 
 // Schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yourdomain.com" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://yourdomain.com/blog" }
-  ]
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://yourdomain.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://yourdomain.com/blog",
+    },
+  ],
 };
 
 const blogListSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Legal Insights by Advocate Sharma",
-  "description": "Expert legal insights, guides, and updates on Indian law",
-  "url": "https://yourdomain.com/blog",
-  "blogPost": blogPosts.map(post => ({
+  name: "Legal Insights by Advocate Pradnya Pednekar",
+  description: "Expert legal insights, guides, and updates on Indian law",
+  url: "https://yourdomain.com/blog",
+  blogPost: blogPosts.map((post) => ({
     "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "datePublished": post.date,
-    "author": {
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
       "@type": "Person",
-      "name": post.author
-    }
-  }))
+      name: post.author,
+    },
+  })),
 };
 
 function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('en-IN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return new Date(dateStr).toLocaleDateString("en-IN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 ---
 
-<Layout 
+<Layout
   title="Legal Blog & Insights"
-  description="Expert legal insights, guides, and updates on Indian law. Learn about property, criminal, family, and corporate law from Advocate Sharma."
+  description="Expert legal insights, guides, and updates on Indian law. Learn about property, criminal, family, and corporate law from Advocate Pradnya Pednekar."
   keywords="legal blog, law insights, property law guide, criminal law articles, family law, corporate law India"
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(blogListSchema)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(breadcrumbSchema)}
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(blogListSchema)}
+    />
   </Fragment>
 
   <!-- Page Header -->
@@ -148,47 +188,53 @@ function formatDate(dateStr: string) {
   </section>
 
   <!-- Featured Posts -->
-  {featuredPosts.length > 0 && (
-    <section class="featured-section">
-      <div class="container">
-        <h2 class="section-title">Featured Articles</h2>
-        <div class="featured-grid">
-          {featuredPosts.map((post, index) => (
-            <article class="featured-card" data-animate="animate-fade-in-up" style={`animation-delay: ${index * 100}ms;`}>
-              <div class="featured-image">
-                <div class="image-placeholder">
-                  <span class="placeholder-icon">📝</span>
-                  <span class="placeholder-text">Featured Image</span>
+  {
+    featuredPosts.length > 0 && (
+      <section class="featured-section">
+        <div class="container">
+          <h2 class="section-title">Featured Articles</h2>
+          <div class="featured-grid">
+            {featuredPosts.map((post, index) => (
+              <article
+                class="featured-card"
+                data-animate="animate-fade-in-up"
+                style={`animation-delay: ${index * 100}ms;`}
+              >
+                <div class="featured-image">
+                  <div class="image-placeholder">
+                    <span class="placeholder-icon">📝</span>
+                    <span class="placeholder-text">Featured Image</span>
+                  </div>
+                  <span class="featured-badge">Featured</span>
                 </div>
-                <span class="featured-badge">Featured</span>
-              </div>
-              <div class="featured-content">
-                <span class="post-category">{post.category}</span>
-                <h3 class="post-title">
-                  <a href={`/blog/${post.slug}`}>{post.title}</a>
-                </h3>
-                <p class="post-excerpt">{post.excerpt}</p>
-                <div class="post-meta">
-                  <span class="meta-item">
-                    <Calendar size={16} />
-                    {formatDate(post.date)}
-                  </span>
-                  <span class="meta-item">
-                    <Clock size={16} />
-                    {post.readTime}
-                  </span>
+                <div class="featured-content">
+                  <span class="post-category">{post.category}</span>
+                  <h3 class="post-title">
+                    <a href={`/blog/${post.slug}`}>{post.title}</a>
+                  </h3>
+                  <p class="post-excerpt">{post.excerpt}</p>
+                  <div class="post-meta">
+                    <span class="meta-item">
+                      <Calendar size={16} />
+                      {formatDate(post.date)}
+                    </span>
+                    <span class="meta-item">
+                      <Clock size={16} />
+                      {post.readTime}
+                    </span>
+                  </div>
+                  <a href={`/blog/${post.slug}`} class="read-more">
+                    Read Article
+                    <ArrowRight size={16} />
+                  </a>
                 </div>
-                <a href={`/blog/${post.slug}`} class="read-more">
-                  Read Article
-                  <ArrowRight size={16} />
-                </a>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  )}
+      </section>
+    )
+  }
 
   <!-- Blog Content -->
   <section class="blog-section section-padding">
@@ -198,38 +244,44 @@ function formatDate(dateStr: string) {
         <main class="blog-main">
           <h2 class="section-title">All Articles</h2>
           <div class="posts-grid">
-            {regularPosts.map((post, index) => (
-              <article class="post-card" data-animate="animate-fade-in-up" style={`animation-delay: ${index * 50}ms;`}>
-                <div class="post-image">
-                  <div class="image-placeholder">
-                    <span class="placeholder-icon">📄</span>
-                  </div>
-                </div>
-                <div class="post-content">
-                  <span class="post-category">{post.category}</span>
-                  <h3 class="post-title">
-                    <a href={`/blog/${post.slug}`}>{post.title}</a>
-                  </h3>
-                  <p class="post-excerpt">{post.excerpt}</p>
-                  <div class="post-footer">
-                    <div class="post-meta">
-                      <span class="meta-item">
-                        <Calendar size={14} />
-                        {formatDate(post.date)}
-                      </span>
-                      <span class="meta-item">
-                        <Clock size={14} />
-                        {post.readTime}
-                      </span>
+            {
+              regularPosts.map((post, index) => (
+                <article
+                  class="post-card"
+                  data-animate="animate-fade-in-up"
+                  style={`animation-delay: ${index * 50}ms;`}
+                >
+                  <div class="post-image">
+                    <div class="image-placeholder">
+                      <span class="placeholder-icon">📄</span>
                     </div>
-                    <a href={`/blog/${post.slug}`} class="read-more">
-                      Read
-                      <ArrowRight size={14} />
-                    </a>
                   </div>
-                </div>
-              </article>
-            ))}
+                  <div class="post-content">
+                    <span class="post-category">{post.category}</span>
+                    <h3 class="post-title">
+                      <a href={`/blog/${post.slug}`}>{post.title}</a>
+                    </h3>
+                    <p class="post-excerpt">{post.excerpt}</p>
+                    <div class="post-footer">
+                      <div class="post-meta">
+                        <span class="meta-item">
+                          <Calendar size={14} />
+                          {formatDate(post.date)}
+                        </span>
+                        <span class="meta-item">
+                          <Clock size={14} />
+                          {post.readTime}
+                        </span>
+                      </div>
+                      <a href={`/blog/${post.slug}`} class="read-more">
+                        Read
+                        <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
           </div>
         </main>
 
@@ -239,15 +291,23 @@ function formatDate(dateStr: string) {
           <div class="sidebar-widget">
             <h3 class="widget-title">Categories</h3>
             <ul class="category-list">
-              {categories.map((cat) => (
-                <li>
-                  <a href={cat.name === "All" ? "/blog" : `/blog?category=${cat.name.toLowerCase().replace(' ', '-')}`}>
-                    <Tag size={16} />
-                    {cat.name}
-                    <span class="count">{cat.count}</span>
-                  </a>
-                </li>
-              ))}
+              {
+                categories.map((cat) => (
+                  <li>
+                    <a
+                      href={
+                        cat.name === "All"
+                          ? "/blog"
+                          : `/blog?category=${cat.name.toLowerCase().replace(" ", "-")}`
+                      }
+                    >
+                      <Tag size={16} />
+                      {cat.name}
+                      <span class="count">{cat.count}</span>
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
@@ -255,7 +315,9 @@ function formatDate(dateStr: string) {
           <div class="sidebar-cta">
             <h3>Need Legal Help?</h3>
             <p>Get expert advice on your legal matter.</p>
-            <a href="/contact" class="btn btn-accent btn-sm">Free Consultation</a>
+            <a href="/contact" class="btn btn-accent btn-sm"
+              >Free Consultation</a
+            >
           </div>
 
           <!-- About Author -->
@@ -266,9 +328,11 @@ function formatDate(dateStr: string) {
                 <User size={24} />
               </div>
               <div class="author-info">
-                <span class="author-name">Advocate Sharma</span>
+                <span class="author-name">Advocate Pradnya Pednekar</span>
                 <span class="author-role">Senior Advocate</span>
-                <p class="author-bio">15+ years of experience in Civil, Criminal, and Corporate Law.</p>
+                <p class="author-bio">
+                  15+ years of experience in Civil, Criminal, and Corporate Law.
+                </p>
               </div>
             </div>
           </div>
@@ -281,12 +345,16 @@ function formatDate(dateStr: string) {
 <style>
   /* Page Header */
   .page-header {
-    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 100%
+    );
     color: white;
     padding: 3rem 0 4rem;
     text-align: center;
   }
-  
+
   .breadcrumb {
     display: flex;
     justify-content: center;
@@ -294,41 +362,54 @@ function formatDate(dateStr: string) {
     margin-bottom: 1rem;
     font-size: 0.875rem;
   }
-  
-  .breadcrumb a { color: rgba(255, 255, 255, 0.7); }
-  .breadcrumb a:hover { color: var(--color-accent-500); }
-  .breadcrumb span { color: rgba(255, 255, 255, 0.5); }
-  .breadcrumb span:last-child { color: var(--color-accent-500); }
-  
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .breadcrumb a:hover {
+    color: var(--color-accent-500);
+  }
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .breadcrumb span:last-child {
+    color: var(--color-accent-500);
+  }
+
   .page-title {
     color: white;
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 0.5rem;
   }
-  
-  .page-subtitle { font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); }
-  
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
   /* Featured Section */
   .featured-section {
     background: var(--color-neutral-100);
     padding: 3rem 0;
   }
-  
+
   .featured-section .section-title {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .featured-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   @media (min-width: 768px) {
-    .featured-grid { grid-template-columns: repeat(2, 1fr); }
+    .featured-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-  
+
   .featured-card {
     background: white;
     border-radius: 1rem;
@@ -336,17 +417,17 @@ function formatDate(dateStr: string) {
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
   }
-  
+
   .featured-card:hover {
     box-shadow: var(--shadow-xl);
     transform: translateY(-4px);
   }
-  
+
   .featured-image {
     position: relative;
     aspect-ratio: 16/9;
   }
-  
+
   .featured-badge {
     position: absolute;
     top: 1rem;
@@ -358,34 +439,40 @@ function formatDate(dateStr: string) {
     font-weight: 600;
     border-radius: 9999px;
   }
-  
-  .featured-content { padding: 1.5rem; }
-  
+
+  .featured-content {
+    padding: 1.5rem;
+  }
+
   /* Blog Section */
-  .blog-section { background: white; }
-  
+  .blog-section {
+    background: white;
+  }
+
   .blog-section .section-title {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .blog-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  
+
   @media (min-width: 1024px) {
-    .blog-grid { grid-template-columns: 1fr 320px; }
+    .blog-grid {
+      grid-template-columns: 1fr 320px;
+    }
   }
-  
+
   /* Posts Grid */
   .posts-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .post-card {
     display: flex;
     flex-direction: column;
@@ -394,21 +481,23 @@ function formatDate(dateStr: string) {
     overflow: hidden;
     transition: all var(--transition-base);
   }
-  
+
   @media (min-width: 640px) {
-    .post-card { flex-direction: row; }
+    .post-card {
+      flex-direction: row;
+    }
   }
-  
+
   .post-card:hover {
     box-shadow: var(--shadow-md);
     background: white;
   }
-  
+
   .post-image {
     width: 100%;
     aspect-ratio: 16/9;
   }
-  
+
   @media (min-width: 640px) {
     .post-image {
       width: 200px;
@@ -416,24 +505,40 @@ function formatDate(dateStr: string) {
       flex-shrink: 0;
     }
   }
-  
+
   .image-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--color-neutral-200) 0%, var(--color-neutral-300) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-neutral-200) 0%,
+      var(--color-neutral-300) 100%
+    );
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--color-neutral-500);
   }
-  
-  .placeholder-icon { font-size: 2rem; }
-  .placeholder-text { font-size: 0.75rem; margin-top: 0.5rem; }
-  
-  .post-content { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-  .featured-content .post-content { padding: 0; }
-  
+
+  .placeholder-icon {
+    font-size: 2rem;
+  }
+  .placeholder-text {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .post-content {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .featured-content .post-content {
+    padding: 0;
+  }
+
   .post-category {
     display: inline-block;
     width: fit-content;
@@ -445,27 +550,29 @@ function formatDate(dateStr: string) {
     border-radius: 0.25rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .post-title {
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
     line-height: 1.4;
   }
-  
+
   .post-title a {
     color: inherit;
     transition: color var(--transition-fast);
   }
-  
-  .post-title a:hover { color: var(--color-primary-700); }
-  
+
+  .post-title a:hover {
+    color: var(--color-primary-700);
+  }
+
   .post-excerpt {
     font-size: 0.9375rem;
     color: var(--color-neutral-600);
     line-height: 1.6;
     margin-bottom: 1rem;
   }
-  
+
   .post-footer {
     display: flex;
     justify-content: space-between;
@@ -474,13 +581,13 @@ function formatDate(dateStr: string) {
     padding-top: 1rem;
     border-top: 1px solid var(--color-neutral-200);
   }
-  
+
   .post-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
   }
-  
+
   .meta-item {
     display: flex;
     align-items: center;
@@ -488,7 +595,7 @@ function formatDate(dateStr: string) {
     font-size: 0.8125rem;
     color: var(--color-neutral-500);
   }
-  
+
   .read-more {
     display: inline-flex;
     align-items: center;
@@ -498,33 +605,42 @@ function formatDate(dateStr: string) {
     color: var(--color-primary-900);
     transition: gap var(--transition-fast);
   }
-  
-  .read-more:hover { gap: 0.5rem; color: var(--color-accent-600); }
-  
+
+  .read-more:hover {
+    gap: 0.5rem;
+    color: var(--color-accent-600);
+  }
+
   /* Sidebar */
-  .blog-sidebar { display: flex; flex-direction: column; gap: 2rem; }
-  
+  .blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   .sidebar-widget {
     background: var(--color-neutral-50);
     border-radius: 1rem;
     padding: 1.5rem;
   }
-  
+
   .widget-title {
     font-size: 1.125rem;
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--color-accent-500);
   }
-  
+
   .category-list {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
-  .category-list li { margin-bottom: 0.5rem; }
-  
+
+  .category-list li {
+    margin-bottom: 0.5rem;
+  }
+
   .category-list a {
     display: flex;
     align-items: center;
@@ -534,9 +650,12 @@ function formatDate(dateStr: string) {
     border-radius: 0.5rem;
     transition: all var(--transition-fast);
   }
-  
-  .category-list a:hover { background: white; color: var(--color-primary-900); }
-  
+
+  .category-list a:hover {
+    background: white;
+    color: var(--color-primary-900);
+  }
+
   .category-list .count {
     margin-left: auto;
     padding: 0.125rem 0.5rem;
@@ -544,23 +663,34 @@ function formatDate(dateStr: string) {
     font-size: 0.75rem;
     border-radius: 9999px;
   }
-  
+
   .sidebar-cta {
-    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 100%
+    );
     color: white;
     border-radius: 1rem;
     padding: 1.5rem;
     text-align: center;
   }
-  
-  .sidebar-cta h3 { color: white; margin-bottom: 0.5rem; }
-  .sidebar-cta p { color: rgba(255, 255, 255, 0.9); font-size: 0.9375rem; margin-bottom: 1rem; }
-  
+
+  .sidebar-cta h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  .sidebar-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+  }
+
   .author-box {
     display: flex;
     gap: 1rem;
   }
-  
+
   .author-avatar {
     width: 50px;
     height: 50px;
@@ -572,8 +702,18 @@ function formatDate(dateStr: string) {
     border-radius: 50%;
     flex-shrink: 0;
   }
-  
-  .author-name { display: block; font-weight: 600; }
-  .author-role { font-size: 0.875rem; color: var(--color-neutral-500); }
-  .author-bio { font-size: 0.875rem; color: var(--color-neutral-600); margin-top: 0.5rem; }
+
+  .author-name {
+    display: block;
+    font-weight: 600;
+  }
+  .author-role {
+    font-size: 0.875rem;
+    color: var(--color-neutral-500);
+  }
+  .author-bio {
+    font-size: 0.875rem;
+    color: var(--color-neutral-600);
+    margin-top: 0.5rem;
+  }
 </style>
