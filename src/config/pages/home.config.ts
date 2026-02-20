@@ -12,7 +12,7 @@ export const homeConfig = {
     // ========================================
     meta: {
         title: "Expert Legal Services",
-        description: "Expert legal services in Civil, Criminal & Corporate Law. 15+ years of experience. Free consultation available.",
+        description: "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Trusted legal representation.",
         keywords: "advocate, lawyer, legal services, civil law, criminal law, corporate law, India",
     },
 
@@ -25,15 +25,15 @@ export const homeConfig = {
         subheadline: "Providing expert legal representation in Civil, Criminal, and Corporate Law. Your rights. Our priority.",
 
         highlights: [
-            "15+ Years of Experience",
+            "22+ Years of Experience",
             "1000+ Cases Handled",
             "Bar Council Registered",
-            "Free Initial Consultation",
+            "Prior Appointment Only",
         ],
 
         cta: {
             primary: {
-                text: "Free Consultation",
+                text: "Book Appointment",
                 href: "/contact",
             },
             secondary: {
@@ -52,7 +52,7 @@ export const homeConfig = {
     // ========================================
     trustBar: {
         items: [
-            { value: "15+", label: "Years Experience" },
+            { value: "22+", label: "Years Experience" },
             { value: "1000+", label: "Cases Handled" },
             { value: "95%", label: "Success Rate" },
             { value: "500+", label: "Happy Clients" },
@@ -82,7 +82,7 @@ export const homeConfig = {
     aboutPreview: {
         subtitle: "About Us",
         title: "Experienced Legal Advocacy You Can Trust",
-        description: "With over 15 years of experience in the legal profession, we have successfully represented clients across a wide spectrum of legal matters. Our commitment to justice and client satisfaction sets us apart.",
+        description: "With over 22 years of experience in the legal profession, we have successfully represented clients across a wide spectrum of legal matters. Our commitment to justice and client satisfaction sets us apart.",
 
         highlights: [
             "Bar Council Registered Advocate",
@@ -129,7 +129,7 @@ export const homeConfig = {
             },
             {
                 question: "How much does a consultation cost?",
-                answer: "We offer a free initial consultation to understand your case and provide preliminary guidance. Subsequent consultations and legal services are charged based on the complexity of the matter.",
+                answer: "We offer an initial consultation to understand your case and provide preliminary guidance. Subsequent consultations and legal services are charged based on the complexity of the matter.",
             },
             {
                 question: "How long will my case take?",
@@ -151,7 +151,7 @@ export const homeConfig = {
     // ========================================
     ctaSection: {
         title: "Need Legal Assistance?",
-        description: "Schedule a free consultation with our experienced team today.",
+        description: "Schedule a consultation with our experienced team today.",
 
         cta: {
             primary: {

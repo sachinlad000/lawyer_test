@@ -19,7 +19,7 @@ export const onRequestPost = async ({ request, env }: any) => {
         },
         body: JSON.stringify({
             from: "Contact Form <onboarding@resend.dev>", // temp
-            to: ["sachinlad000@gmail.com"],
+            to: ["adv.pradnyapednekar@gmail.com"],
             subject: `New Case: ${caseType}`,
             html: `
         <h3>New Contact</h3>

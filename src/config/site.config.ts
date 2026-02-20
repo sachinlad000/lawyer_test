@@ -12,7 +12,7 @@ export const siteConfig = {
   // ========================================
   siteName: "Advocate Pradnya Pednekar",
   siteTagline: "Trusted Legal Excellence, Dedicated Advocacy",
-  siteDescription: "Expert legal services in Civil, Criminal & Corporate Law. 15+ years of experience. Free consultation available.",
+  siteDescription: "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Trusted legal representation.",
 
   // Domain (without https://)
   domain: "yourdomain.com",
@@ -26,11 +26,11 @@ export const siteConfig = {
   advocate: {
     name: "Advocate Pradnya Pednekar",
     fullName: "Mrs. Pradnya Pednekar",
-    designation: "Senior Advocate",
-    barCouncilNumber: "STATE/1234/2009",
-    barCouncilState: "State Bar Council",
-    enrollmentYear: "2009",
-    experience: "15+",
+    designation: "Advocate",
+    barCouncilNumber: "MAH/11171/2004",
+    barCouncilState: "Maharashtra Bar Council",
+    enrollmentYear: "2004",
+    experience: "22+",
     casesHandled: "1000+",
     successRate: "95%",
     happyClients: "500+",
@@ -42,40 +42,40 @@ export const siteConfig = {
   contact: {
     // Phone numbers
     phone: {
-      primary: "+91-XXXXXXXXXX",
-      secondary: "+91-XXXXXXXXXX",
-      display: "+91-XXXX-XXXXXX", // Formatted for display
+      primary: "+91-9833889863",
+      secondary: "+91-9833889863",
+      display: "+91-9833-889863", // Formatted for display
     },
 
     // WhatsApp (without + sign, just numbers)
     whatsapp: {
-      number: "91XXXXXXXXXX",
+      number: "919833889863",
       message: "Hello, I would like to schedule a consultation.", // Pre-filled message
     },
 
     // Email addresses
     email: {
-      primary: "contact@yourdomain.com",
-      form: "forms@yourdomain.com", // Where form submissions go
+      primary: "adv.pradnyapednekar@gmail.com",
+      form: "adv.pradnyapednekar@gmail.com", // Where form submissions go
     },
 
     // Office address
     address: {
-      line1: "123, Law Chambers",
-      line2: "High Court Road",
-      city: "Your City",
-      state: "Your State",
-      pincode: "400001",
-      landmark: "Near High Court",
-      full: "123, Law Chambers, High Court Road, Your City, State - 400001",
+      line1: "B-19, Shanti Bhavan, Arihant Shopping Center",
+      line2: "J.S.P. Road, Next to Mulund Railway Station",
+      city: "Mumbai",
+      state: "Maharashtra",
+      pincode: "400081",
+      landmark: "Next to Mulund Railway Station",
+      full: "B-19, Shanti Bhavan, Arihant Shopping Center, J.S.P. Road, Next to Mulund Railway Station, Mulund(W), Mumbai - 400081",
     },
 
     // Office hours
     hours: {
-      weekdays: "10:00 AM - 6:00 PM",
-      saturday: "10:00 AM - 2:00 PM",
+      weekdays: "5:00 PM - 8:00 PM (Mon-Sat)",
+      saturday: "5:00 PM - 8:00 PM",
       sunday: "Closed",
-      note: "Appointments preferred",
+      note: "Prior appointment only",
     },
 
     // Google Maps
@@ -140,7 +140,7 @@ export const siteConfig = {
   seo: {
     titleTemplate: "%s | Advocate Pradnya Pednekar",
     defaultTitle: "Advocate Pradnya Pednekar | Expert Legal Services",
-    defaultDescription: "Expert legal services in Civil, Criminal & Corporate Law. 15+ years of experience. Bar Council registered advocate. Free initial consultation.",
+    defaultDescription: "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Bar Council registered advocate. Trusted legal representation.",
     defaultKeywords: "advocate, lawyer, legal services, civil law, criminal law, corporate law, India, High Court, Supreme Court",
 
     // Open Graph defaults

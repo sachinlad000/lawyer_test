@@ -11,8 +11,8 @@ export const blogPosts = [
     category: "Property Law",
     author: {
       name: "Advocate Pradnya Pednekar",
-      role: "Senior Advocate",
-      bio: "15+ years of experience in Civil, Criminal, and Corporate Law."
+      role: "Advocate",
+      bio: "22+ years of experience in Civil, Criminal, and Corporate Law."
     },
     content: `
       <p class="lead">Property disputes are among the most prevalent and complex legal issues faced by individuals and families in India.</p>
@@ -27,7 +27,7 @@ export const blogPosts = [
       <div class="cta-box">
         <h3>Need Help with a Property Dispute?</h3>
         <p>Our experienced team has successfully handled hundreds of property matters.</p>
-        <a href="/contact" class="btn btn-accent">Schedule Free Consultation</a>
+        <a href="/contact" class="btn btn-accent">Book Appointment</a>
       </div>
     `,
     relatedPosts: [
@@ -43,8 +43,8 @@ export const blogPosts = [
     category: "Criminal Law",
     author: {
       name: "Advocate Pradnya Pednekar",
-      role: "Senior Advocate",
-      bio: "15+ years of experience in Civil, Criminal, and Corporate Law."
+      role: "Advocate",
+      bio: "22+ years of experience in Civil, Criminal, and Corporate Law."
     },
     content: `
       <p class="lead">Anticipatory bail is a legal provision that allows a person to seek bail in anticipation of an arrest.</p>

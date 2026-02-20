@@ -12,7 +12,7 @@ export const aboutConfig = {
     // ========================================
     meta: {
         title: "About",
-        description: "Learn about our experienced legal team with over 15 years of practice in Civil, Criminal, and Corporate Law.",
+        description: "Learn about our experienced legal team with over 22 years of practice in Civil, Criminal, and Corporate Law.",
         keywords: "about advocate, lawyer profile, legal experience, bar council advocate",
     },
 
@@ -31,7 +31,7 @@ export const aboutConfig = {
         title: "Professional Profile",
 
         content: [
-            "With over 15 years of dedicated practice in the legal profession, Advocate Pradnya Pednekar has established a reputation for excellence, integrity, and unwavering commitment to client success.",
+            "With over 22 years of dedicated practice in the legal profession, Advocate Pradnya Pednekar has established a reputation for excellence, integrity, and unwavering commitment to client success.",
             "After completing her law degree from a prestigious institution, she began her career under the guidance of senior advocates at the High Court. This foundational experience shaped her approach to legal practice – thorough preparation, strategic thinking, and compassionate client representation.",
             "Today, she leads a team of legal professionals who share her vision of accessible, effective legal services. Her practice spans civil litigation, criminal defense, corporate law, and specialized areas, serving clients from all walks of life.",
             "Her philosophy is simple: every client deserves personalized attention, clear communication, and vigorous advocacy. She believes in demystifying the legal process and empowering clients to make informed decisions about their cases.",
@@ -132,7 +132,7 @@ export const aboutConfig = {
         reasons: [
             {
                 title: "Experienced Representation",
-                description: "Over 15 years of courtroom experience across various practice areas.",
+                description: "Over 22 years of courtroom experience across various practice areas.",
                 icon: "award",
             },
             {
@@ -168,7 +168,7 @@ export const aboutConfig = {
     // ========================================
     cta: {
         title: "Ready to Discuss Your Case?",
-        description: "Schedule a free consultation to learn how we can help you.",
+        description: "Schedule a consultation to learn how we can help you.",
 
         button: {
             text: "Contact Us Today",

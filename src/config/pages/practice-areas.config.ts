@@ -165,7 +165,7 @@ export const practiceAreasConfig = {
         description: "Contact us to discuss your legal matter and explore your options.",
 
         button: {
-            text: "Schedule Free Consultation",
+            text: "Book Appointment",
             href: "/contact",
         },
     },

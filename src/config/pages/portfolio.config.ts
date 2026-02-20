@@ -32,7 +32,7 @@ export const portfolioConfig = {
     stats: [
         { value: "1000+", label: "Cases Handled" },
         { value: "95%", label: "Success Rate" },
-        { value: "15+", label: "Years Experience" },
+        { value: "22+", label: "Years Experience" },
         { value: "500+", label: "Happy Clients" },
     ],
 
@@ -170,7 +170,7 @@ export const portfolioConfig = {
         description: "Let us put our experience to work for you. Schedule a consultation to discuss your case.",
 
         button: {
-            text: "Get Free Consultation",
+            text: "Book Appointment",
             href: "/contact",
         },
     },

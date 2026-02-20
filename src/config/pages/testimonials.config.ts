@@ -185,7 +185,7 @@ export const testimonialsConfig = {
     // ========================================
     cta: {
         title: "Ready to Experience Our Service?",
-        description: "Join hundreds of satisfied clients. Schedule a free consultation today.",
+        description: "Join hundreds of satisfied clients. Schedule a consultation today.",
 
         button: {
             text: "Contact Us Now",

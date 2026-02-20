@@ -10,6 +10,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import DisclaimerPopup from '../components/DisclaimerPopup.astro';
 import { siteConfig } from '../config/site.config';
 import '../styles/global.css';
 
@@ -118,6 +119,9 @@ const gaId = siteConfig.analytics.googleAnalyticsId;
     
     <!-- WhatsApp Floating Button -->
     <WhatsAppFloat />
+    
+    <!-- Bar Council Disclaimer Popup -->
+    <DisclaimerPopup />
     
     <!-- Intersection Observer for scroll animations -->
     <script>
