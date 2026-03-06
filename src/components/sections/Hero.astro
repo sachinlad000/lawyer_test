@@ -123,7 +123,7 @@ const slides = [
 
 <style is:global>
   /* ==============================================
-     HERO CAROUSEL — ALL STYLES
+     HERO CAROUSEL - ALL STYLES
      ============================================== */
 
   .hero-carousel {
@@ -156,11 +156,10 @@ const slides = [
     );
   }
 
-  /* ---------- Slides container ---------- */
   .hc-slides {
     position: relative;
     z-index: 1;
-    /* Height set by the active slide */
+    overflow: hidden;
   }
 
   /* ---------- Each slide ---------- */
@@ -176,7 +175,6 @@ const slides = [
 
   /* Active slide takes up space in flow */
   .hc-slide.hc-active {
-    position: relative;
     opacity: 1;
     pointer-events: auto;
     z-index: 2;
@@ -192,7 +190,6 @@ const slides = [
   .hc-slide.hc-exit {
     animation: hcSlideOut 0.75s ease-out forwards;
     z-index: 1;
-    position: relative;
   }
 
   @keyframes hcSlideIn {
@@ -472,16 +469,38 @@ const slides = [
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  function initCarousel() {
+    const container = document.getElementById("hcSlides");
     const slides = document.querySelectorAll<HTMLElement>(".hc-slide");
     const dots = document.querySelectorAll<HTMLElement>(".hc-dot");
-    if (!slides.length) return;
+    if (!container || !slides.length) return;
 
+    // --- Fix height: measure all slides, use the tallest ---
+    function setContainerHeight() {
+      let maxH = 0;
+      slides.forEach((s) => {
+        // Temporarily make visible to measure
+        s.style.position = "relative";
+        s.style.opacity = "1";
+        s.style.pointerEvents = "none";
+        const h = s.offsetHeight;
+        if (h > maxH) maxH = h;
+        // Reset
+        s.style.position = "";
+        s.style.opacity = "";
+        s.style.pointerEvents = "";
+      });
+      container.style.height = maxH + "px";
+    }
+    setContainerHeight();
+    window.addEventListener("resize", setContainerHeight);
+
+    // --- Carousel state ---
     let cur = 0;
     let locked = false;
     let timer: ReturnType<typeof setInterval>;
 
-    // ⏱️ SLIDE TIMING — change this value (milliseconds)
+    // SLIDE TIMING - change this value (milliseconds)
     const SLIDE_INTERVAL = 5000;
 
     function go(next: number) {
@@ -491,15 +510,13 @@ const slides = [
       const outSlide = slides[cur];
       const inSlide = slides[next];
 
-      // Clear any leftover classes
+      // Clear leftover classes
       slides.forEach((s) =>
         s.classList.remove("hc-active", "hc-enter", "hc-exit"),
       );
 
-      // Animate out
+      // Animate
       outSlide.classList.add("hc-exit");
-
-      // Animate in
       inSlide.classList.add("hc-enter");
 
       // Update dots
@@ -508,7 +525,7 @@ const slides = [
 
       cur = next;
 
-      // After animation finishes, clean up
+      // Clean up after animation
       setTimeout(() => {
         slides.forEach((s) => s.classList.remove("hc-enter", "hc-exit"));
         inSlide.classList.add("hc-active");
@@ -521,11 +538,8 @@ const slides = [
     }
 
     function startTimer() {
-      timer = setInterval(advance, SLIDE_INTERVAL);
-    }
-    function resetTimer() {
       clearInterval(timer);
-      startTimer();
+      timer = setInterval(advance, SLIDE_INTERVAL);
     }
 
     // Dot clicks
@@ -533,15 +547,24 @@ const slides = [
       d.addEventListener("click", () => {
         const i = Number(d.dataset.i);
         go(i);
-        resetTimer();
+        clearInterval(timer);
+        startTimer();
       }),
     );
 
-    // Pause on hover (desktop)
+    // Pause on hover
     const root = document.getElementById("heroCarousel");
     root?.addEventListener("mouseenter", () => clearInterval(timer));
     root?.addEventListener("mouseleave", startTimer);
 
+    // Start auto-play immediately
     startTimer();
-  });
+  }
+
+  // Run init - handle both pre- and post-DOMContentLoaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCarousel);
+  } else {
+    initCarousel();
+  }
 </script>
