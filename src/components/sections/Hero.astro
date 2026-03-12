@@ -28,38 +28,44 @@ const slides = [
     ctaText: "Book Appointment",
     ctaHref: "/contact",
     ctaIcon: "calendar",
+    image: "/images/1.jpg",
   },
   {
     badge: "Bar Council Registered | MAH/11171/2004",
     headline: "22+ Years of Proven Legal Experience",
-    sub: "Over two decades of dedicated practice across Civil, Criminal, and Corporate Law — delivering results with integrity.",
+    sub: "Over two decades of dedicated practice across Civil, Criminal, and Corporate Law -- delivering results with integrity.",
     ctaText: "Call Now",
     ctaHref: `tel:${phone.replace(/[^0-9+]/g, "")}`,
     ctaIcon: "phone",
+    image: "/images/2.jpg",
   },
   {
-    badge: "Civil • Criminal • Corporate • Family Law",
+    badge: "Civil - Criminal - Corporate - Family Law",
     headline: "Expert Legal Representation Across All Courts",
-    sub: "From District Courts to the Supreme Court — comprehensive legal services tailored to protect your rights and interests.",
+    sub: "From District Courts to the Supreme Court -- comprehensive legal services tailored to protect your rights and interests.",
     ctaText: "View Practice Areas",
     ctaHref: "/practice-areas",
     ctaIcon: "arrow",
+    image: "/images/3.jpg",
   },
 ];
 ---
 
 <section class="hero-carousel" id="heroCarousel">
-  <!-- Background (shared, stays fixed) -->
-  <div class="hc-bg">
-    <img src="/images/hero-bg.jpg" alt="" class="hc-bg-img" loading="eager" />
-    <div class="hc-overlay"></div>
-  </div>
-
   <!-- Slides wrapper -->
   <div class="hc-slides" id="hcSlides">
     {
       slides.map((s, i) => (
         <div class={`hc-slide ${i === 0 ? "hc-active" : ""}`} data-index={i}>
+          <div class="hc-slide-bg">
+            <img
+              src={s.image}
+              alt=""
+              class="hc-bg-img"
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+            <div class="hc-overlay" />
+          </div>
           <div class="hc-inner">
             <span class="hc-badge">
               <CheckCircle size={14} />
@@ -88,19 +94,19 @@ const slides = [
         </div>
       ))
     }
-  </div>
 
-  <!-- Dots -->
-  <div class="hc-dots" id="hcDots">
-    {
-      slides.map((_, i) => (
-        <button
-          class={`hc-dot ${i === 0 ? "hc-dot-active" : ""}`}
-          data-i={i}
-          aria-label={`Slide ${i + 1}`}
-        />
-      ))
-    }
+    <!-- Dots (inside slides so absolute positioning works) -->
+    <div class="hc-dots" id="hcDots">
+      {
+        slides.map((_, i) => (
+          <button
+            class={`hc-dot ${i === 0 ? "hc-dot-active" : ""}`}
+            data-i={i}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))
+      }
+    </div>
   </div>
 
   <!-- Trust stats -->
@@ -133,8 +139,8 @@ const slides = [
     background: #0a2463;
   }
 
-  /* ---------- Background ---------- */
-  .hc-bg {
+  /* ---------- Per-slide background ---------- */
+  .hc-slide-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
@@ -216,6 +222,8 @@ const slides = [
 
   /* ---------- Inner content ---------- */
   .hc-inner {
+    position: relative;
+    z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
     padding: 2.5rem 1.25rem 2rem;
@@ -375,12 +383,15 @@ const slides = [
 
   /* ---------- Dots ---------- */
   .hc-dots {
-    position: relative;
-    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
     display: flex;
     justify-content: center;
     gap: 8px;
-    padding-bottom: 18px;
+    padding-bottom: 14px;
   }
 
   .hc-dot {
@@ -477,6 +488,7 @@ const slides = [
 
     // --- Fix height: measure all slides, use the tallest ---
     function setContainerHeight() {
+      if (!container) return;
       let maxH = 0;
       slides.forEach((s) => {
         // Temporarily make visible to measure
