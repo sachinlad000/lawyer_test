@@ -30,7 +30,7 @@ export const testimonialsConfig = {
     // STATISTICS
     // ========================================
     stats: [
-        { value: "500+", label: "Happy Clients" },
+        { value: "1000+", label: "Happy Clients" },
         { value: "4.9", label: "Average Rating" },
         { value: "95%", label: "Would Recommend" },
     ],

@@ -33,7 +33,7 @@ export const portfolioConfig = {
         { value: "1000+", label: "Cases Handled" },
         { value: "95%", label: "Success Rate" },
         { value: "22+", label: "Years Experience" },
-        { value: "500+", label: "Happy Clients" },
+        { value: "1000+", label: "Happy Clients" },
     ],
 
     // ========================================

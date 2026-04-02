@@ -27,13 +27,13 @@ export const siteConfig = {
     name: "Advocate Pradnya Pednekar",
     fullName: "Mrs. Pradnya Pednekar",
     designation: "Advocate",
-    barCouncilNumber: "MAH/11171/2004",
+    barCouncilNumber: "MAH/1117/2004",
     barCouncilState: "Maharashtra Bar Council",
     enrollmentYear: "2004",
     experience: "22+",
     casesHandled: "1000+",
     successRate: "95%",
-    happyClients: "500+",
+    happyClients: "1000+",
   },
 
   // ========================================
@@ -62,17 +62,17 @@ export const siteConfig = {
     // Office address
     address: {
       line1: "B-19, Shanti Bhavan, Arihant Shopping Center",
-      line2: "J.S.P. Road, Next to Mulund Railway Station",
+      line2: "J.S.D. Road, Next to Mulund Railway Station",
       city: "Mumbai",
       state: "Maharashtra",
       pincode: "400081",
       landmark: "Next to Mulund Railway Station",
-      full: "B-19, Shanti Bhavan, Arihant Shopping Center, J.S.P. Road, Next to Mulund Railway Station, Mulund(W), Mumbai - 400081",
+      full: "B-19, Shanti Bhavan, Arihant Shopping Center, J.S.D. Road, Next to Mulund Railway Station, Mulund(W), Mumbai - 400081",
     },
 
     // Office hours
     hours: {
-      weekdays: "5:00 PM - 8:00 PM (Mon-Sat)",
+      weekdays: "5:00 PM - 8:00 PM (Mon-Sat) | Prior Appointment Only",
       saturday: "5:00 PM - 8:00 PM",
       sunday: "Closed",
       note: "Prior appointment only",
@@ -182,13 +182,14 @@ export const siteConfig = {
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
       {
-        label: "Practice Areas",
+        label: "Practice",
         href: "/practice-areas",
         children: [
           { label: "Civil Law", href: "/practice-areas#civil" },
           { label: "Criminal Law", href: "/practice-areas#criminal" },
           { label: "Family Law", href: "/practice-areas#family" },
           { label: "Corporate Law", href: "/practice-areas#corporate" },
+          { label: "Revenue Law", href: "/practice-areas#revenue" },
         ]
       },
       { label: "Portfolio", href: "/portfolio" },

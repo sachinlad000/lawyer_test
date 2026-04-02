@@ -46,14 +46,19 @@ export const aboutConfig = {
 
         degrees: [
             {
-                degree: "Bachelor of Laws (LLB)",
-                institution: "National Law University",
-                year: "2009",
+                degree: "Bachelor of Commerce (BCom)",
+                institution: "",
+                year: "",
             },
             {
-                degree: "Bachelor of Arts (BA)",
-                institution: "University Name",
-                year: "2006",
+                degree: "Bachelor of Laws (LLB)",
+                institution: "",
+                year: "",
+            },
+            {
+                degree: "Diploma in Civil Engineering (DCE)",
+                institution: "",
+                year: "",
             },
         ],
 

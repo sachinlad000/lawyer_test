@@ -1,12 +1,10 @@
 ---
 /**
- * Hero Section — Sliding Carousel
- * ================================
- * 3-slide auto-rotating carousel.
- * Uses stacked slides with CSS keyframe animations for reliable sliding.
- * Works on desktop, tablet, and mobile.
+ * Hero Section - Full Viewport Carousel
  *
- * ⏱️ To change slide timing, edit SLIDE_INTERVAL in the <script> at bottom.
+ * 3-slide auto-rotating carousel with full 100vh height,
+ * staggered content animations, Ken Burns background effect,
+ * and trust stats overlay
  */
 
 import {
@@ -30,24 +28,24 @@ const slides = [
     ctaIcon: "calendar",
     image: "/images/1.jpg",
   },
-  {
-    badge: "Bar Council Registered | MAH/11171/2004",
-    headline: "22+ Years of Proven Legal Experience",
-    sub: "Over two decades of dedicated practice across Civil, Criminal, and Corporate Law -- delivering results with integrity.",
-    ctaText: "Call Now",
-    ctaHref: `tel:${phone.replace(/[^0-9+]/g, "")}`,
-    ctaIcon: "phone",
-    image: "/images/2.jpg",
-  },
-  {
-    badge: "Civil - Criminal - Corporate - Family Law",
-    headline: "Expert Legal Representation Across All Courts",
-    sub: "From District Courts to the Supreme Court -- comprehensive legal services tailored to protect your rights and interests.",
-    ctaText: "View Practice Areas",
-    ctaHref: "/practice-areas",
-    ctaIcon: "arrow",
-    image: "/images/3.jpg",
-  },
+  // {
+  //   badge: "Bar Council Registered | MAH/1117/2004",
+  //   headline: "22+ Years of Proven Legal Experience",
+  //   sub: "Over two decades of dedicated practice across Civil, Criminal, and Corporate Law -- delivering results with integrity.",
+  //   ctaText: "Call Now",
+  //   ctaHref: `tel:${phone.replace(/[^0-9+]/g, "")}`,
+  //   ctaIcon: "phone",
+  //   image: "/images/2.jpg",
+  // },
+  // {
+  //   badge: "Civil - Criminal - Corporate - Family Law",
+  //   headline: "Expert Legal Representation Across All Courts",
+  //   sub: "From District Courts to the Supreme Court -- comprehensive legal services tailored to protect your rights and interests.",
+  //   ctaText: "View Practice Areas",
+  //   ctaHref: "/practice-areas",
+  //   ctaIcon: "arrow",
+  //   image: "/images/3.jpg",
+  // },
 ];
 ---
 
@@ -67,13 +65,17 @@ const slides = [
             <div class="hc-overlay" />
           </div>
           <div class="hc-inner">
-            <span class="hc-badge">
+            <span class="hc-badge hc-anim-item" data-anim-delay="0">
               <CheckCircle size={14} />
               <span>{s.badge}</span>
             </span>
-            <h2 class="hc-title">{s.headline}</h2>
-            <p class="hc-sub">{s.sub}</p>
-            <div class="hc-buttons">
+            <h2 class="hc-title hc-anim-item" data-anim-delay="1">
+              {s.headline}
+            </h2>
+            <p class="hc-sub hc-anim-item" data-anim-delay="2">
+              {s.sub}
+            </p>
+            <div class="hc-buttons hc-anim-item" data-anim-delay="3">
               <a href={s.ctaHref} class="hc-btn hc-btn-gold">
                 {s.ctaIcon === "calendar" && <Calendar size={18} />}
                 {s.ctaIcon === "phone" && <Phone size={18} />}
@@ -96,7 +98,7 @@ const slides = [
     }
 
     <!-- Dots (inside slides so absolute positioning works) -->
-    <div class="hc-dots" id="hcDots">
+    <!-- <div class="hc-dots" id="hcDots">
       {
         slides.map((_, i) => (
           <button
@@ -106,11 +108,11 @@ const slides = [
           />
         ))
       }
-    </div>
+    </div> -->
   </div>
 
-  <!-- Trust stats -->
-  <div class="hc-trust">
+  <!-- Trust stats — overlay at bottom of hero -->
+  <!-- <div class="hc-trust">
     <div class="hc-trust-row">
       <div class="hc-stat">
         <strong>22+</strong><span>Years Experience</span>
@@ -122,14 +124,16 @@ const slides = [
       <div class="hc-stat-sep"></div>
       <div class="hc-stat"><strong>95%</strong><span>Success Rate</span></div>
       <div class="hc-stat-sep"></div>
-      <div class="hc-stat"><strong>500+</strong><span>Happy Clients</span></div>
+      <div class="hc-stat">
+        <strong>1000+</strong><span>Happy Clients</span>
+      </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 <style is:global>
   /* ==============================================
-     HERO CAROUSEL - ALL STYLES
+     HERO CAROUSEL - FULL VIEWPORT
      ============================================== */
 
   .hero-carousel {
@@ -137,6 +141,20 @@ const slides = [
     color: #fff;
     overflow: hidden;
     background: #0a2463;
+    min-height: 100vh;
+    min-height: 100svh; /* accounts for mobile browser chrome */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- Slides wrapper — fills remaining space ---------- */
+  .hc-slides {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
 
   /* ---------- Per-slide background ---------- */
@@ -145,48 +163,63 @@ const slides = [
     inset: 0;
     z-index: 0;
   }
+
   .hc-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    will-change: transform;
   }
+
+  /* Ken Burns — slow zoom on active slide */
+  .hc-slide.hc-active .hc-bg-img,
+  .hc-slide.hc-enter .hc-bg-img {
+    animation: hcKenBurns 8s ease-out forwards;
+  }
+
+  @keyframes hcKenBurns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.08);
+    }
+  }
+
   .hc-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(10, 36, 99, 0.35) 0%,
-      rgba(27, 58, 123, 0.25) 50%,
-      rgba(10, 36, 99, 0.35) 100%
+      rgba(10, 36, 99, 0.55) 0%,
+      rgba(27, 58, 123, 0.4) 50%,
+      rgba(10, 36, 99, 0.55) 100%
     );
-  }
-
-  .hc-slides {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+    opacity: 0;
   }
 
   /* ---------- Each slide ---------- */
   .hc-slide {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
+    height: 100%;
     opacity: 0;
     pointer-events: none;
     z-index: 0;
+    display: flex;
+    align-items: center;
   }
 
-  /* Active slide takes up space in flow */
+  /* Active slide */
   .hc-slide.hc-active {
     opacity: 1;
     pointer-events: auto;
     z-index: 2;
   }
 
-  /* ---------- Slide animations ---------- */
+  /* ---------- Slide transition animations ---------- */
   .hc-slide.hc-enter {
     animation: hcSlideIn 0.75s ease-out forwards;
     z-index: 2;
@@ -220,19 +253,78 @@ const slides = [
     }
   }
 
-  /* ---------- Inner content ---------- */
+  /* ==============================================
+     SLIDE CONTENT ANIMATIONS (left-to-center, staggered)
+     ============================================== */
+
+  /* Initially hidden — content will animate in */
+  .hc-anim-item {
+    opacity: 0;
+    transform: translateX(-50px);
+    will-change: transform, opacity;
+  }
+
+  /* Animate when parent slide becomes active */
+  .hc-slide.hc-active .hc-anim-item,
+  .hc-slide.hc-enter .hc-anim-item {
+    animation: hcContentSlideIn 0.6s ease-out forwards;
+  }
+
+  /* Staggered delays */
+  .hc-slide.hc-active .hc-anim-item[data-anim-delay="0"],
+  .hc-slide.hc-enter .hc-anim-item[data-anim-delay="0"] {
+    animation-delay: 0.1s;
+  }
+
+  .hc-slide.hc-active .hc-anim-item[data-anim-delay="1"],
+  .hc-slide.hc-enter .hc-anim-item[data-anim-delay="1"] {
+    animation-delay: 0.25s;
+  }
+
+  .hc-slide.hc-active .hc-anim-item[data-anim-delay="2"],
+  .hc-slide.hc-enter .hc-anim-item[data-anim-delay="2"] {
+    animation-delay: 0.4s;
+  }
+
+  .hc-slide.hc-active .hc-anim-item[data-anim-delay="3"],
+  .hc-slide.hc-enter .hc-anim-item[data-anim-delay="3"] {
+    animation-delay: 0.55s;
+  }
+
+  @keyframes hcContentSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Reset animation items when slide exits */
+  .hc-slide.hc-exit .hc-anim-item {
+    opacity: 1;
+    transform: translateX(0);
+    animation: none;
+  }
+
+  /* ---------- Inner content — vertically centered ---------- */
   .hc-inner {
     position: relative;
     z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
     padding: 2.5rem 1.25rem 2rem;
+    padding-top: calc(80px + 2rem); /* account for fixed navbar */
     box-sizing: border-box;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
     .hc-inner {
       padding: 3.5rem 2rem 3rem;
+      padding-top: calc(80px + 2.5rem);
       max-width: 760px;
       margin: 0 auto 0 calc(max((100% - 1280px) / 2, 2rem));
     }
@@ -241,6 +333,7 @@ const slides = [
   @media (min-width: 1024px) {
     .hc-inner {
       padding: 5rem 2rem 4rem;
+      padding-top: calc(80px + 3rem);
     }
   }
 
@@ -273,7 +366,7 @@ const slides = [
 
   /* ---------- Title ---------- */
   .hc-title {
-    color: #fff;
+    color: #d4af37;
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 700;
     font-size: 24px;
@@ -287,13 +380,13 @@ const slides = [
   }
   @media (min-width: 768px) {
     .hc-title {
-      font-size: 36px;
+      font-size: 38px;
       margin-bottom: 16px;
     }
   }
   @media (min-width: 1024px) {
     .hc-title {
-      font-size: 44px;
+      font-size: 48px;
     }
   }
 
@@ -307,7 +400,7 @@ const slides = [
   }
   @media (min-width: 768px) {
     .hc-sub {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.7;
       margin-bottom: 28px;
     }
@@ -338,13 +431,15 @@ const slides = [
     text-decoration: none;
     cursor: pointer;
     transition:
-      transform 0.15s ease,
-      box-shadow 0.15s ease;
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
     border: 2px solid transparent;
     box-sizing: border-box;
+    will-change: transform;
   }
   .hc-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
   }
 
   @media (min-width: 768px) {
@@ -367,7 +462,7 @@ const slides = [
   .hc-btn-gold:hover {
     background: #c49a2a;
     color: #0a2463;
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
   }
 
   .hc-btn-outline {
@@ -379,6 +474,7 @@ const slides = [
     background: #fff;
     color: #0a2463;
     border-color: #fff;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
   }
 
   /* ---------- Dots ---------- */
@@ -391,7 +487,7 @@ const slides = [
     display: flex;
     justify-content: center;
     gap: 8px;
-    padding-bottom: 14px;
+    padding-bottom: 90px; /* above trust bar */
   }
 
   .hc-dot {
@@ -412,13 +508,19 @@ const slides = [
     width: 28px;
     background: #d4af37;
     border-color: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
   }
 
-  /* ---------- Trust bar ---------- */
+  /* ---------- Trust bar — overlaid at bottom of hero ---------- */
   .hc-trust {
-    position: relative;
-    z-index: 3;
-    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 18px 16px;
   }
@@ -476,56 +578,80 @@ const slides = [
     .hc-stat {
       flex: 1 1 40%;
     }
+    .hc-dots {
+      padding-bottom: 110px;
+    }
+  }
+
+  /* ==============================================
+     ACCESSIBILITY — Reduced Motion
+     ============================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .hc-slide.hc-enter,
+    .hc-slide.hc-exit,
+    .hc-slide.hc-active .hc-anim-item,
+    .hc-slide.hc-enter .hc-anim-item,
+    .hc-slide.hc-active .hc-bg-img,
+    .hc-slide.hc-enter .hc-bg-img {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+    }
+    .hc-btn {
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 
 <script>
   function initCarousel() {
     const container = document.getElementById("hcSlides");
-    const slides = document.querySelectorAll<HTMLElement>(".hc-slide");
+    const allSlides = document.querySelectorAll<HTMLElement>(".hc-slide");
     const dots = document.querySelectorAll<HTMLElement>(".hc-dot");
-    if (!container || !slides.length) return;
-
-    // --- Fix height: measure all slides, use the tallest ---
-    function setContainerHeight() {
-      if (!container) return;
-      let maxH = 0;
-      slides.forEach((s) => {
-        // Temporarily make visible to measure
-        s.style.position = "relative";
-        s.style.opacity = "1";
-        s.style.pointerEvents = "none";
-        const h = s.offsetHeight;
-        if (h > maxH) maxH = h;
-        // Reset
-        s.style.position = "";
-        s.style.opacity = "";
-        s.style.pointerEvents = "";
-      });
-      container.style.height = maxH + "px";
-    }
-    setContainerHeight();
-    window.addEventListener("resize", setContainerHeight);
+    if (!container || !allSlides.length) return;
 
     // --- Carousel state ---
     let cur = 0;
     let locked = false;
     let timer: ReturnType<typeof setInterval>;
 
-    // SLIDE TIMING - change this value (milliseconds)
+    // SLIDE TIMING — change this value (milliseconds)
     const SLIDE_INTERVAL = 5000;
+
+    // Reset animation items for a slide (force re-trigger)
+    function resetAnimItems(slide: HTMLElement) {
+      slide.querySelectorAll<HTMLElement>(".hc-anim-item").forEach((el) => {
+        el.style.animation = "none";
+        // Force reflow
+        void el.offsetHeight;
+        el.style.animation = "";
+      });
+    }
+
+    // Reset Ken Burns on bg image
+    function resetKenBurns(slide: HTMLElement) {
+      const img = slide.querySelector<HTMLElement>(".hc-bg-img");
+      if (img) {
+        img.style.animation = "none";
+        void img.offsetHeight;
+        img.style.animation = "";
+      }
+    }
 
     function go(next: number) {
       if (locked || next === cur) return;
       locked = true;
 
-      const outSlide = slides[cur];
-      const inSlide = slides[next];
+      const outSlide = allSlides[cur];
+      const inSlide = allSlides[next];
 
       // Clear leftover classes
-      slides.forEach((s) =>
+      allSlides.forEach((s) =>
         s.classList.remove("hc-active", "hc-enter", "hc-exit"),
       );
+
+      // Reset animation items on incoming slide
+      resetAnimItems(inSlide);
+      resetKenBurns(inSlide);
 
       // Animate
       outSlide.classList.add("hc-exit");
@@ -539,14 +665,14 @@ const slides = [
 
       // Clean up after animation
       setTimeout(() => {
-        slides.forEach((s) => s.classList.remove("hc-enter", "hc-exit"));
+        allSlides.forEach((s) => s.classList.remove("hc-enter", "hc-exit"));
         inSlide.classList.add("hc-active");
         locked = false;
       }, 780);
     }
 
     function advance() {
-      go((cur + 1) % slides.length);
+      go((cur + 1) % allSlides.length);
     }
 
     function startTimer() {
@@ -569,11 +695,18 @@ const slides = [
     root?.addEventListener("mouseenter", () => clearInterval(timer));
     root?.addEventListener("mouseleave", startTimer);
 
+    // Trigger initial slide content animation
+    const firstSlide = allSlides[0];
+    if (firstSlide) {
+      resetAnimItems(firstSlide);
+      resetKenBurns(firstSlide);
+    }
+
     // Start auto-play immediately
     startTimer();
   }
 
-  // Run init - handle both pre- and post-DOMContentLoaded
+  // Run init — handle both pre- and post-DOMContentLoaded
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initCarousel);
   } else {

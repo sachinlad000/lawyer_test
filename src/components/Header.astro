@@ -2,7 +2,8 @@
 /**
  * Header Component
  * ================
- * Responsive header with mobile navigation and practice areas dropdown.
+ * Responsive header with transparent → solid navbar on scroll.
+ * Navbar overlays the hero section (transparent) and becomes solid on scroll.
  *
  * CONFIGURATION: Edit src/config/site.config.ts for navigation and contact info.
  */
@@ -23,28 +24,27 @@ const firmTagline = "(Kulkarni)";
 const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Years of Experience`;
 ---
 
-<header class="header">
-  <div class="header-top">
-    <div class="container">
-      <div class="header-top-content">
-        <span class="header-top-text">
-          <Scale size={16} />
-          {barInfo}
-        </span>
-        <a href={`tel:${phoneClean}`} class="header-top-phone">
-          <Phone size={16} />
-          {phone}
-        </a>
-      </div>
+<!-- Header Top Bar — scrolls away naturally, not fixed --><!-- <div class="header-top">
+  <div class="container">
+    <div class="header-top-content">
+      <span class="header-top-text">
+        <Scale size={16} />
+        {barInfo}
+      </span>
+      <a href={`tel:${phoneClean}`} class="header-top-phone">
+        <Phone size={16} />
+        {phone}
+      </a>
     </div>
   </div>
-
+</div> --><!-- Fixed Navbar — transparent over hero, solid on scroll -->
+<header class="header header--transparent" id="siteHeader">
   <nav class="navbar">
     <div class="container">
       <div class="navbar-content">
         <!-- Logo -->
         <a href="/" class="navbar-logo">
-          <Scale size={32} class="logo-icon" />
+          <Scale size={36} class="logo-icon" />
           <div class="logo-text">
             <span class="logo-name">{advocateName}</span>
             <span class="logo-tagline">{firmTagline}</span>
@@ -79,9 +79,9 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
         </ul>
 
         <!-- CTA Button (Desktop) -->
-        <a href="/contact" class="btn btn-accent hide-mobile">
+        <!-- <a href="/contact" class="btn btn-accent hide-mobile">
           Book Appointment
-        </a>
+        </a> -->
 
         <!-- Mobile Menu Toggle -->
         <button
@@ -129,19 +129,16 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
 </header>
 
 <style>
-  .header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: white;
-    box-shadow: var(--shadow-md);
-  }
-
+  /* ============================================
+     HEADER TOP BAR — scrolls naturally
+     ============================================ */
   .header-top {
     background: var(--color-primary-900);
     color: white;
     padding: 0.5rem 0;
     font-size: 0.875rem;
+    position: relative;
+    z-index: 101;
   }
 
   .header-top-content {
@@ -170,9 +167,25 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     color: var(--color-accent-400);
   }
 
+  /* ============================================
+     FIXED NAVBAR — transparent/solid states
+     ============================================ */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition:
+      background-color 0.35s ease,
+      box-shadow 0.35s ease,
+      backdrop-filter 0.35s ease;
+    will-change: background-color, box-shadow;
+  }
+
   .navbar {
-    background: white;
     padding: 1rem 0;
+    transition: padding 0.35s ease;
   }
 
   .navbar-content {
@@ -181,19 +194,123 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     align-items: center;
   }
 
+  /* ---- Transparent State (over hero) ---- */
+  .header--transparent {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .header--transparent .navbar-logo {
+    color: white;
+  }
+
+  .header--transparent .logo-icon {
+    color: var(--color-accent-500);
+  }
+
+  .header--transparent .logo-tagline {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .header--transparent .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .header--transparent .nav-link:hover {
+    color: white;
+  }
+
+  .header--transparent .nav-link::after {
+    background: var(--color-accent-500);
+  }
+
+  .header--transparent .navbar-cta {
+    background: var(--color-accent-500);
+    color: var(--color-primary-900);
+    border-color: var(--color-accent-500);
+  }
+
+  .header--transparent .navbar-cta:hover {
+    background: var(--color-accent-400);
+    color: var(--color-primary-900);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  }
+
+  .header--transparent .mobile-menu-toggle {
+    color: white;
+  }
+
+  .header--transparent .dropdown-menu {
+    background: rgba(10, 36, 99, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .header--transparent .dropdown-link {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .header--transparent .dropdown-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  /* ---- Solid State (scrolled past hero) ---- */
+  .header:not(.header--transparent) {
+    background: white;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .header:not(.header--transparent) .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .header:not(.header--transparent) .navbar-logo {
+    color: var(--color-primary-900);
+  }
+
+  .header:not(.header--transparent) .logo-icon {
+    color: var(--color-accent-500);
+  }
+
+  .header:not(.header--transparent) .logo-tagline {
+    color: var(--color-accent-950);
+  }
+
+  .header:not(.header--transparent) .nav-link {
+    color: var(--color-neutral-700);
+  }
+
+  .header:not(.header--transparent) .nav-link:hover {
+    color: var(--color-primary-900);
+  }
+
+  .header:not(.header--transparent) .nav-link::after {
+    background: var(--color-primary-900);
+  }
+
+  .header:not(.header--transparent) .mobile-menu-toggle {
+    color: var(--color-primary-900);
+  }
+
+  /* ============================================
+     LOGO — enlarged, responsive
+     ============================================ */
   .navbar-logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--color-primary-900);
+    transition: color 0.35s ease;
   }
 
   .navbar-logo:hover {
-    color: var(--color-primary-900);
+    opacity: 0.9;
   }
 
   .logo-icon {
-    color: var(--color-accent-500);
+    transition: color 0.35s ease;
+    flex-shrink: 0;
   }
 
   .logo-text {
@@ -204,17 +321,20 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
 
   .logo-name {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.85rem);
     font-weight: 700;
+    transition: color 0.35s ease;
   }
 
   .logo-tagline {
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
     font-weight: 600;
-    color: var(--color-accent-950);
+    transition: color 0.35s ease;
   }
 
-  /* Desktop Navigation */
+  /* ============================================
+     DESKTOP NAV — with underline hover animation
+     ============================================ */
   .nav-menu {
     display: flex;
     align-items: center;
@@ -233,13 +353,28 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     align-items: center;
     gap: 0.25rem;
     padding: 0.5rem 1rem;
-    color: var(--color-neutral-700);
     font-weight: 500;
-    transition: color var(--transition-fast);
+    position: relative;
+    transition: color 0.3s ease;
   }
 
-  .nav-link:hover {
-    color: var(--color-primary-900);
+  /* Underline animation on hover */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
   }
 
   .dropdown-icon {
@@ -285,7 +420,9 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     color: var(--color-primary-900);
   }
 
-  /* Mobile Menu Toggle */
+  /* ============================================
+     MOBILE MENU
+     ============================================ */
   .mobile-menu-toggle {
     display: flex;
     align-items: center;
@@ -295,7 +432,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     background: transparent;
     border: none;
     cursor: pointer;
-    color: var(--color-primary-900);
+    transition: color 0.35s ease;
   }
 
   .mobile-menu-toggle .close-icon {
@@ -310,7 +447,6 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     display: block;
   }
 
-  /* Mobile Navigation */
   .mobile-nav {
     position: absolute;
     top: 100%;
@@ -363,17 +499,20 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     margin: 1rem 0 2rem;
   }
 
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
   @media (max-width: 768px) {
     .header-top-text {
       font-size: 0.75rem;
     }
 
     .logo-name {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
 
     .logo-tagline {
-      font-size: 0.625rem;
+      font-size: 0.7rem;
     }
   }
 </style>
@@ -400,6 +539,37 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
           toggle.setAttribute("aria-expanded", "false");
         });
       });
+    }
+
+    // ====================================
+    // Navbar transparent → solid on scroll
+    // ====================================
+    const header = document.getElementById("siteHeader");
+    const heroSection = document.querySelector(".hero-carousel");
+
+    if (header && heroSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Hero is visible → transparent navbar
+              header.classList.add("header--transparent");
+            } else {
+              // Hero is out of view → solid navbar
+              header.classList.remove("header--transparent");
+            }
+          });
+        },
+        {
+          threshold: 0.05,
+          rootMargin: "-80px 0px 0px 0px",
+        },
+      );
+
+      observer.observe(heroSection);
+    } else if (header) {
+      // No hero section on this page → always solid
+      header.classList.remove("header--transparent");
     }
   });
 </script>

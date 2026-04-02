@@ -55,7 +55,7 @@ export const homeConfig = {
             { value: "22+", label: "Years Experience" },
             { value: "1000+", label: "Cases Handled" },
             { value: "95%", label: "Success Rate" },
-            { value: "500+", label: "Happy Clients" },
+            { value: "1000+", label: "Happy Clients" },
         ],
     },
 
@@ -125,7 +125,7 @@ export const homeConfig = {
         items: [
             {
                 question: "What types of cases do you handle?",
-                answer: "We handle a wide range of cases including civil litigation, criminal defense, family law matters, corporate legal issues, and more. Contact us for a consultation to discuss your specific situation.",
+                answer: "We handle a wide range of cases including civil litigation, criminal defense, family law matters, corporate legal issues, revenue matters, and more. Contact us for a consultation to discuss your specific situation.",
             },
             {
                 question: "How much does a consultation cost?",
@@ -133,7 +133,7 @@ export const homeConfig = {
             },
             {
                 question: "How long will my case take?",
-                answer: "The duration varies depending on the type and complexity of your case. During our consultation, we will provide an estimated timeline based on your specific circumstances.",
+                answer: "The duration varies depending on the type and complexity of your case. Cases are typically resolved in months. During our consultation, we will provide an estimated timeline based on your specific circumstances.",
             },
             {
                 question: "Do you appear in High Court and Supreme Court?",

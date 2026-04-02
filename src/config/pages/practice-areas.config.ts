@@ -155,6 +155,27 @@ export const practiceAreasConfig = {
 
             caseTypes: ["Writs", "PIL", "Rights", "Admin"],
         },
+        {
+            id: "revenue",
+            title: "Revenue & Land Law",
+            icon: "landmark",
+            color: "teal",
+            shortDescription: "Expert legal services in revenue matters including land records, mutations, and land acquisition cases.",
+            fullDescription: "Our revenue law practice covers all aspects of land and revenue disputes. We represent clients before Revenue Courts, Tribunals, and Higher Courts in matters involving land records, mutations, land acquisition, and related proceedings. Our deep understanding of revenue laws helps clients protect their land rights effectively.",
+
+            services: [
+                "Land Revenue Disputes",
+                "Mutation & Record Correction",
+                "Land Acquisition Matters",
+                "Revenue Court Proceedings",
+                "Tenancy Disputes",
+                "Survey & Settlement Issues",
+                "NA (Non-Agricultural) Conversion",
+                "Land Ceiling Matters",
+            ],
+
+            caseTypes: ["Revenue", "Mutation", "Acquisition", "Tenancy"],
+        },
     ],
 
     // ========================================
