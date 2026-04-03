@@ -7,13 +7,13 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // IMPORTANT: Update this to your actual domain before deployment
   site: 'https://yourdomain.com',
-  
+
   output: 'static',
-  
+
   vite: {
     plugins: [tailwindcss()]
   },
-  
+
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -21,14 +21,14 @@ export default defineConfig({
       lastmod: new Date(),
     })
   ],
-  
+
   // Image optimization
   image: {
     domains: [],
   },
-  
+
   // Build settings
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'never',
   },
 });
