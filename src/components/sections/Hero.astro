@@ -1,261 +1,188 @@
 ---
 /**
- * Hero Section - Full Viewport Carousel
- *
- * 3-slide auto-rotating carousel with full 100vh height,
- * staggered content animations, Ken Burns background effect,
- * and trust stats overlay
+ * Law firm hero — trustworthy, authoritative, clean.
+ * Content via props (defaults match common site copy; override from pages).
  */
+import { ArrowRight } from "@lucide/astro";
 
-import {
-  Phone,
-  MessageCircle,
-  Calendar,
-  CheckCircle,
-  ArrowRight,
-} from "@lucide/astro";
-import "../../styles/hero.css";
+export interface Props {
+  /** [USER PROVIDED BULLET 1] */
+  headline?: string;
+  /** [USER PROVIDED BULLET 2] */
+  subheading?: string;
+  /** [USER PROVIDED BULLET 3] */
+  trustPoint1?: string;
+  /** [USER PROVIDED BULLET 4] */
+  trustPoint2?: string;
+  /** [USER PROVIDED BULLET 5] */
+  trustPoint3?: string;
+  /** [USER PROVIDED BULLET 6] */
+  ctaLabel?: string;
+  ctaHref?: string;
+  /** [USER PROVIDED BULLET 7] */
+  secondaryLinkLabel?: string;
+  secondaryLinkHref?: string;
+  /**
+   * Professional hero image — pass a URL from your CMS or static import.
+   * <!-- AI / asset URL: set `heroImageUrl` on <Hero /> in the page, e.g.
+   *     <Hero heroImageUrl="https://your-cdn.example/hero.webp" heroImageAlt="…" /> -->
+   */
+  heroImageUrl?: string;
+  heroImageAlt?: string;
+}
 
-const phone = "+91-9833889863";
-const whatsapp = "919833889863";
+const {
+  headline = "Trusted Legal Advisor",
+  subheading = "22+ Years of Experience",
+  trustPoint1 = "Results That Speak Excellence",
+  trustPoint2 = "Client-Centric Approach",
+  trustPoint3 = "Committed to Legal Awareness",
+  ctaLabel = "Book Appointment",
+  ctaHref = "/contact",
+  secondaryLinkLabel = "View Practice Areas",
+  secondaryLinkHref = "/practice-areas",
+  heroImageUrl = "",
+  heroImageAlt = "Professional portrait representing the firm’s legal practice",
+} = Astro.props;
 
-const slides = [
-  {
-    badge: "Advocate in India | High Court & Supreme Court",
-    features: [
-      "Trusted Legal Advisor",
-      "22+ Years of Experience",
-      "Results That Speak Excellence",
-      "Client-Centric Approach",
-      "Committed to Legal Awareness",
-    ],
-    ctaText: "Book Appointment",
-    ctaHref: "/contact",
-    ctaIcon: "calendar",
-    image: "/images/1.jpg",
-  },
-  // {
-  //   badge: "Bar Council Registered | MAH/1117/2004",
-  //   headline: "22+ Years of Proven Legal Experience",
-  //   sub: "Over two decades of dedicated practice across Civil, Criminal, and Corporate Law -- delivering results with integrity.",
-  //   ctaText: "Call Now",
-  //   ctaHref: `tel:${phone.replace(/[^0-9+]/g, "")}`,
-  //   ctaIcon: "phone",
-  //   image: "/images/11.jpg",
-  // },
-  // {
-  //   badge: "Civil - Criminal - Corporate - Family Law",
-  //   headline: "Expert Legal Representation Across All Courts",
-  //   sub: "From District Courts to the Supreme Court -- comprehensive legal services tailored to protect your rights and interests.",
-  //   ctaText: "View Practice Areas",
-  //   ctaHref: "/practice-areas",
-  //   ctaIcon: "arrow",
-  //   image: "/images/3.jpg",
-  // },
-];
+const trustPoints = [trustPoint1, trustPoint2, trustPoint3] as const;
 ---
 
-<section class="hero-carousel" id="heroCarousel">
-  <!-- Slides wrapper -->
-  <div class="hc-slides" id="hcSlides">
-    {
-      slides.map((s, i) => (
-        <div class={`hc-slide ${i === 0 ? "hc-active" : ""}`} data-index={i}>
-          <div class="hc-slide-bg">
-            <img
-              src={s.image}
-              alt=""
-              class="hc-bg-img"
-              loading={i === 0 ? "eager" : "lazy"}
-            />
-            <div class="hc-overlay" />
-          </div>
-          <div class="hc-inner">
-            {/* <span class="hc-badge hc-anim-item" data-anim-delay="0">
-              <CheckCircle size={14} />
-              <span>{s.badge}</span>
-            </span> */}
-            {s.features && (
-              <ul class="hc-features">
-                {s.features.map((feat: any, fi: number) => (
-                  <li class="hc-feature hc-anim-item" data-anim-delay={1 + fi}>
-                    <CheckCircle
-                      size="1em"
-                      class="hc-feature-icon"
-                      color="#d4af37"
-                    />
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-            <div
-              class="hc-buttons hc-anim-item"
-              data-anim-delay={s.features ? 1 + s.features.length : 1}
-            >
-              <a href={s.ctaHref} class="hc-btn hc-btn-gold">
-                {s.ctaIcon === "calendar" && <Calendar size={18} />}
-                {s.ctaIcon === "phone" && <Phone size={18} />}
-                {s.ctaIcon === "arrow" && <ArrowRight size={18} />}
-                <span>{s.ctaText}</span>
-              </a>
-              {/* <a
-                href={`https://wa.me/${whatsapp}`}
-                class="hc-btn hc-btn-gold"
-                target="_blank"
-                rel="noopener noreferrer"
+<section
+  id="site-hero"
+  class="hero-root relative isolate flex min-h-screen min-h-[100svh] flex-col overflow-hidden bg-[#F8FAFC] text-[#1E293B]"
+  aria-labelledby="hero-heading"
+>
+  <div
+    class="container relative z-0 flex flex-1 flex-col justify-center px-4 pb-14 pt-[calc(5.5rem+1rem)] sm:px-6 sm:pb-16 sm:pt-[calc(5.75rem+1.25rem)] lg:px-8 lg:pt-[calc(6rem+1.5rem)]"
+  >
+    <div
+      class="grid flex-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16"
+    >
+      <!-- Column 1: copy + trust list + actions -->
+      <div class="min-w-0">
+        <h1
+          id="hero-heading"
+          class="font-[family-name:var(--font-heading)] text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.12] tracking-tight text-[#1E293B]"
+        >
+          {headline}
+        </h1>
+
+        <p
+          class="mt-4 max-w-xl font-[family-name:var(--font-body)] text-lg font-medium leading-relaxed text-[#1E293B]/90 sm:text-xl"
+        >
+          {subheading}
+        </p>
+
+        <ul class="hero-trust-list mt-8 max-w-xl space-y-3 sm:space-y-4" role="list">
+          {
+            trustPoints.map((text, i) => (
+              <li
+                class="hero-trust-item flex items-start gap-3 rounded-xl border border-[#1E293B]/10 bg-white/90 px-4 py-3 shadow-sm sm:px-5 sm:py-3.5"
+                style={`--hero-i: ${i}`}
               >
-                <MessageCircle size={18} />
-                <span>WhatsApp</span>
-              </a> */}
-            </div>
-          </div>
+                <span
+                  class="mt-1 inline-flex h-2 w-2 shrink-0 rounded-full bg-[#B45309]"
+                  aria-hidden="true"
+                />
+                <span class="font-[family-name:var(--font-body)] text-base font-medium leading-snug text-[#1E293B] sm:text-[1.0625rem]">
+                  {text}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div
+          class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+        >
+          <a
+            href={ctaHref}
+            class="hero-cta inline-flex w-full items-center justify-center rounded-lg bg-[#B45309] px-6 py-3.5 text-center text-base font-semibold text-white shadow-md transition hover:bg-[#92400E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B45309] sm:w-auto"
+          >
+            {ctaLabel}
+          </a>
+          <a
+            href={secondaryLinkHref}
+            class="inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-[#1E293B]/20 bg-transparent px-5 py-3.5 text-center text-base font-semibold text-[#1E293B] transition hover:border-[#B45309] hover:text-[#B45309] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B45309] sm:w-auto"
+          >
+            {secondaryLinkLabel}
+            <ArrowRight class="h-5 w-5 shrink-0" aria-hidden="true" />
+          </a>
         </div>
-      ))
-    }
-
-    <!-- Dots (inside slides so absolute positioning works) -->
-    <!-- <div class="hc-dots" id="hcDots">
-      {
-        slides.map((_, i) => (
-          <button
-            class={`hc-dot ${i === 0 ? "hc-dot-active" : ""}`}
-            data-i={i}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))
-      }
-    </div> -->
-  </div>
-
-  <!-- Trust stats — overlay at bottom of hero -->
-  <!-- <div class="hc-trust">
-    <div class="hc-trust-row">
-      <div class="hc-stat">
-        <strong>22+</strong><span>Years Experience</span>
       </div>
-      <div class="hc-stat-sep"></div>
-      <div class="hc-stat">
-        <strong>1000+</strong><span>Cases Handled</span>
-      </div>
-      <div class="hc-stat-sep"></div>
-      <div class="hc-stat"><strong>95%</strong><span>Success Rate</span></div>
-      <div class="hc-stat-sep"></div>
-      <div class="hc-stat">
-        <strong>1000+</strong><span>Happy Clients</span>
+
+      <!-- Column 2: image placeholder or photo (stacks below on mobile) -->
+      <div class="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+        <div
+          class="relative overflow-hidden rounded-2xl border border-[#1E293B]/10 bg-white shadow-lg shadow-[#1E293B]/10 ring-1 ring-[#1E293B]/5"
+        >
+          {
+            heroImageUrl ? (
+              <img
+                src={heroImageUrl}
+                alt={heroImageAlt}
+                width={960}
+                height={1200}
+                class="aspect-[4/5] w-full object-cover object-top"
+                loading="eager"
+                decoding="async"
+              />
+            ) : (
+              <div
+                class="flex aspect-[4/5] w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#F8FAFC] to-[#E2E8F0]/80 px-6 text-center"
+                role="img"
+                aria-label={heroImageAlt}
+              >
+                {/* Replace `heroImageUrl` on <Hero /> with your AI-generated or professional asset URL */}
+                <span
+                  class="font-[family-name:var(--font-heading)] text-lg font-semibold text-[#1E293B]/70"
+                >
+                  Image placeholder
+                </span>
+                <span
+                  class="max-w-[24ch] font-[family-name:var(--font-body)] text-sm text-[#1E293B]/55"
+                >
+                  Pass <code class="rounded bg-[#1E293B]/10 px-1.5 py-0.5 text-xs">heroImageUrl</code> to display your
+                  professional photo.
+                </span>
+              </div>
+            )
+          }
+          <div
+            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1E293B]/20 via-transparent to-transparent"
+            aria-hidden="true"
+          ></div>
+        </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </section>
 
-<script>
-  function initCarousel() {
-    const container = document.getElementById("hcSlides");
-    const allSlides = document.querySelectorAll<HTMLElement>(".hc-slide");
-    const dots = document.querySelectorAll<HTMLElement>(".hc-dot");
-    if (!container || !allSlides.length) return;
-
-    // --- Carousel state ---
-    let cur = 0;
-    let locked = false;
-    let timer: ReturnType<typeof setInterval>;
-
-    // SLIDE TIMING — change this value (milliseconds)
-    const SLIDE_INTERVAL = 5000;
-
-    // Reset animation items for a slide (force re-trigger)
-    function resetAnimItems(slide: HTMLElement) {
-      slide.querySelectorAll<HTMLElement>(".hc-anim-item").forEach((el) => {
-        el.style.animation = "none";
-        // Force reflow
-        void el.offsetHeight;
-        el.style.animation = "";
-      });
+<style>
+  @keyframes hero-trust-in {
+    from {
+      opacity: 0;
+      transform: translateX(-1.25rem);
     }
 
-    // Reset Ken Burns on bg image
-    function resetKenBurns(slide: HTMLElement) {
-      const img = slide.querySelector<HTMLElement>(".hc-bg-img");
-      if (img) {
-        img.style.animation = "none";
-        void img.offsetHeight;
-        img.style.animation = "";
-      }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
-
-    function go(next: number) {
-      if (locked || next === cur) return;
-      locked = true;
-
-      const outSlide = allSlides[cur];
-      const inSlide = allSlides[next];
-
-      // Clear leftover classes
-      allSlides.forEach((s) =>
-        s.classList.remove("hc-active", "hc-enter", "hc-exit"),
-      );
-
-      // Reset animation items on incoming slide
-      resetAnimItems(inSlide);
-      resetKenBurns(inSlide);
-
-      // Animate
-      outSlide.classList.add("hc-exit");
-      inSlide.classList.add("hc-enter");
-
-      // Update dots
-      dots[cur]?.classList.remove("hc-dot-active");
-      dots[next]?.classList.add("hc-dot-active");
-
-      cur = next;
-
-      // Clean up after animation
-      setTimeout(() => {
-        allSlides.forEach((s) => s.classList.remove("hc-enter", "hc-exit"));
-        inSlide.classList.add("hc-active");
-        locked = false;
-      }, 780);
-    }
-
-    function advance() {
-      go((cur + 1) % allSlides.length);
-    }
-
-    function startTimer() {
-      clearInterval(timer);
-      timer = setInterval(advance, SLIDE_INTERVAL);
-    }
-
-    // Dot clicks
-    dots.forEach((d) =>
-      d.addEventListener("click", () => {
-        const i = Number(d.dataset.i);
-        go(i);
-        clearInterval(timer);
-        startTimer();
-      }),
-    );
-
-    // Pause on hover
-    const root = document.getElementById("heroCarousel");
-    root?.addEventListener("mouseenter", () => clearInterval(timer));
-    root?.addEventListener("mouseleave", startTimer);
-
-    // Trigger initial slide content animation
-    const firstSlide = allSlides[0];
-    if (firstSlide) {
-      resetAnimItems(firstSlide);
-      resetKenBurns(firstSlide);
-    }
-
-    // Start auto-play immediately
-    startTimer();
   }
 
-  // Run init — handle both pre- and post-DOMContentLoaded
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCarousel);
-  } else {
-    initCarousel();
+  .hero-trust-item {
+    opacity: 0;
+    animation: hero-trust-in 0.55s ease-out forwards;
+    animation-delay: calc(0.12s + var(--hero-i, 0) * 0.14s);
   }
-</script>
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-trust-item {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>

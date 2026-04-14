@@ -1,0 +1,191 @@
+---
+/**
+ * Hero Showcase Page
+ * =================
+ * Displays all 5 hero section variants for review and selection.
+ * Each variant is separated by a navigation helper.
+ */
+import Layout from "../layouts/Layout.astro";
+import HeroVariant1 from "../components/sections/HeroVariant1.astro";
+import HeroVariant2 from "../components/sections/HeroVariant2.astro";
+import HeroVariant3 from "../components/sections/HeroVariant3.astro";
+import HeroVariant4 from "../components/sections/HeroVariant4.astro";
+import HeroVariant5 from "../components/sections/HeroVariant5.astro";
+---
+
+<Layout
+  title="Hero Section Showcase — 5 Design Concepts"
+  description="Preview 5 unique hero section designs for the legal services website."
+>
+  <!-- Sticky navigation bar -->
+  <nav class="showcase-nav" aria-label="Hero variant navigation">
+    <div class="showcase-nav-inner">
+      <span class="showcase-nav-label">Hero Concepts:</span>
+      <a href="#hero-v1" class="showcase-nav-link">1 — Minimal</a>
+      <a href="#hero-v2" class="showcase-nav-link">2 — Bold</a>
+      <a href="#hero-v3" class="showcase-nav-link">3 — Glass</a>
+      <a href="#hero-v4" class="showcase-nav-link">4 — Luxury</a>
+      <a href="#hero-v5" class="showcase-nav-link">5 — Futuristic</a>
+      
+      <div style="margin-left: auto; display:flex; gap: 8px;">
+        <a href="/hero-showcase-light" class="showcase-nav-link" style="border-color: #d4af37; color: #d4af37;">Switch to Light Versions</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Variant 1: Minimal Elegance -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">01</span>
+      <span class="showcase-name">Minimal Elegance</span>
+      <span class="showcase-desc">Clean centered layout with floating geometry & gold underline</span>
+    </div>
+    <HeroVariant1 />
+  </div>
+
+  <!-- Variant 2: Bold Authority -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">02</span>
+      <span class="showcase-name">Bold Authority</span>
+      <span class="showcase-desc">Split-screen with dramatic typography & abstract pillars</span>
+    </div>
+    <HeroVariant2 />
+  </div>
+
+  <!-- Variant 3: Glassmorphic -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">03</span>
+      <span class="showcase-name">Glassmorphic</span>
+      <span class="showcase-desc">Frosted glass cards floating over morphing gradient blobs</span>
+    </div>
+    <HeroVariant3 />
+  </div>
+
+  <!-- Variant 4: Dark Luxury -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">04</span>
+      <span class="showcase-name">Dark Luxury</span>
+      <span class="showcase-desc">Cinematic elegance with gold shimmer text & scrolling ribbon</span>
+    </div>
+    <HeroVariant4 />
+  </div>
+
+  <!-- Variant 5: Futuristic / Anti-Gravity -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">05</span>
+      <span class="showcase-name">Futuristic Anti-Gravity</span>
+      <span class="showcase-desc">Particle grid, holographic text & levitating feature cards</span>
+    </div>
+    <HeroVariant5 />
+  </div>
+</Layout>
+
+<style>
+  /* Sticky navigation */
+  .showcase-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(5, 13, 26, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 0;
+  }
+
+  .showcase-nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .showcase-nav-inner::-webkit-scrollbar { display: none; }
+
+  .showcase-nav-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(212, 175, 55, 0.6);
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .showcase-nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .showcase-nav-link:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.06);
+  }
+
+  /* Section labels */
+  .showcase-section {
+    position: relative;
+  }
+
+  .showcase-label {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 18px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
+  .showcase-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #d4af37;
+    line-height: 1;
+  }
+
+  .showcase-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .showcase-desc {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.45);
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .showcase-desc { display: inline; }
+    .showcase-label { top: 70px; left: 30px; }
+  }
+</style>

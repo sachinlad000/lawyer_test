@@ -217,7 +217,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header--transparent .nav-link:hover {
-    color: white;
+    color: var(--color-primary-900);
   }
 
   .header--transparent .nav-link::after {
@@ -238,7 +238,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header--transparent .mobile-menu-toggle {
-    color: white;
+    color: var(--color-primary-900);
   }
 
   .header--transparent .dropdown-menu {
@@ -545,7 +545,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     // Navbar transparent → solid on scroll
     // ====================================
     const header = document.getElementById("siteHeader");
-    const heroSection = document.querySelector(".hero-carousel");
+    const heroSection = document.getElementById("site-hero");
 
     if (header && heroSection) {
       const observer = new IntersectionObserver(

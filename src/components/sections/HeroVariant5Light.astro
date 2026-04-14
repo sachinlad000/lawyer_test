@@ -1,0 +1,167 @@
+---
+/**
+ * Hero Variant 5 Light: "Futuristic Anti-Gravity"
+ * Ultra-clean white interface, subtle silver grids, 
+ * bright UI elements popping out with extreme levitation.
+ */
+---
+
+<section id="hero-v5-light" class="hv5L" aria-labelledby="hv5L-heading">
+  <!-- Subtle line grid -->
+  <div class="hv5L-grid"></div>
+
+  <div class="hv5L-container">
+    <div class="hv5L-main">
+      <div class="hv5L-tag hv5L-anim" data-delay="0">
+        <span class="hv5L-pulse-dot"></span> NEXT-GEN LEGAL
+      </div>
+
+      <h1 id="hv5L-heading" class="hv5L-title hv5L-anim" data-delay="1">
+        The Future Of <br/><span class="hv5L-title-blue">Legal Excellence</span>
+      </h1>
+
+      <p class="hv5L-desc hv5L-anim" data-delay="2">
+        Combining decades of legal expertise with a forward-thinking approach to deliver justice. 22+ years of results-driven practice.
+      </p>
+
+      <div class="hv5L-metrics hv5L-anim" data-delay="3">
+        <div class="hv5L-metric"><strong>22+</strong><span>Years</span></div>
+        <div class="hv5L-metric"><strong>500+</strong><span>Won</span></div>
+        <div class="hv5L-metric"><strong>98%</strong><span>Success</span></div>
+      </div>
+
+      <div class="hv5L-actions hv5L-anim" data-delay="4">
+        <a href="/contact" class="hv5L-btn">Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Heavily animated 3D cards -->
+    <div class="hv5L-fleet">
+      <div class="hv5L-card hv5L-c1" style="--delay: 0s;">
+        <div class="hv5L-c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0a2463" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="hv5L-c-txt">Trusted Advisor</div>
+      </div>
+      
+      <div class="hv5L-card hv5L-c2" style="--delay: 1.5s;">
+        <div class="hv5L-c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="hv5L-c-txt">22+ Years</div>
+      </div>
+      
+      <div class="hv5L-card hv5L-c3" style="--delay: 0.8s;">
+        <div class="hv5L-c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><polygon points="12 2 15 8 22 9 17 14 18 21 12 17 5 21 7 14 2 9 8 8 12 2"/></svg></div>
+        <div class="hv5L-c-txt">Excellent Results</div>
+      </div>
+      
+      <div class="hv5L-card hv5L-c4" style="--delay: 2s;">
+        <div class="hv5L-c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="hv5L-c-txt">Client-Centric</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hv5L {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: #ffffff;
+    color: #0f172a;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hv5L-grid {
+    position: absolute; inset:0; z-index:0;
+    background-image: linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+    transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+    transform-origin: top;
+    animation: hv5LPerspectiveGrid 20s linear infinite;
+  }
+
+  @keyframes hv5LPerspectiveGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 50px; }
+  }
+
+  .hv5L-container {
+    max-width: 1400px;
+    margin: 0 auto; width: 100%;
+    padding: 6rem 2rem;
+    display: grid; grid-template-columns: 1fr;
+    gap: 4rem; position: relative; z-index: 2;
+  }
+  @media(min-width:1024px) { .hv5L-container { grid-template-columns: 1fr 1fr; align-items: center; } }
+
+  .hv5L-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px; background: #eff6ff; border-radius: 8px;
+    font-size: 0.8rem; font-weight: 700; color: #1d4ed8;
+    margin-bottom: 2rem; border: 1px solid #bfdbfe;
+  }
+  .hv5L-pulse-dot { width:8px; height:8px; border-radius: 50%; background: #3b82f6; animation: hv5LPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+  @keyframes hv5LPing { 75%, 100% { transform: scale(2); opacity: 0; } }
+
+  .hv5L-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+  .hv5L-title-blue { color: #1d4ed8; }
+
+  .hv5L-desc { font-size: 1.15rem; color: #64748b; line-height: 1.6; max-width: 500px; margin-bottom: 2.5rem; }
+
+  .hv5L-metrics { display: flex; gap: 32px; margin-bottom: 3rem; }
+  .hv5L-metric strong { display: block; font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 800; color: #0f172a; line-height: 1; margin-bottom: 4px; }
+  .hv5L-metric span { font-size: 0.85rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; }
+
+  .hv5L-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 16px 36px; background: #0f172a; color: #fff;
+    font-weight: 700; border-radius: 12px; transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(15,23,42,0.2);
+  }
+  .hv5L-btn:hover { background: #1d4ed8; transform: translateY(-4px); box-shadow: 0 15px 35px rgba(29,78,216,0.3); }
+
+  .hv5L-fleet {
+    position: relative; height: 500px; perspective: 1000px; display: none;
+  }
+  @media(min-width:1024px) { .hv5L-fleet { display: block; } }
+
+  .hv5L-card {
+    position: absolute;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #f1f5f9;
+    padding: 24px; border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,1) inset;
+    display: flex; align-items: center; gap: 16px;
+    backdrop-filter: blur(10px);
+    animation: hv5LAntiGrav 6s ease-in-out infinite;
+    animation-delay: var(--delay);
+    will-change: transform; margin-left: 20px;
+  }
+
+  .hv5L-c-icon { width: 48px; height: 48px; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; }
+  .hv5L-c-txt { font-weight: 700; font-size: 1.1rem; color: #0f172a; }
+
+  .hv5L-c1 { top: 10%; right: 10%; z-index: 4; }
+  .hv5L-c2 { top: 40%; left: 0%; z-index: 3; }
+  .hv5L-c3 { top: 60%; right: 5%; z-index: 2; }
+  .hv5L-c4 { bottom: 0%; left: 20%; z-index: 5; }
+
+  @keyframes hv5LAntiGrav {
+    0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(-5deg); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+    50% { transform: translateY(-25px) rotateX(0deg) rotateY(0deg) scale(1.05); box-shadow: 0 35px 50px rgba(0,0,0,0.12); }
+  }
+
+  .hv5L-card:hover { animation-play-state: paused; transform: scale(1.1) translateZ(50px) !important; z-index: 10; cursor: pointer;}
+
+  .hv5L-anim { opacity:0; transform: translateX(-30px); animation: hv5LSlide 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+  .hv5L-anim[data-delay="0"] { animation-delay: 0.1s; }
+  .hv5L-anim[data-delay="1"] { animation-delay: 0.2s; }
+  .hv5L-anim[data-delay="2"] { animation-delay: 0.3s; }
+  .hv5L-anim[data-delay="3"] { animation-delay: 0.4s; }
+  .hv5L-anim[data-delay="4"] { animation-delay: 0.5s; }
+
+  @keyframes hv5LSlide { to { opacity:1; transform: translateX(0); } }
+  @media(prefers-reduced-motion:reduce){ .hv5L-anim, .hv5L-card, .hv5L-pulse-dot { animation: none; transform:none; opacity:1; } }
+</style>

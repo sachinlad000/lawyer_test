@@ -1,0 +1,451 @@
+---
+/**
+ * Hero Variant 3: "Glassmorphic"
+ * Layered glassmorphism cards floating over a moving gradient backdrop.
+ * Features shown as separate glass cards with hover glow effects.
+ * Breathable, modern, premium feel.
+ */
+---
+
+<section id="hero-v3" class="hv3" aria-labelledby="hv3-heading">
+  <!-- Animated gradient canvas -->
+  <div class="hv3-canvas" aria-hidden="true">
+    <div class="hv3-blob hv3-blob-1"></div>
+    <div class="hv3-blob hv3-blob-2"></div>
+    <div class="hv3-blob hv3-blob-3"></div>
+    <div class="hv3-blob hv3-blob-4"></div>
+  </div>
+
+  <!-- Noise texture overlay -->
+  <div class="hv3-noise" aria-hidden="true"></div>
+
+  <!-- Main content -->
+  <div class="hv3-wrapper">
+    <!-- Top glass panel: Badge + Title -->
+    <div class="hv3-main-card hv3-anim" data-delay="0">
+      <div class="hv3-card-inner">
+        <div class="hv3-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Trusted Since 2002</span>
+        </div>
+
+        <h1 id="hv3-heading" class="hv3-title">
+          Your Trusted<br/>
+          <span class="hv3-title-glow">Legal Advisor</span>
+        </h1>
+
+        <p class="hv3-desc">
+          With 22+ years of dedicated legal practice, we deliver results that speak excellence while keeping your interests at the heart of everything we do.
+        </p>
+
+        <div class="hv3-actions">
+          <a href="/contact" class="hv3-btn-gold">
+            Get Consultation
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/practice-areas" class="hv3-btn-glass">
+            Our Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Decorative ring -->
+      <div class="hv3-ring" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="95" stroke="url(#hv3-ring-grad)" stroke-width="1" stroke-dasharray="6 4"/>
+          <defs>
+            <linearGradient id="hv3-ring-grad" x1="0" y1="0" x2="200" y2="200">
+              <stop offset="0%" stop-color="rgba(212,175,55,0.4)"/>
+              <stop offset="50%" stop-color="rgba(212,175,55,0.1)"/>
+              <stop offset="100%" stop-color="rgba(212,175,55,0.4)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Feature glass cards -->
+    <div class="hv3-cards">
+      <div class="hv3-feature-card hv3-anim" data-delay="1">
+        <div class="hv3-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span class="hv3-card-label">Trusted Legal Advisor</span>
+        <div class="hv3-card-shine"></div>
+      </div>
+
+      <div class="hv3-feature-card hv3-anim" data-delay="2">
+        <div class="hv3-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="hv3-card-label">22+ Years of Experience</span>
+        <div class="hv3-card-shine"></div>
+      </div>
+
+      <div class="hv3-feature-card hv3-anim" data-delay="3">
+        <div class="hv3-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <span class="hv3-card-label">Results That Speak Excellence</span>
+        <div class="hv3-card-shine"></div>
+      </div>
+
+      <div class="hv3-feature-card hv3-anim" data-delay="4">
+        <div class="hv3-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <span class="hv3-card-label">Client-Centric Approach</span>
+        <div class="hv3-card-shine"></div>
+      </div>
+
+      <div class="hv3-feature-card hv3-anim" data-delay="5">
+        <div class="hv3-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <span class="hv3-card-label">Committed to Legal Awareness</span>
+        <div class="hv3-card-shine"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== VARIANT 3: GLASSMORPHIC ===== */
+  .hv3 {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #040c18;
+    color: #fff;
+    overflow: hidden;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  /* Animated blob background */
+  .hv3-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hv3-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    will-change: transform;
+  }
+
+  .hv3-blob-1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(10, 36, 99, 0.7);
+    top: -10%;
+    left: -10%;
+    animation: hv3Morph 18s ease-in-out infinite;
+  }
+
+  .hv3-blob-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(212, 175, 55, 0.2);
+    top: 50%;
+    right: -5%;
+    animation: hv3Morph 22s ease-in-out infinite reverse;
+  }
+
+  .hv3-blob-3 {
+    width: 350px;
+    height: 350px;
+    background: rgba(30, 60, 114, 0.6);
+    bottom: -5%;
+    left: 30%;
+    animation: hv3Morph 20s ease-in-out infinite 5s;
+  }
+
+  .hv3-blob-4 {
+    width: 250px;
+    height: 250px;
+    background: rgba(212, 175, 55, 0.1);
+    top: 20%;
+    left: 50%;
+    animation: hv3Morph 16s ease-in-out infinite 3s;
+  }
+
+  @keyframes hv3Morph {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 50%; }
+    25% { transform: translate(40px, -30px) scale(1.1) rotate(5deg); border-radius: 45% 55% 50% 50%; }
+    50% { transform: translate(-30px, 40px) scale(0.9) rotate(-5deg); border-radius: 55% 45% 55% 45%; }
+    75% { transform: translate(30px, 30px) scale(1.05) rotate(3deg); border-radius: 50% 50% 45% 55%; }
+  }
+
+  /* Noise overlay */
+  .hv3-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px;
+  }
+
+  /* Wrapper */
+  .hv3-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  /* Main glass card */
+  .hv3-main-card {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .hv3-card-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Decorative ring */
+  .hv3-ring {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    animation: hv3RingSpin 30s linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes hv3RingSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Badge */
+  .hv3-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 999px;
+    color: #d4af37;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Title */
+  .hv3-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+    color: #fff;
+  }
+
+  .hv3-title-glow {
+    color: #d4af37;
+    position: relative;
+    text-shadow: 0 0 80px rgba(212, 175, 55, 0.4);
+  }
+
+  /* Description */
+  .hv3-desc {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+  }
+
+  /* Actions */
+  .hv3-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hv3-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #d4af37, #c49a2a);
+    color: #050d1a;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+  }
+
+  .hv3-btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+    color: #050d1a;
+  }
+
+  .hv3-btn-glass {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 14px;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .hv3-btn-glass:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    color: #d4af37;
+    transform: translateY(-3px);
+    background: rgba(212, 175, 55, 0.06);
+  }
+
+  /* Feature cards grid */
+  .hv3-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  @media (min-width: 768px) {
+    .hv3-cards {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .hv3-feature-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    text-align: center;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    cursor: default;
+  }
+
+  .hv3-feature-card:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    background: rgba(212, 175, 55, 0.06);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15);
+  }
+
+  .hv3-card-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 14px;
+    color: #d4af37;
+    transition: all 0.3s ease;
+  }
+
+  .hv3-feature-card:hover .hv3-card-icon {
+    background: rgba(212, 175, 55, 0.2);
+    transform: scale(1.1);
+  }
+
+  .hv3-card-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.3;
+  }
+
+  /* Shine effect on hover */
+  .hv3-card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .hv3-feature-card:hover .hv3-card-shine {
+    left: 100%;
+  }
+
+  /* Animations */
+  .hv3-anim {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: hv3PopIn 0.7s ease-out forwards;
+  }
+
+  .hv3-anim[data-delay="0"] { animation-delay: 0.2s; }
+  .hv3-anim[data-delay="1"] { animation-delay: 0.5s; }
+  .hv3-anim[data-delay="2"] { animation-delay: 0.65s; }
+  .hv3-anim[data-delay="3"] { animation-delay: 0.8s; }
+  .hv3-anim[data-delay="4"] { animation-delay: 0.95s; }
+  .hv3-anim[data-delay="5"] { animation-delay: 1.1s; }
+
+  @keyframes hv3PopIn {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hv3 { padding: 5rem 1rem 3rem; }
+    .hv3-main-card { padding: 2rem 1.5rem; border-radius: 20px; }
+    .hv3-ring { display: none; }
+    .hv3-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 400px) {
+    .hv3-cards { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv3-anim { animation: none; opacity: 1; transform: none; }
+    .hv3-blob, .hv3-ring { animation: none; }
+  }
+</style>

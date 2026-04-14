@@ -1,0 +1,442 @@
+---
+/**
+ * Hero Variant 1: "Minimal Elegance"
+ * Clean centered layout, animated gold underline, floating geometric accents.
+ * Sophisticated minimalism with generous whitespace and subtle motion.
+ */
+---
+
+<section id="hero-v1" class="hv1" aria-labelledby="hv1-heading">
+  <!-- Animated gradient background -->
+  <div class="hv1-bg" aria-hidden="true">
+    <div class="hv1-gradient-orb hv1-orb-1"></div>
+    <div class="hv1-gradient-orb hv1-orb-2"></div>
+    <div class="hv1-gradient-orb hv1-orb-3"></div>
+  </div>
+
+  <!-- Floating geometric shapes -->
+  <div class="hv1-shapes" aria-hidden="true">
+    <div class="hv1-shape hv1-shape-1">
+      <svg viewBox="0 0 80 80" fill="none"><polygon points="40,5 75,65 5,65" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>
+    </div>
+    <div class="hv1-shape hv1-shape-2">
+      <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="currentColor" stroke-width="1" opacity="0.2"/></svg>
+    </div>
+    <div class="hv1-shape hv1-shape-3">
+      <svg viewBox="0 0 100 100" fill="none"><rect x="10" y="10" width="80" height="80" stroke="currentColor" stroke-width="1" opacity="0.15" transform="rotate(45 50 50)"/></svg>
+    </div>
+    <div class="hv1-shape hv1-shape-4">
+      <!-- Scales of Justice silhouette -->
+      <svg viewBox="0 0 120 120" fill="none" opacity="0.08">
+        <line x1="60" y1="15" x2="60" y2="100" stroke="currentColor" stroke-width="2"/>
+        <line x1="25" y1="40" x2="95" y2="40" stroke="currentColor" stroke-width="2"/>
+        <circle cx="25" cy="55" r="15" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="95" cy="55" r="15" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="50" y="95" width="20" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="hv1-content">
+    <div class="hv1-badge hv1-anim" data-delay="0">
+      <span class="hv1-badge-dot"></span>
+      <span>Established Legal Practice</span>
+    </div>
+
+    <h1 id="hv1-heading" class="hv1-title hv1-anim" data-delay="1">
+      Trusted Legal<br/>
+      <span class="hv1-title-accent">Advisor</span>
+    </h1>
+
+    <p class="hv1-subtitle hv1-anim" data-delay="2">
+      22+ Years of unwavering commitment to legal excellence
+    </p>
+
+    <!-- Feature bullets -->
+    <ul class="hv1-features hv1-anim" data-delay="3" role="list">
+      <li class="hv1-feature">
+        <span class="hv1-feature-bar"></span>
+        <span>Trusted Legal Advisor</span>
+      </li>
+      <li class="hv1-feature">
+        <span class="hv1-feature-bar"></span>
+        <span>22+ Years of Experience</span>
+      </li>
+      <li class="hv1-feature">
+        <span class="hv1-feature-bar"></span>
+        <span>Results That Speak Excellence</span>
+      </li>
+      <li class="hv1-feature">
+        <span class="hv1-feature-bar"></span>
+        <span>Client-Centric Approach</span>
+      </li>
+      <li class="hv1-feature">
+        <span class="hv1-feature-bar"></span>
+        <span>Committed to Legal Awareness</span>
+      </li>
+    </ul>
+
+    <div class="hv1-actions hv1-anim" data-delay="4">
+      <a href="/contact" class="hv1-btn-primary">
+        Get Consultation
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/practice-areas" class="hv1-btn-ghost">
+        Explore Services
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hv1-scroll" aria-hidden="true">
+    <div class="hv1-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<style>
+  /* ===== VARIANT 1: MINIMAL ELEGANCE ===== */
+  .hv1 {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #050d1a;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  /* Animated gradient orbs */
+  .hv1-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hv1-gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    will-change: transform;
+  }
+
+  .hv1-orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(10, 36, 99, 0.6) 0%, transparent 70%);
+    top: -200px;
+    left: -100px;
+    animation: hv1Float 20s ease-in-out infinite;
+  }
+
+  .hv1-orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    bottom: -150px;
+    right: -100px;
+    animation: hv1Float 25s ease-in-out infinite reverse;
+  }
+
+  .hv1-orb-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(10, 36, 99, 0.4) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: hv1Float 18s ease-in-out infinite 3s;
+  }
+
+  @keyframes hv1Float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -20px) scale(1.05); }
+    50% { transform: translate(-20px, 30px) scale(0.95); }
+    75% { transform: translate(20px, 20px) scale(1.02); }
+  }
+
+  /* Floating shapes */
+  .hv1-shapes {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hv1-shape {
+    position: absolute;
+    color: #d4af37;
+  }
+
+  .hv1-shape-1 {
+    width: 80px;
+    top: 15%;
+    left: 8%;
+    animation: hv1ShapeFloat 12s ease-in-out infinite;
+  }
+
+  .hv1-shape-2 {
+    width: 60px;
+    top: 25%;
+    right: 12%;
+    animation: hv1ShapeFloat 15s ease-in-out infinite 2s;
+  }
+
+  .hv1-shape-3 {
+    width: 100px;
+    bottom: 20%;
+    left: 15%;
+    animation: hv1ShapeFloat 18s ease-in-out infinite 4s;
+  }
+
+  .hv1-shape-4 {
+    width: 140px;
+    bottom: 25%;
+    right: 8%;
+    animation: hv1ShapeFloat 14s ease-in-out infinite 1s;
+  }
+
+  @keyframes hv1ShapeFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(5deg); }
+    66% { transform: translateY(15px) rotate(-3deg); }
+  }
+
+  /* Content */
+  .hv1-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Badge */
+  .hv1-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #d4af37;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .hv1-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d4af37;
+    animation: hv1Pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes hv1Pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  /* Title */
+  .hv1-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+    color: #fff;
+  }
+
+  .hv1-title-accent {
+    color: #d4af37;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hv1-title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, transparent);
+    animation: hv1Underline 1.5s ease-out 1.2s forwards;
+  }
+
+  @keyframes hv1Underline {
+    to { width: 100%; }
+  }
+
+  /* Subtitle */
+  .hv1-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 2.5rem;
+    line-height: 1.6;
+  }
+
+  /* Features */
+  .hv1-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .hv1-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  .hv1-feature:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(212, 175, 55, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .hv1-feature-bar {
+    width: 3px;
+    height: 16px;
+    background: #d4af37;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Actions */
+  .hv1-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hv1-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #d4af37 0%, #c49a2a 100%);
+    color: #050d1a;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  }
+
+  .hv1-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+    color: #050d1a;
+  }
+
+  .hv1-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 32px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .hv1-btn-ghost:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+    transform: translateY(-3px);
+    background: rgba(212, 175, 55, 0.05);
+  }
+
+  /* Scroll indicator */
+  .hv1-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  .hv1-scroll span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .hv1-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.6), transparent);
+    animation: hv1ScrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes hv1ScrollLine {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.5); opacity: 0.3; }
+  }
+
+  /* Animations */
+  .hv1-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: hv1FadeUp 0.8s ease-out forwards;
+  }
+
+  .hv1-anim[data-delay="0"] { animation-delay: 0.2s; }
+  .hv1-anim[data-delay="1"] { animation-delay: 0.4s; }
+  .hv1-anim[data-delay="2"] { animation-delay: 0.6s; }
+  .hv1-anim[data-delay="3"] { animation-delay: 0.8s; }
+  .hv1-anim[data-delay="4"] { animation-delay: 1s; }
+
+  @keyframes hv1FadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hv1 { padding: 5rem 1rem 3rem; }
+    .hv1-shape { display: none; }
+    .hv1-features { gap: 8px; }
+    .hv1-feature { font-size: 0.8rem; padding: 6px 12px; }
+    .hv1-scroll { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv1-anim { animation: none; opacity: 1; transform: none; }
+    .hv1-gradient-orb, .hv1-shape, .hv1-scroll-line, .hv1-badge-dot { animation: none; }
+    .hv1-title-accent::after { width: 100%; animation: none; }
+  }
+</style>

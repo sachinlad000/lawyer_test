@@ -1,0 +1,361 @@
+---
+/**
+ * Hero Variant 2 Light: "Bold Authority"
+ * High contrast left/right split. Left side is clean white,
+ * Right side has large abstract flowing animations.
+ */
+---
+
+<section id="hero-v2-light" class="hv2L" aria-labelledby="hv2L-heading">
+  <div class="hv2L-container">
+    <!-- Left Column: Content -->
+    <div class="hv2L-left">
+      <div class="hv2L-eyebrow hv2L-anim" data-delay="0">
+        <span class="hv2L-eyebrow-line"></span>
+        <span class="hv2L-eyebrow-text">EST. 2002</span>
+      </div>
+
+      <h1 id="hv2L-heading" class="hv2L-title hv2L-anim" data-delay="1">
+        <span class="hv2L-title-row">Justice.</span>
+        <span class="hv2L-title-row">Integrity.</span>
+        <span class="hv2L-title-row hv2L-gold">Excellence.</span>
+      </h1>
+
+      <div class="hv2L-features hv2L-anim" data-delay="2">
+        <div class="hv2L-feature item-1">
+          <div class="hv2L-num">01</div>
+          <div class="hv2L-feat-text">Trusted Legal Advisor</div>
+        </div>
+        <div class="hv2L-feature item-2">
+          <div class="hv2L-num">02</div>
+          <div class="hv2L-feat-text">22+ Years Experience</div>
+        </div>
+        <div class="hv2L-feature item-3">
+          <div class="hv2L-num">03</div>
+          <div class="hv2L-feat-text">Results That Speak</div>
+        </div>
+      </div>
+
+      <div class="hv2L-actions hv2L-anim" data-delay="3">
+        <a href="/contact" class="hv2L-btn-primary">
+          Get Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Animated Visuals -->
+    <div class="hv2L-right">
+      <div class="hv2L-visual-bg"></div>
+      
+      <!-- Staggered floating cards -->
+      <div class="hv2L-cards-container">
+        <div class="hv2L-float-card card-top">
+          <div class="hv2L-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <strong>Client-Centric</strong>
+            <span>Your needs drive our strategy</span>
+          </div>
+        </div>
+
+        <div class="hv2L-float-card card-mid">
+          <div class="hv2L-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <strong>Legal Awareness</strong>
+            <span>Empowering informed decisions</span>
+          </div>
+        </div>
+        
+        <div class="hv2L-float-card card-bottom">
+           <div class="hv2L-icon">
+             <svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+           </div>
+           <div>
+             <strong>22+ Years</strong>
+             <span>Proven track record</span>
+           </div>
+        </div>
+      </div>
+      
+      <!-- Rotating abstract rings -->
+      <div class="hv2L-rings">
+        <div class="hv2L-ring hv2L-r1"></div>
+        <div class="hv2L-ring hv2L-r2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hv2L {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: #f8fafc;
+    color: #0a2463;
+    overflow: hidden;
+    padding: 6rem 0 3rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .hv2L-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hv2L-container { grid-template-columns: 1.2fr 1fr; }
+  }
+
+  /* Left Side */
+  .hv2L-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .hv2L-eyebrow-line {
+    width: 40px;
+    height: 3px;
+    background: #d4af37;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hv2L-eyebrow-line::after {
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: #fff;
+    transform: translateX(-100%);
+    animation: hv2LShineLine 2s infinite;
+  }
+
+  @keyframes hv2LShineLine {
+    100% { transform: translateX(100%); }
+  }
+
+  .hv2L-eyebrow-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #d4af37;
+  }
+
+  .hv2L-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0 0 3rem;
+  }
+
+  .hv2L-title-row {
+    display: block;
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: #0a2463;
+  }
+
+  .hv2L-gold {
+    color: #d4af37;
+  }
+
+  .hv2L-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 3rem;
+    border-left: 2px solid rgba(10,36,99,0.1);
+    padding-left: 20px;
+  }
+
+  .hv2L-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .hv2L-feature:hover {
+    transform: scale(1.05);
+  }
+
+  .hv2L-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #d4af37;
+  }
+
+  .hv2L-feat-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .hv2L-actions {
+    display: flex;
+  }
+
+  .hv2L-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: #0a2463;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hv2L-btn-primary::before {
+    content:'';
+    position: absolute;
+    inset:0;
+    background: #d4af37;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.8,0,0.2,1);
+    z-index: 0;
+  }
+  
+  .hv2L-btn-primary:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .hv2L-btn-primary > * { position: relative; z-index: 1; }
+  .hv2L-btn-primary:hover { color: #0a2463; }
+
+  /* Right Side Visuals */
+  .hv2L-right {
+    position: relative;
+    height: 600px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(10,36,99,0.05);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hv2L-visual-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(10,36,99,0.05) 100%);
+    opacity: 0.5;
+  }
+
+  .hv2L-cards-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hv2L-float-card {
+    position: absolute;
+    background: #fff;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(10,36,99,0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(212,175,55,0.2);
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hv2L-float-card:hover {
+    z-index: 10;
+    transform: scale(1.05) !important;
+  }
+
+  .hv2L-float-card strong { display: block; color: #0a2463; font-size: 1rem; margin-bottom: 4px; }
+  .hv2L-float-card span { font-size: 0.8rem; color: #64748b; }
+  
+  .hv2L-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(212,175,55,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .card-top {
+    top: 20%; right: 10%;
+    animation: hv2LBounce 6s ease-in-out infinite;
+  }
+  .card-mid {
+    top: 45%; left: 10%;
+    animation: hv2LBounce 7s ease-in-out infinite 1s;
+  }
+  .card-bottom {
+    bottom: 20%; right: 20%;
+    animation: hv2LBounce 5s ease-in-out infinite 2s;
+  }
+
+  @keyframes hv2LBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .hv2L-rings { position: absolute; inset:0; z-index:1; overflow: hidden; pointer-events: none; }
+  .hv2L-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px dashed rgba(212,175,55,0.3);
+  }
+  .hv2L-r1 {
+    width: 800px; height: 800px;
+    top: 50%; left: 50%;
+    margin-top: -400px; margin-left: -400px;
+    animation: hv2LSpin 60s linear infinite;
+  }
+  .hv2L-r2 {
+    width: 600px; height: 600px;
+    top: 50%; left: 50%;
+    margin-top: -300px; margin-left: -300px;
+    border-style: dotted;
+    animation: hv2LSpin 40s linear infinite reverse;
+  }
+  
+  @keyframes hv2LSpin { 100% { transform: rotate(360deg); } }
+
+  .hv2L-anim {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: hv2LSlide 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  .hv2L-anim[data-delay="0"] { animation-delay: 0.1s; }
+  .hv2L-anim[data-delay="1"] { animation-delay: 0.3s; }
+  .hv2L-anim[data-delay="2"] { animation-delay: 0.5s; }
+  .hv2L-anim[data-delay="3"] { animation-delay: 0.7s; }
+
+  @keyframes hv2LSlide { to { opacity: 1; transform: translateX(0); } }
+
+  @media(max-width:1023px) {
+    .hv2L-right { display: none; }
+    .hv2L { padding-top: 8rem; }
+  }
+  @media(prefers-reduced-motion:reduce){
+    .hv2L-anim, .hv2L-ring, .hv2L-float-card { animation: none; transform:none; opacity:1; }
+  }
+</style>
