@@ -1,0 +1,469 @@
+---
+/**
+ * Hero Variant 7 Light: "Portfolio Style"
+ * Personal branding hero with name, title, avatar placeholder,
+ * short intro, social links, and a strong CTA.
+ * Clean, elegant, personal touch.
+ */
+---
+
+<section id="hero-v7-light" class="hv7L" aria-labelledby="hv7L-heading">
+  <!-- Subtle geometric background -->
+  <div class="hv7L-bg" aria-hidden="true">
+    <div class="hv7L-circle hv7L-c1"></div>
+    <div class="hv7L-circle hv7L-c2"></div>
+    <div class="hv7L-line hv7L-l1"></div>
+    <div class="hv7L-line hv7L-l2"></div>
+  </div>
+
+  <div class="hv7L-container">
+    <!-- Left: Avatar & Social -->
+    <div class="hv7L-visual hv7L-anim" data-delay="0">
+      <div class="hv7L-avatar-wrap">
+        <div class="hv7L-avatar-ring"></div>
+        <div class="hv7L-avatar">
+          <!-- Initials fallback -->
+          <span class="hv7L-initials">PP</span>
+          <!-- Decorative corner accents -->
+          <div class="hv7L-avatar-corner hv7L-corner-tl"></div>
+          <div class="hv7L-avatar-corner hv7L-corner-br"></div>
+        </div>
+        <!-- Status indicator -->
+        <div class="hv7L-status">
+          <span class="hv7L-status-dot"></span>
+          Available for Consultation
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="hv7L-socials hv7L-anim" data-delay="3">
+        <a href="#" class="hv7L-social" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="hv7L-social" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.7 16h4.3L8.3 4H4z"/><path d="M4 20l6.5-8"/><path d="M20 4l-6.5 8"/></svg>
+        </a>
+        <a href="#" class="hv7L-social" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+        </a>
+        <a href="#" class="hv7L-social" aria-label="Phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Text Content -->
+    <div class="hv7L-text">
+      <div class="hv7L-eyebrow hv7L-anim" data-delay="1">
+        <span class="hv7L-eyebrow-line"></span>
+        <span>Advocate & Legal Consultant</span>
+      </div>
+
+      <h1 id="hv7L-heading" class="hv7L-title hv7L-anim" data-delay="1">
+        <span class="hv7L-name-first">Pradnya</span>
+        <span class="hv7L-name-last">Pednekar</span>
+      </h1>
+
+      <p class="hv7L-intro hv7L-anim" data-delay="2">
+        With over <strong>22 years</strong> of dedicated legal practice, I provide expert counsel
+        across civil, criminal, family, and property law. My commitment — protect
+        your rights with integrity and precision.
+      </p>
+
+      <!-- Specialization tags -->
+      <div class="hv7L-tags hv7L-anim" data-delay="2">
+        <span class="hv7L-tag">Civil Law</span>
+        <span class="hv7L-tag">Criminal Defense</span>
+        <span class="hv7L-tag">Family Law</span>
+        <span class="hv7L-tag">Property Law</span>
+        <span class="hv7L-tag">Corporate Law</span>
+      </div>
+
+      <div class="hv7L-actions hv7L-anim" data-delay="3">
+        <a href="/contact" class="hv7L-btn-primary">
+          Book Consultation
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/about" class="hv7L-btn-ghost">
+          View Full Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hv7L {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    overflow: hidden;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  /* Background elements */
+  .hv7L-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hv7L-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(10, 36, 99, 0.04);
+  }
+
+  .hv7L-c1 {
+    width: 800px; height: 800px;
+    top: -200px; right: -200px;
+    animation: hv7LPulseCircle 20s ease-in-out infinite;
+  }
+
+  .hv7L-c2 {
+    width: 500px; height: 500px;
+    bottom: -100px; left: -100px;
+    border-color: rgba(212, 175, 55, 0.06);
+    animation: hv7LPulseCircle 16s ease-in-out infinite 3s;
+  }
+
+  @keyframes hv7LPulseCircle {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.5; }
+  }
+
+  .hv7L-line {
+    position: absolute;
+    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.08), transparent);
+    width: 1px;
+  }
+
+  .hv7L-l1 { height: 100%; top: 0; left: 25%; }
+  .hv7L-l2 { height: 100%; top: 0; left: 75%; }
+
+  /* Container */
+  .hv7L-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (min-width: 1024px) {
+    .hv7L-container { grid-template-columns: auto 1fr; gap: 5rem; }
+  }
+
+  /* Visual / Avatar area */
+  .hv7L-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hv7L-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hv7L-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 32px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(10, 36, 99, 0.08);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hv7L-avatar:hover {
+    transform: scale(1.03);
+  }
+
+  .hv7L-avatar-ring {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 36px;
+    border: 2px dashed rgba(212, 175, 55, 0.25);
+    animation: hv7LSpin 30s linear infinite;
+  }
+
+  @keyframes hv7LSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  .hv7L-initials {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #0a2463;
+    opacity: 0.15;
+  }
+
+  .hv7L-avatar-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: #d4af37;
+    border-style: solid;
+    border-width: 0;
+  }
+
+  .hv7L-corner-tl {
+    top: 12px; left: 12px;
+    border-top-width: 3px;
+    border-left-width: 3px;
+    border-top-left-radius: 8px;
+  }
+
+  .hv7L-corner-br {
+    bottom: 12px; right: 12px;
+    border-bottom-width: 3px;
+    border-right-width: 3px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .hv7L-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #059669;
+    padding: 8px 16px;
+    background: #ecfdf5;
+    border-radius: 999px;
+    border: 1px solid #a7f3d0;
+  }
+
+  .hv7L-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #059669;
+    animation: hv7LPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes hv7LPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Social links */
+  .hv7L-socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  .hv7L-social {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    border: 1px solid rgba(10, 36, 99, 0.08);
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hv7L-social svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hv7L-social:hover {
+    background: #0a2463;
+    color: #fff;
+    border-color: #0a2463;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(10, 36, 99, 0.2);
+  }
+
+  /* Text content */
+  .hv7L-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hv7L-eyebrow-line {
+    width: 40px;
+    height: 3px;
+    background: #d4af37;
+    border-radius: 2px;
+  }
+
+  .hv7L-eyebrow span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #d4af37;
+  }
+
+  .hv7L-title {
+    margin: 0 0 1.5rem;
+    line-height: 1;
+  }
+
+  .hv7L-name-first {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    color: #64748b;
+    letter-spacing: -0.02em;
+  }
+
+  .hv7L-name-last {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 800;
+    color: #0a2463;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .hv7L-intro {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 0 2rem;
+  }
+
+  .hv7L-intro strong {
+    color: #0a2463;
+  }
+
+  /* Tags */
+  .hv7L-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hv7L-tag {
+    padding: 8px 16px;
+    background: #f8fafc;
+    border: 1px solid rgba(10, 36, 99, 0.06);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    transition: all 0.2s ease;
+  }
+
+  .hv7L-tag:hover {
+    border-color: #d4af37;
+    background: rgba(212, 175, 55, 0.05);
+    color: #0a2463;
+  }
+
+  /* Actions */
+  .hv7L-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hv7L-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: #0a2463;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(10, 36, 99, 0.15);
+  }
+
+  .hv7L-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(10, 36, 99, 0.25);
+    background: #0d2e82;
+    color: #fff;
+  }
+
+  .hv7L-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 36px;
+    color: #0a2463;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid rgba(10, 36, 99, 0.1);
+    border-radius: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .hv7L-btn-ghost:hover {
+    border-color: #0a2463;
+    background: rgba(10, 36, 99, 0.03);
+    transform: translateY(-4px);
+    color: #0a2463;
+  }
+
+  /* Animation */
+  .hv7L-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: hv7LFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .hv7L-anim[data-delay="0"] { animation-delay: 0.1s; }
+  .hv7L-anim[data-delay="1"] { animation-delay: 0.3s; }
+  .hv7L-anim[data-delay="2"] { animation-delay: 0.5s; }
+  .hv7L-anim[data-delay="3"] { animation-delay: 0.7s; }
+
+  @keyframes hv7LFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 1023px) {
+    .hv7L-visual { order: -1; }
+    .hv7L-text { text-align: center; }
+    .hv7L-eyebrow { justify-content: center; }
+    .hv7L-name-first, .hv7L-name-last { text-align: center; }
+    .hv7L-intro { margin-left: auto; margin-right: auto; }
+    .hv7L-tags { justify-content: center; }
+    .hv7L-actions { justify-content: center; }
+  }
+
+  @media (max-width: 768px) {
+    .hv7L { padding: 5rem 1rem 3rem; }
+    .hv7L-btn-primary, .hv7L-btn-ghost { width: 100%; justify-content: center; }
+    .hv7L-avatar { width: 160px; height: 160px; border-radius: 24px; }
+    .hv7L-avatar-ring { width: 180px; height: 180px; border-radius: 28px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv7L-anim, .hv7L-avatar-ring, .hv7L-status-dot, .hv7L-circle { animation: none; transform: none; opacity: 1; }
+  }
+</style>

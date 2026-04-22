@@ -1,0 +1,480 @@
+---
+/**
+ * Hero Variant 6 Light: "Video Background"
+ * Light-themed hero with a subtle video background.
+ * Includes a soft overlay for readability, lazy-loaded video,
+ * fallback poster image, and performance-safe implementation.
+ */
+---
+
+<section id="hero-v6-light" class="hv6L" aria-labelledby="hv6L-heading">
+  <!-- Video Background with fallback -->
+  <div class="hv6L-video-wrap" aria-hidden="true">
+    <!-- Poster image shown until video loads -->
+    <div class="hv6L-poster"></div>
+    <!-- Video element (lazy-loaded via IntersectionObserver) -->
+    <video
+      class="hv6L-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster=""
+    >
+      <!-- Using a free abstract light video from a CDN placeholder -->
+      <!-- <source
+        data-src="https://cdn.pixabay.com/video/2020/07/30/45376-445048391_large.mp4"
+        type="video/mp4"
+      /> -->
+      <source src="/videos/6100416-uhd_4096_2160_30fps.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <!-- Soft white overlay for readability -->
+    <div class="hv6L-overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hv6L-content">
+    <div class="hv6L-badge hv6L-anim" data-delay="0">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      </svg>
+      <span>Advocate Pradnya Pednekar</span>
+    </div>
+
+    <h1 id="hv6L-heading" class="hv6L-title hv6L-anim" data-delay="1">
+      Justice In
+      <span class="hv6L-title-accent">Motion</span>
+    </h1>
+
+    <p class="hv6L-subtitle hv6L-anim" data-delay="2">
+      Experience the power of 22+ years of dedicated legal practice. We bring
+      clarity, strategy, and unwavering commitment to every case we handle.
+    </p>
+
+    <div class="hv6L-actions hv6L-anim" data-delay="3">
+      <a href="/contact" class="hv6L-btn-primary">
+        Get Consultation
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+      <a href="/practice-areas" class="hv6L-btn-outline">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        Watch Introduction
+      </a>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="hv6L-trust hv6L-anim" data-delay="4">
+      <div class="hv6L-trust-item">
+        <strong>22+</strong><span>Years</span>
+      </div>
+      <div class="hv6L-trust-sep"></div>
+      <div class="hv6L-trust-item">
+        <strong>500+</strong><span>Cases</span>
+      </div>
+      <div class="hv6L-trust-sep"></div>
+      <div class="hv6L-trust-item">
+        <strong>98%</strong><span>Success</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="hv6L-scroll-cue" aria-hidden="true">
+    <div class="hv6L-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<style>
+  .hv6L {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f8fafc;
+  }
+
+  /* Video wrapper */
+  .hv6L-video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hv6L-poster {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #f8fafc 100%);
+    z-index: 1;
+    transition: opacity 1s ease;
+  }
+
+  .hv6L-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    filter: brightness(1.1) saturate(0.8);
+  }
+
+  .hv6L-video.loaded {
+    opacity: 1;
+  }
+
+  .hv6L-video.loaded + .hv6L-poster,
+  .hv6L-video-wrap:has(.loaded) .hv6L-poster {
+    opacity: 0;
+  }
+
+  .hv6L-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(248, 250, 252, 0.75) 40%,
+      rgba(241, 245, 249, 0.85) 100%
+    );
+  }
+
+  /* Content */
+  .hv6L-content {
+    position: relative;
+    z-index: 4;
+    max-width: 800px;
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .hv6L-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(10, 36, 99, 0.08);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0a2463;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .hv6L-badge svg {
+    color: #d4af37;
+  }
+
+  .hv6L-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: #0a2463;
+    margin: 0 0 1.5rem;
+  }
+
+  .hv6L-title-accent {
+    display: inline-block;
+    position: relative;
+    color: transparent;
+    background: linear-gradient(135deg, #d4af37 0%, #b45309 50%, #d4af37 100%);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: hv6LShimmer 4s linear infinite;
+  }
+
+  @keyframes hv6LShimmer {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  .hv6L-subtitle {
+    font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+    color: #475569;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hv6L-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .hv6L-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: #0a2463;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(10, 36, 99, 0.2);
+  }
+
+  .hv6L-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(10, 36, 99, 0.3);
+    background: #0d2e82;
+    color: #fff;
+  }
+
+  .hv6L-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(10, 36, 99, 0.15);
+    color: #0a2463;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .hv6L-btn-outline:hover {
+    background: rgba(10, 36, 99, 0.05);
+    border-color: #0a2463;
+    transform: translateY(-4px);
+    color: #0a2463;
+  }
+
+  /* Trust strip */
+  .hv6L-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px 32px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(10, 36, 99, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  }
+
+  .hv6L-trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hv6L-trust-item strong {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0a2463;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .hv6L-trust-item span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+  }
+
+  .hv6L-trust-sep {
+    width: 1px;
+    height: 36px;
+    background: rgba(10, 36, 99, 0.1);
+  }
+
+  /* Scroll cue */
+  .hv6L-scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 5;
+  }
+
+  .hv6L-scroll-line {
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(to bottom, transparent, #d4af37);
+    animation: hv6LScrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes hv6LScrollPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scaleY(0.6);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  .hv6L-scroll-cue span {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #94a3b8;
+  }
+
+  /* Entrance animation */
+  .hv6L-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: hv6LFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .hv6L-anim[data-delay="0"] {
+    animation-delay: 0.2s;
+  }
+  .hv6L-anim[data-delay="1"] {
+    animation-delay: 0.4s;
+  }
+  .hv6L-anim[data-delay="2"] {
+    animation-delay: 0.6s;
+  }
+  .hv6L-anim[data-delay="3"] {
+    animation-delay: 0.8s;
+  }
+  .hv6L-anim[data-delay="4"] {
+    animation-delay: 1s;
+  }
+
+  @keyframes hv6LFadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hv6L-content {
+      padding: 5rem 1rem 3rem;
+    }
+    .hv6L-btn-primary,
+    .hv6L-btn-outline {
+      width: 100%;
+      justify-content: center;
+    }
+    .hv6L-trust {
+      flex-direction: row;
+      gap: 16px;
+      padding: 16px 20px;
+    }
+    .hv6L-trust-sep {
+      width: 1px;
+      height: 28px;
+    }
+    .hv6L-trust-item strong {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv6L-anim,
+    .hv6L-scroll-line,
+    .hv6L-title-accent {
+      animation: none;
+      transform: none;
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  // Lazy-load video when section is visible
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("hero-v6-light");
+    if (!section) return;
+    const video = section.querySelector(".hv6L-video") as HTMLVideoElement;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sources = video.querySelectorAll("source[data-src]");
+            sources.forEach((source) => {
+              const src = source.getAttribute("data-src");
+              if (src) {
+                source.setAttribute("src", src);
+                source.removeAttribute("data-src");
+              }
+            });
+            video.load();
+            video.play().catch(() => {});
+            video.addEventListener(
+              "playing",
+              () => {
+                video.classList.add("loaded");
+              },
+              { once: true },
+            );
+            observer.unobserve(section);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(section);
+  });
+</script>

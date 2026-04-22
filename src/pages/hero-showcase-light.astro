@@ -2,7 +2,7 @@
 /**
  * Hero Showcase Light Page
  * =======================
- * Displays all 5 LIGHT versions of the hero section variants.
+ * Displays all 11 LIGHT versions of the hero section variants.
  */
 import Layout from "../layouts/Layout.astro";
 import HeroVariant1Light from "../components/sections/HeroVariant1Light.astro";
@@ -10,11 +10,17 @@ import HeroVariant2Light from "../components/sections/HeroVariant2Light.astro";
 import HeroVariant3Light from "../components/sections/HeroVariant3Light.astro";
 import HeroVariant4Light from "../components/sections/HeroVariant4Light.astro";
 import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
+import HeroVariant6Light from "../components/sections/HeroVariant6Light.astro";
+import HeroVariant7Light from "../components/sections/HeroVariant7Light.astro";
+import HeroVariant8Light from "../components/sections/HeroVariant8Light.astro";
+import HeroVariant9Light from "../components/sections/HeroVariant9Light.astro";
+import HeroVariant10Light from "../components/sections/HeroVariant10Light.astro";
+import HeroVariant11Light from "../components/sections/HeroVariant11Light.astro";
 ---
 
 <Layout
-  title="Hero Section Showcase — Light Mode Variants"
-  description="Preview 5 unique light theme hero section designs with enhanced animations."
+  title="Hero Section Showcase — All 11 Light Variants"
+  description="Preview all 11 unique light theme hero section designs with enhanced animations."
 >
   <nav class="showcase-nav" aria-label="Hero variant navigation">
     <div class="showcase-nav-inner">
@@ -24,6 +30,12 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
       <a href="#hero-v3-light" class="showcase-nav-link">3 — Glass</a>
       <a href="#hero-v4-light" class="showcase-nav-link">4 — Luxury</a>
       <a href="#hero-v5-light" class="showcase-nav-link">5 — Futuristic</a>
+      <a href="#hero-v6-light" class="showcase-nav-link showcase-nav-new">6 — Video</a>
+      <a href="#hero-v7-light" class="showcase-nav-link showcase-nav-new">7 — Portfolio</a>
+      <a href="#hero-v8-light" class="showcase-nav-link showcase-nav-new">8 — Data</a>
+      <a href="#hero-v9-light" class="showcase-nav-link showcase-nav-new">9 — Scroll</a>
+      <a href="#hero-v10-light" class="showcase-nav-link showcase-nav-new">10 — Type</a>
+      <a href="#hero-v11-light" class="showcase-nav-link showcase-nav-new">11 — Warm</a>
       
       <div style="margin-left: auto; display:flex; gap: 8px;">
         <a href="/hero-showcase" class="showcase-nav-link" style="border-color: #d4af37; color: #d4af37;">Switch to Dark Versions</a>
@@ -31,44 +43,114 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
     </div>
   </nav>
 
+  <!-- Variant 1: Minimal Elegance -->
   <div class="showcase-section">
     <div class="showcase-label">
       <span class="showcase-num">01</span>
-      <span class="showcase-name">Light Minimal</span>
+      <span class="showcase-name">Minimal SaaS</span>
+      <span class="showcase-desc">Clean centered layout, floating geometry, gold accents</span>
     </div>
     <HeroVariant1Light />
   </div>
 
+  <!-- Variant 2: Bold Authority -->
   <div class="showcase-section">
     <div class="showcase-label">
       <span class="showcase-num">02</span>
-      <span class="showcase-name">Light Bold Authority</span>
+      <span class="showcase-name">Split Layout</span>
+      <span class="showcase-desc">Left/right split with animated floating cards</span>
     </div>
     <HeroVariant2Light />
   </div>
 
+  <!-- Variant 3: Glassmorphic -->
   <div class="showcase-section">
     <div class="showcase-label">
       <span class="showcase-num">03</span>
-      <span class="showcase-name">Light Glassmorphic</span>
+      <span class="showcase-name">Interactive Glass</span>
+      <span class="showcase-desc">Frosted cards, hover tilt, morphing blobs</span>
     </div>
     <HeroVariant3Light />
   </div>
 
+  <!-- Variant 4: Light Luxury -->
   <div class="showcase-section">
     <div class="showcase-label">
       <span class="showcase-num">04</span>
-      <span class="showcase-name">Light Luxury</span>
+      <span class="showcase-name">Animated Luxury</span>
+      <span class="showcase-desc">Floating dust, flowing ribbon, gradient gold text</span>
     </div>
     <HeroVariant4Light />
   </div>
 
+  <!-- Variant 5: Futuristic -->
   <div class="showcase-section">
     <div class="showcase-label">
       <span class="showcase-num">05</span>
-      <span class="showcase-name">Light Futuristic Auto-Gravity</span>
+      <span class="showcase-name">3D Visual</span>
+      <span class="showcase-desc">Perspective grid, levitating 3D cards</span>
     </div>
     <HeroVariant5Light />
+  </div>
+
+  <!-- Variant 6: Video Background -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">06</span>
+      <span class="showcase-name">Video Background</span>
+      <span class="showcase-desc">Lazy-loaded video, white overlay, shimmer text</span>
+    </div>
+    <HeroVariant6Light />
+  </div>
+
+  <!-- Variant 7: Portfolio Style -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">07</span>
+      <span class="showcase-name">Portfolio Style</span>
+      <span class="showcase-desc">Personal branding, avatar, social links, tags</span>
+    </div>
+    <HeroVariant7Light />
+  </div>
+
+  <!-- Variant 8: Data-Driven -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">08</span>
+      <span class="showcase-name">Data-Driven</span>
+      <span class="showcase-desc">Animated counters, progress bars, stats grid</span>
+    </div>
+    <HeroVariant8Light />
+  </div>
+
+  <!-- Variant 9: Scroll-Based -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">09</span>
+      <span class="showcase-name">Scroll-Based</span>
+      <span class="showcase-desc">Word-by-word reveal, mouse icon, feature cards</span>
+    </div>
+    <HeroVariant9Light />
+  </div>
+
+  <!-- Variant 10: Bold Typography -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">10</span>
+      <span class="showcase-name">Bold Typography</span>
+      <span class="showcase-desc">Massive expressive text, mixed weights, outline text</span>
+    </div>
+    <HeroVariant10Light />
+  </div>
+
+  <!-- Variant 11: Theme-Aware Warm -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">11</span>
+      <span class="showcase-name">Warm Light Theme</span>
+      <span class="showcase-desc">Cream/off-white, glassmorphic card, warm tones</span>
+    </div>
+    <HeroVariant11Light />
   </div>
 </Layout>
 
@@ -89,12 +171,12 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
   }
 
   .showcase-nav-inner {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 12px 20px;
+    padding: 10px 16px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
@@ -103,20 +185,20 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
   .showcase-nav-inner::-webkit-scrollbar { display: none; }
 
   .showcase-nav-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: #1e293b;
-    margin-right: 8px;
+    margin-right: 6px;
     flex-shrink: 0;
   }
 
   .showcase-nav-link {
     display: inline-flex;
     align-items: center;
-    padding: 6px 14px;
-    font-size: 0.8rem;
+    padding: 5px 12px;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #475569;
     text-decoration: none;
@@ -132,6 +214,17 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
     background: rgba(10, 36, 99, 0.05);
   }
 
+  .showcase-nav-new {
+    border-color: rgba(212, 175, 55, 0.3);
+    color: #b45309;
+  }
+
+  .showcase-nav-new:hover {
+    border-color: #d4af37;
+    color: #92400e;
+    background: rgba(212, 175, 55, 0.05);
+  }
+
   /* Section labels */
   .showcase-section {
     position: relative;
@@ -139,14 +232,14 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
 
   .showcase-label {
     position: absolute;
-    top: 70px;
-    left: 30px;
+    top: 60px;
+    left: 24px;
     z-index: 100;
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 10px 18px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(10, 36, 99, 0.1);
     border-radius: 12px;
@@ -156,7 +249,7 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
 
   .showcase-num {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #b45309;
     line-height: 1;
@@ -166,5 +259,16 @@ import HeroVariant5Light from "../components/sections/HeroVariant5Light.astro";
     font-size: 0.85rem;
     font-weight: 700;
     color: #0a2463;
+  }
+
+  .showcase-desc {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .showcase-desc { display: inline; }
+    .showcase-label { gap: 16px; }
   }
 </style>
