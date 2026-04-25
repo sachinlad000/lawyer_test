@@ -194,14 +194,14 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     align-items: center;
   }
 
-  /* ---- Transparent State (over hero) ---- */
+  /* ---- Transparent State (over dark hero by default) ---- */
   .header--transparent {
     background: transparent;
     box-shadow: none;
   }
 
   .header--transparent .navbar-logo {
-    color: #d3a614;
+    color: white;
   }
 
   .header--transparent .logo-icon {
@@ -209,15 +209,15 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header--transparent .logo-tagline {
-    color: #d3a614;
+    color: rgba(255, 255, 255, 0.8);
   }
 
   .header--transparent .nav-link {
-    color: #d3a614;
+    color: white;
   }
 
   .header--transparent .nav-link:hover {
-    color: var(--color-primary-900);
+    color: #d3a614;
   }
 
   .header--transparent .nav-link::after {
@@ -238,7 +238,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header--transparent .mobile-menu-toggle {
-    color: var(--color-primary-900);
+    color: white;
   }
 
   .header--transparent .dropdown-menu {
@@ -256,7 +256,28 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     color: white;
   }
 
-  /* ---- Solid State (scrolled past hero) ---- */
+  /* ---- Transparent State (over LIGHT hero) ---- */
+  .header--transparent.header--light-bg .navbar-logo {
+    color: var(--color-primary-900);
+  }
+
+  .header--transparent.header--light-bg .logo-tagline {
+    color: var(--color-neutral-600);
+  }
+
+  .header--transparent.header--light-bg .nav-link {
+    color: var(--color-primary-900);
+  }
+
+  .header--transparent.header--light-bg .nav-link:hover {
+    color: var(--color-accent-600);
+  }
+
+  .header--transparent.header--light-bg .mobile-menu-toggle {
+    color: var(--color-primary-900);
+  }
+
+  /* ---- Solid State (scrolled past hero - white background) ---- */
   .header:not(.header--transparent) {
     background: white;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
@@ -267,7 +288,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header:not(.header--transparent) .navbar-logo {
-    color: #d3a614;
+    color: var(--color-primary-900);
   }
 
   .header:not(.header--transparent) .logo-icon {
@@ -275,19 +296,19 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header:not(.header--transparent) .logo-tagline {
-    color: #d3a614;
+    color: var(--color-neutral-600);
   }
 
   .header:not(.header--transparent) .nav-link {
-    color: #d3a614;
-  }
-
-  .header:not(.header--transparent) .nav-link:hover {
     color: var(--color-primary-900);
   }
 
+  .header:not(.header--transparent) .nav-link:hover {
+    color: var(--color-accent-600);
+  }
+
   .header:not(.header--transparent) .nav-link::after {
-    background: var(--color-primary-900);
+    background: var(--color-accent-600);
   }
 
   .header:not(.header--transparent) .mobile-menu-toggle {
@@ -545,9 +566,14 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     // Navbar transparent → solid on scroll
     // ====================================
     const header = document.getElementById("siteHeader");
-    const heroSection = document.getElementById("site-hero");
+    const heroSection = document.querySelector("main section:first-of-type, #site-hero, [id^='hero-']");
 
     if (header && heroSection) {
+      const isLightHero = heroSection.id.includes('-light') || heroSection.className.includes('L');
+      if (isLightHero) {
+        header.classList.add('header--light-bg');
+      }
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {

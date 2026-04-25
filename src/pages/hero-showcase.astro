@@ -11,6 +11,8 @@ import HeroVariant2 from "../components/sections/HeroVariant2.astro";
 import HeroVariant3 from "../components/sections/HeroVariant3.astro";
 import HeroVariant4 from "../components/sections/HeroVariant4.astro";
 import HeroVariant5 from "../components/sections/HeroVariant5.astro";
+import HeroVariant6 from "../components/sections/HeroVariant6.astro";
+import HeroVariant7 from "../components/sections/HeroVariant7.astro";
 ---
 
 <Layout
@@ -26,9 +28,15 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
       <a href="#hero-v3" class="showcase-nav-link">3 — Glass</a>
       <a href="#hero-v4" class="showcase-nav-link">4 — Luxury</a>
       <a href="#hero-v5" class="showcase-nav-link">5 — Futuristic</a>
-      
+      <a href="#hero-v6" class="showcase-nav-link">6 — Video</a>
+      <a href="#hero-v7" class="showcase-nav-link">7 — Video</a>
       <div style="margin-left: auto; display:flex; gap: 8px;">
-        <a href="/hero-showcase-light" class="showcase-nav-link" style="border-color: #d4af37; color: #d4af37;">Switch to Light Versions</a>
+        <a
+          href="/hero-showcase-light"
+          class="showcase-nav-link"
+          style="border-color: #d4af37; color: #d4af37;"
+          >Switch to Light Versions</a
+        >
       </div>
     </div>
   </nav>
@@ -38,7 +46,9 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
     <div class="showcase-label">
       <span class="showcase-num">01</span>
       <span class="showcase-name">Minimal Elegance</span>
-      <span class="showcase-desc">Clean centered layout with floating geometry & gold underline</span>
+      <span class="showcase-desc"
+        >Clean centered layout with floating geometry & gold underline</span
+      >
     </div>
     <HeroVariant1 />
   </div>
@@ -48,7 +58,9 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
     <div class="showcase-label">
       <span class="showcase-num">02</span>
       <span class="showcase-name">Bold Authority</span>
-      <span class="showcase-desc">Split-screen with dramatic typography & abstract pillars</span>
+      <span class="showcase-desc"
+        >Split-screen with dramatic typography & abstract pillars</span
+      >
     </div>
     <HeroVariant2 />
   </div>
@@ -58,7 +70,9 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
     <div class="showcase-label">
       <span class="showcase-num">03</span>
       <span class="showcase-name">Glassmorphic</span>
-      <span class="showcase-desc">Frosted glass cards floating over morphing gradient blobs</span>
+      <span class="showcase-desc"
+        >Frosted glass cards floating over morphing gradient blobs</span
+      >
     </div>
     <HeroVariant3 />
   </div>
@@ -68,7 +82,9 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
     <div class="showcase-label">
       <span class="showcase-num">04</span>
       <span class="showcase-name">Dark Luxury</span>
-      <span class="showcase-desc">Cinematic elegance with gold shimmer text & scrolling ribbon</span>
+      <span class="showcase-desc"
+        >Cinematic elegance with gold shimmer text & scrolling ribbon</span
+      >
     </div>
     <HeroVariant4 />
   </div>
@@ -78,11 +94,37 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
     <div class="showcase-label">
       <span class="showcase-num">05</span>
       <span class="showcase-name">Futuristic Anti-Gravity</span>
-      <span class="showcase-desc">Particle grid, holographic text & levitating feature cards</span>
+      <span class="showcase-desc"
+        >Particle grid, holographic text & levitating feature cards</span
+      >
     </div>
     <HeroVariant5 />
   </div>
 </Layout>
+
+<!-- Variant 6: Video Background -->
+<div class="showcase-section">
+  <div class="showcase-label">
+    <span class="showcase-num">06</span>
+    <span class="showcase-name">Video Background</span>
+    <span class="showcase-desc"
+      >Cinematic video background with floating particles & glass cards</span
+    >
+  </div>
+  <HeroVariant6 />
+</div>
+
+<!-- Variant 7: Video Background -->
+<div class="showcase-section">
+  <div class="showcase-label">
+    <span class="showcase-num">07</span>
+    <span class="showcase-name">Video Background</span>
+    <span class="showcase-desc"
+      >Cinematic video background with floating particles & glass cards</span
+    >
+  </div>
+  <HeroVariant7 />
+</div>
 
 <style>
   /* Sticky navigation */
@@ -111,7 +153,9 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
     scrollbar-width: none;
   }
 
-  .showcase-nav-inner::-webkit-scrollbar { display: none; }
+  .showcase-nav-inner::-webkit-scrollbar {
+    display: none;
+  }
 
   .showcase-nav-label {
     font-size: 0.7rem;
@@ -165,7 +209,7 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
   }
 
   .showcase-num {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: #d4af37;
@@ -185,7 +229,12 @@ import HeroVariant5 from "../components/sections/HeroVariant5.astro";
   }
 
   @media (min-width: 768px) {
-    .showcase-desc { display: inline; }
-    .showcase-label { top: 70px; left: 30px; }
+    .showcase-desc {
+      display: inline;
+    }
+    .showcase-label {
+      top: 70px;
+      left: 30px;
+    }
   }
 </style>
