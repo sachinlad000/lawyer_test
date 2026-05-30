@@ -98,6 +98,8 @@ const practiceCategories = [
           "Economic Offenses",
           "White Collar Crimes",
           "Appeals & Revisions",
+          "Dowry dispute",
+          "Domestic voilence"
         ],
       },
       {
@@ -445,9 +447,9 @@ const breadcrumbSchema = {
 
   /* Quick Nav */
   .quick-nav {
-    background: white;
+    background: var(--surface-primary);
     padding: 1rem 0;
-    border-bottom: 1px solid var(--color-neutral-200);
+    border-bottom: 1px solid var(--border-color);
   }
 
   .quick-nav .container {
@@ -485,8 +487,8 @@ const breadcrumbSchema = {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: var(--color-neutral-100);
-    color: var(--color-neutral-700);
+    background: var(--surface-secondary);
+    color: var(--text-body);
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 500;
@@ -500,7 +502,7 @@ const breadcrumbSchema = {
 
   /* Practice Areas */
   .practice-areas {
-    background: var(--color-neutral-50);
+    background: var(--surface-body);
   }
 
   .practice-category {
@@ -533,7 +535,7 @@ const breadcrumbSchema = {
   }
 
   .category-description {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     font-size: 1.0625rem;
     margin: 0;
     max-width: 600px;
@@ -559,10 +561,10 @@ const breadcrumbSchema = {
   }
 
   .area-card {
-    background: white;
+    background: var(--surface-card);
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
     transition: all var(--transition-base);
@@ -570,7 +572,7 @@ const breadcrumbSchema = {
   }
 
   .area-card:hover {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--card-shadow-hover);
     transform: translateY(-4px);
     border-color: var(--color-accent-500);
   }
@@ -583,7 +585,7 @@ const breadcrumbSchema = {
 
   .area-description {
     font-size: 0.9375rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 1.25rem;
   }
@@ -596,7 +598,7 @@ const breadcrumbSchema = {
   .cases-label {
     font-size: 0.8125rem;
     font-weight: 600;
-    color: var(--color-neutral-500);
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -612,8 +614,8 @@ const breadcrumbSchema = {
 
   .cases-list li {
     padding: 0.25rem 0.625rem;
-    background: var(--color-neutral-100);
-    color: var(--color-neutral-700);
+    background: var(--surface-secondary);
+    color: var(--text-body);
     font-size: 0.75rem;
     border-radius: 0.25rem;
   }
@@ -635,7 +637,7 @@ const breadcrumbSchema = {
   .category-divider {
     margin: 3rem 0;
     border: none;
-    border-top: 1px solid var(--color-neutral-200);
+    border-top: 1px solid var(--border-color);
   }
 
   /* CTA Banner */

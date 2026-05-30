@@ -10,11 +10,16 @@
 import Layout from "../layouts/Layout.astro";
 import HeroVariant3 from "../components/sections/HeroVariant3.astro";
 import HeroVariant6 from "../components/sections/HeroVariant6.astro";
+import HeroVariant1 from "../components/sections/HeroVariant1.astro";
+import HeroVariant1Light from "../components/sections/HeroVariant1Light.astro";
+import HeroVariant6Light from "../components/sections/HeroVariant6Light.astro";
+import HeroVariant8 from "../components/sections/HeroVariant8.astro";
 import PracticeAreas from "../components/sections/PracticeAreas.astro";
 import TrustIndicators from "../components/sections/TrustIndicators.astro";
 import Testimonials from "../components/sections/Testimonials.astro";
 import FAQAccordion from "../components/ui/FAQAccordion.astro";
 import { Phone, MessageCircle, MapPin, Mail, ArrowRight } from "@lucide/astro";
+import HeroVariant9 from "../components/sections/HeroVariant9.astro";
 
 const schemaData = {
   name: "Advocate Pradnya Pednekar",
@@ -196,6 +201,7 @@ const faqSchema = {
   title="Expert Legal Services in India"
   description="Advocate Pradnya Pednekar - 22+ years of experience in Civil, Criminal, and Corporate Law. Bar Council Registered. Trusted legal representation."
   keywords="advocate in India, lawyer, legal services, civil law, criminal law, corporate law, property disputes, family law, high court advocate"
+  hasHero={true}
 >
   <Fragment slot="head">
     <script
@@ -214,8 +220,12 @@ const faqSchema = {
   </Fragment>
 
   <!-- Hero Section -->
-  <!-- <HeroVariant3 /> -->
-  <HeroVariant6 />
+  <div class="dark-only">
+    <HeroVariant1 />
+  </div>
+  <div class="light-only">
+    <HeroVariant1Light />
+  </div>
   <!-- Practice Areas -->
   <PracticeAreas />
 
@@ -227,12 +237,14 @@ const faqSchema = {
     <div class="container">
       <div class="about-grid">
         <div class="about-image" data-animate="animate-slide-in-left">
-          <img
-            src="/images/about_image.png"
-            alt="Advocate Pradnya Pednekar - Professional Portrait"
-            class="about-photo"
-            loading="lazy"
-          />
+          <div class="about-photo-frame">
+            <img
+              src="/images/home_about.jpeg"
+              alt="Advocate Pradnya Pednekar - Professional Portrait"
+              class="about-photo"
+              loading="lazy"
+            />
+          </div>
           <div class="experience-badge">
             <span class="badge-value">22+</span>
             <span class="badge-label">Years</span>
@@ -329,7 +341,7 @@ const faqSchema = {
 <style>
   /* About Preview Section */
   .about-preview {
-    background: white;
+    background: var(--surface-primary);
   }
 
   .about-grid {
@@ -350,24 +362,54 @@ const faqSchema = {
     position: relative;
   }
 
-  .about-photo {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
+  .about-photo-frame {
+    position: relative;
+    width: calc(100% - 1.5rem);
+    margin-top: 1.5rem;
+    aspect-ratio: 1/1; /* Better for portraits */
+    border: 3px solid var(--color-accent-500);
     border-radius: 1rem;
-    box-shadow: var(--shadow-xl);
+    z-index: 1;
+  }
+  
+  .about-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-accent-500);
+    opacity: 0.05;
+    border-radius: inherit;
+  }
+
+  .about-photo {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; /* Prevents head cropping */
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow-hover);
+    transition: transform var(--transition-slow);
+    z-index: 2;
+  }
+
+  .about-photo:hover {
+    transform: scale(1.02);
   }
 
   .experience-badge {
     position: absolute;
-    bottom: -20px;
-    right: 20px;
+    bottom: -15px;
+    left: -15px;
     background: var(--color-accent-500);
     color: var(--color-primary-900);
     padding: 1.25rem;
     border-radius: 0.75rem;
     text-align: center;
     box-shadow: var(--shadow-lg);
+    z-index: 10;
   }
 
   .experience-badge .badge-value {
@@ -393,7 +435,7 @@ const faqSchema = {
   }
 
   .about-text {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 1.5rem;
   }
@@ -409,7 +451,7 @@ const faqSchema = {
     align-items: center;
     gap: 0.75rem;
     padding: 0.5rem 0;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
   }
 
   .about-list li::before {
@@ -428,7 +470,7 @@ const faqSchema = {
 
   /* FAQ Section */
   .faq-section {
-    background: var(--color-neutral-100);
+    background: var(--surface-secondary);
   }
 
   .faq-grid {

@@ -207,6 +207,13 @@ const currentYear = legal.copyrightYear;
   .footer {
     background: var(--color-primary-900);
     color: white;
+    border-top: none;
+  }
+  
+  :global([data-theme="dark"]) .footer {
+    background: var(--surface-secondary);
+    color: var(--text-body);
+    border-top: 1px solid var(--border-color);
   }
 
   .footer-main {
@@ -243,6 +250,11 @@ const currentYear = legal.copyrightYear;
     color: white;
   }
 
+  :global([data-theme="dark"]) .footer-logo,
+  :global([data-theme="dark"]) .footer-logo:hover {
+    color: var(--text-heading);
+  }
+
   .footer-logo .logo-icon {
     color: var(--color-accent-500);
   }
@@ -264,11 +276,20 @@ const currentYear = legal.copyrightYear;
     opacity: 0.8;
   }
 
+  :global([data-theme="dark"]) .logo-tagline {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+
   .footer-description {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.9375rem;
     line-height: 1.7;
     margin-bottom: 1.5rem;
+  }
+
+  :global([data-theme="dark"]) .footer-description {
+    color: var(--text-secondary);
   }
 
   .bar-council-badge {
@@ -294,6 +315,11 @@ const currentYear = legal.copyrightYear;
     opacity: 0.8;
   }
 
+  :global([data-theme="dark"]) .badge-label {
+    color: var(--text-secondary);
+    opacity: 1;
+  }
+
   .badge-number {
     display: block;
     font-weight: 600;
@@ -310,6 +336,10 @@ const currentYear = legal.copyrightYear;
     display: inline-block;
   }
 
+  :global([data-theme="dark"]) .footer-title {
+    color: var(--text-heading);
+  }
+
   .footer-links {
     list-style: none;
     padding: 0;
@@ -324,6 +354,10 @@ const currentYear = legal.copyrightYear;
     color: rgba(255, 255, 255, 0.8);
     transition: all var(--transition-fast);
     font-size: 0.9375rem;
+  }
+
+  :global([data-theme="dark"]) .footer-links a {
+    color: var(--text-secondary);
   }
 
   .footer-links a:hover {
@@ -346,6 +380,10 @@ const currentYear = legal.copyrightYear;
     font-size: 0.9375rem;
   }
 
+  :global([data-theme="dark"]) .contact-list li {
+    color: var(--text-secondary);
+  }
+
   .contact-list svg {
     color: var(--color-accent-500);
     flex-shrink: 0;
@@ -354,6 +392,10 @@ const currentYear = legal.copyrightYear;
 
   .contact-list a {
     color: rgba(255, 255, 255, 0.8);
+  }
+
+  :global([data-theme="dark"]) .contact-list a {
+    color: var(--text-secondary);
   }
 
   .contact-list a:hover {
@@ -378,6 +420,11 @@ const currentYear = legal.copyrightYear;
     transition: all var(--transition-fast);
   }
 
+  :global([data-theme="dark"]) .social-links a {
+    background: var(--surface-tertiary);
+    color: var(--text-heading);
+  }
+
   .social-links a:hover {
     background: var(--color-accent-500);
     color: var(--color-primary-900);
@@ -391,11 +438,21 @@ const currentYear = legal.copyrightYear;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  :global([data-theme="dark"]) .footer-disclaimer {
+    background: var(--surface-primary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
   .footer-disclaimer p {
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.7;
     text-align: center;
+  }
+
+  :global([data-theme="dark"]) .footer-disclaimer p {
+    color: var(--text-muted);
   }
 
   .footer-disclaimer a {
@@ -433,6 +490,10 @@ const currentYear = legal.copyrightYear;
     margin: 0;
   }
 
+  :global([data-theme="dark"]) .copyright {
+    color: var(--text-muted);
+  }
+
   .legal-links {
     display: flex;
     gap: 1.5rem;
@@ -444,6 +505,10 @@ const currentYear = legal.copyrightYear;
   .legal-links a {
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.7);
+  }
+
+  :global([data-theme="dark"]) .legal-links a {
+    color: var(--text-muted);
   }
 
   .legal-links a:hover {

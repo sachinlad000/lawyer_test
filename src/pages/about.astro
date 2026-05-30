@@ -9,6 +9,7 @@
 
 import Layout from "../layouts/Layout.astro";
 import TrustBadge from "../components/ui/TrustBadge.astro";
+import TeamSection from "../components/sections/TeamSection.astro";
 import {
   GraduationCap,
   Briefcase,
@@ -33,21 +34,21 @@ const advocate = {
   experience: new Date().getFullYear() - 2004,
   bio: [
     "With over 22 years of dedicated legal practice, Advocate Pradnya Pednekar has established herself as a trusted name in the legal community. Her journey in law began with a deep-rooted belief in justice and a commitment to serving those in need of legal protection.",
-    "After completing her LL.B. from a prestigious law university, she went on to obtain her LL.M. with specialization in Constitutional Law. Her academic excellence was complemented by practical training under senior advocates at the High Court.",
+    "After completing her LL.B. from a prestigious law university. Her academic excellence was complemented by practical training under senior advocates at the High Court.",
     "Today, she provides comprehensive legal services across Civil, Criminal, and Corporate Law. Her client-centric approach and meticulous attention to detail have resulted in a remarkable 95% success rate across handled cases.",
   ],
   education: [
     {
       degree: "B.Com",
       institution: "Mumbai University",
-      year: "2011",
+      //year: "2011",
     },
-    { degree: "LL.B.", institution: "Mumbai University", year: "2009" },
-    {
-      degree: "B.A. (Political Science)",
-      institution: "Mumbai University",
-      year: "2006",
-    },
+    { degree: "LL.B.", institution: "Mumbai University" },
+    // {
+    //   degree: "B.A. (Political Science)",
+    //   institution: "Mumbai University",
+    //   year: "2006",
+    // },
   ],
   courts: [
     "Supreme Court of India",
@@ -58,10 +59,9 @@ const advocate = {
     "Various Tribunals & Commissions",
   ],
   affiliations: [
-    "Bar Council of India",
     "State Bar Association",
     "District Bar Association",
-    "Indian Law Society",
+    // "Indian Law Society",
   ],
   languages: ["English", "Hindi", "Regional Language"],
 };
@@ -71,7 +71,7 @@ const whyChooseUs = [
     icon: Award,
     title: "22+ Years Experience",
     description:
-      "Over a decade and a half of dedicated legal practice across multiple domains.",
+      "Over a two decades of dedicated legal practice across multiple domains.",
   },
   {
     icon: Users,
@@ -168,7 +168,7 @@ const personSchema = {
   </Fragment>
 
   <!-- Page Header -->
-  <section class="page-header">
+  <!-- <section class="page-header">
     <div class="container">
       <nav class="breadcrumb">
         <a href="/">Home</a>
@@ -178,7 +178,7 @@ const personSchema = {
       <h1 class="page-title">About Us</h1>
       <p class="page-subtitle">{advocate.tagline}</p>
     </div>
-  </section>
+  </section> -->
 
   <!-- Main About Section -->
   <section class="about-main section-padding">
@@ -188,7 +188,7 @@ const personSchema = {
         <div class="about-image-col" data-animate="animate-slide-in-left">
           <div class="about-image-container">
             <img
-              src="/images/about_image.png"
+              src="/images/about_image.jpeg"
               alt="Advocate Pradnya Pednekar - Professional Portrait"
               class="about-photo"
               loading="lazy"
@@ -254,7 +254,7 @@ const personSchema = {
                 <li>
                   <span class="edu-degree">{edu.degree}</span>
                   <span class="edu-institution">{edu.institution}</span>
-                  <span class="edu-year">{edu.year}</span>
+                  {/* <span class="edu-year">{edu.year}</span> */}
                 </li>
               ))
             }
@@ -339,6 +339,9 @@ const personSchema = {
     </div>
   </section>
 
+  <!-- Team Section -->
+  <TeamSection />
+
   <!-- CTA Section -->
   <section class="about-cta">
     <div class="container">
@@ -403,7 +406,7 @@ const personSchema = {
 
   /* About Main */
   .about-main {
-    background: white;
+    background: var(--surface-primary);
   }
 
   .about-grid {
@@ -430,7 +433,7 @@ const personSchema = {
     aspect-ratio: 3/4;
     object-fit: cover;
     border-radius: 1rem;
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--card-shadow-hover);
   }
 
   .about-badges {
@@ -469,7 +472,7 @@ const personSchema = {
   }
 
   .about-bio p {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 1rem;
   }
@@ -479,7 +482,7 @@ const personSchema = {
     align-items: center;
     gap: 0.5rem;
     padding: 1rem;
-    background: var(--color-neutral-100);
+    background: var(--surface-secondary);
     border-radius: 0.5rem;
     margin-top: 1.5rem;
   }
@@ -490,16 +493,16 @@ const personSchema = {
 
   .lang-label {
     font-weight: 600;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
   }
 
   .lang-list {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
   }
 
   /* Credentials */
   .credentials {
-    background: var(--color-neutral-100);
+    background: var(--surface-secondary);
   }
 
   .credentials-grid {
@@ -516,10 +519,11 @@ const personSchema = {
   }
 
   .credential-card {
-    background: white;
+    background: var(--surface-card);
+    border: 1px solid var(--surface-card-border);
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
   }
 
   .card-header {
@@ -548,7 +552,7 @@ const personSchema = {
 
   .credential-list li {
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--color-neutral-100);
+    border-bottom: 1px solid var(--border-light);
   }
 
   .credential-list li:last-child {
@@ -558,13 +562,13 @@ const personSchema = {
   .edu-degree {
     display: block;
     font-weight: 600;
-    color: var(--color-neutral-800);
+    color: var(--text-heading);
   }
 
   .edu-institution {
     display: block;
     font-size: 0.875rem;
-    color: var(--color-neutral-500);
+    color: var(--text-secondary);
   }
 
   .edu-year {
@@ -591,7 +595,7 @@ const personSchema = {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
     font-size: 0.9375rem;
   }
 
@@ -602,7 +606,7 @@ const personSchema = {
 
   /* Why Choose Us */
   .why-choose {
-    background: white;
+    background: var(--surface-primary);
   }
 
   .why-grid {
@@ -626,17 +630,17 @@ const personSchema = {
 
   .why-card {
     padding: 2rem;
-    background: var(--color-neutral-50);
+    background: var(--surface-secondary);
     border-radius: 1rem;
     text-align: center;
     transition: all var(--transition-base);
-    border: 2px solid transparent;
+    border: 1px solid var(--border-color);
   }
 
   .why-card:hover {
-    background: white;
+    background: var(--surface-card);
     border-color: var(--color-accent-500);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--card-shadow-hover);
     transform: translateY(-4px);
   }
 
@@ -665,7 +669,7 @@ const personSchema = {
 
   .why-description {
     font-size: 0.9375rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     margin: 0;
   }
 

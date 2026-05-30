@@ -31,15 +31,16 @@ const paddingClasses = {
 
 <style>
   .card-wrapper {
-    background: white;
+    background: var(--surface-card);
+    border: 1px solid var(--surface-card-border);
     border-radius: 1rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
     overflow: hidden;
     transition: all var(--transition-base);
   }
   
   .card-hover:hover {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--card-shadow-hover);
     transform: translateY(-4px);
   }
   

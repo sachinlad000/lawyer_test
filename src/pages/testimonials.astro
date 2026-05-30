@@ -14,64 +14,64 @@ import { Star, Filter, AlertCircle } from "@lucide/astro";
 // CLIENT EDITABLE: All testimonials
 const testimonials = [
   {
-    name: "Rajesh Kumar",
+    name: "Rakesh Ambekar",
     role: "Business Owner",
     content:
-      "Advocate Pradnya Pednekar handled my property dispute with exceptional professionalism. Her deep understanding of property laws and strategic approach helped us achieve a favorable settlement within 8 months. Her team kept me informed at every step.",
+      "Advocate Pradnya Pednekar handled my consumer dispute with exceptional professionalism.Her deep understanding of consumer laws and strategic approach helped us achieve a favorable settlement within a year.",
     rating: 5,
-    caseType: "Property",
+    caseType: "Consumer Dispute",
   },
   {
-    name: "Priya Mehta",
-    role: "IT Professional",
+    name: "Kailash S",
+    role: "Govt Servent",
     content:
-      "During my difficult divorce case, Advocate Pradnya Pednekar provided not just legal expertise but also the emotional support I needed. She ensured my custody rights were protected and the settlement was fair. I cannot thank her enough.",
+      "During my difficult divorce case, Advocate Pradnya Pednekar provided not just legal expertise but also the emotional support I needed. She ensured my rights were protected throughout the process.",
     rating: 5,
-    caseType: "Family",
+    caseType: "Family Law",
   },
   {
-    name: "Amit Singh",
-    role: "Company Director",
+    name: "Rajesh Sachde",
+    role: "Business",
     content:
-      "Our company has relied on Advocate Pradnya Pednekar's corporate law expertise for over 5 years. Her contract drafting and compliance advice have been invaluable for our business growth. Highly recommended for any business legal needs.",
+      "Our company has relied on Advocate Pradnya Pednekar's 138 N.I.Act law expertise for over 3 years.Her advice have been invaluable to get compansation.",
     rating: 5,
-    caseType: "Corporate",
+    caseType: "138 N.I.Act",
   },
   {
-    name: "Sunita Devi",
-    role: "Homemaker",
+    name: "Sunil B",
+    role: "Service",
     content:
-      "I was falsely implicated in a case and was devastated. Advocate Pradnya Pednekar took up my case and fought tirelessly. Thanks to her brilliant defense strategy, I was acquitted of all charges. She restored my faith in justice.",
-    rating: 5,
+      "I was falsely implicated in a dowry case and was devastated. Advocate Pradnya Pednekar took up my case and fought tirelessly. Thanks to her brilliant defense strategy, I was acquitted of all charges. She restored my faith in justice.",
+    rating: 4,
     caseType: "Criminal",
   },
   {
-    name: "Vikram Patel",
-    role: "Retailer",
+    name: "J Patil",
+    role: "Govt Servent",
     content:
-      "Won my consumer complaint against a major appliance brand thanks to Advocate Pradnya Pednekar. She made the entire process simple and got me adequate compensation for the defective product. Very satisfied with the outcome.",
+      "Won my consumer complaint against a Co-operative society thanks to Advocate Pradnya Pednekar. She made the entire process simple and got me adequate compensation for the defeciancy of service. Very satisfied with the outcome.",
     rating: 5,
     caseType: "Consumer",
   },
   {
-    name: "Ananya Sharma",
-    role: "Teacher",
+    name: "Manisha M",
+    role: "Service",
     content:
       "Advocate Pradnya Pednekar helped me secure maintenance for myself and my children after separation. Her knowledge of family laws and compassionate approach made a difficult time more bearable. Professional and caring.",
     rating: 5,
     caseType: "Family",
   },
   {
-    name: "Mohit Agarwal",
-    role: "Real Estate Developer",
+    name: "Vivek S",
+    role: "IT professional",
     content:
       "I've worked with many lawyers over the years, but Advocate Pradnya Pednekar stands out. Her attention to detail in property documentation has saved us from potential disputes multiple times. An invaluable legal partner.",
     rating: 5,
     caseType: "Property",
   },
   {
-    name: "Kavita Joshi",
-    role: "Healthcare Professional",
+    name: "Nagesh P",
+    role: "Service",
     content:
       "Got my anticipatory bail within 24 hours thanks to Advocate Pradnya Pednekar's swift action and preparation. She was available round the clock and her calm demeanor helped me stay composed during a stressful time.",
     rating: 5,
@@ -288,7 +288,7 @@ const breadcrumbSchema = {
 
   /* Disclaimer */
   .disclaimer-section {
-    background: var(--color-neutral-100);
+    background: var(--surface-secondary);
     padding: 1.5rem 0;
   }
 
@@ -297,10 +297,10 @@ const breadcrumbSchema = {
     align-items: flex-start;
     gap: 1rem;
     padding: 1.25rem 1.5rem;
-    background: white;
+    background: var(--surface-card);
     border-left: 4px solid var(--color-accent-500);
     border-radius: 0 0.5rem 0.5rem 0;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     font-size: 0.9375rem;
     line-height: 1.6;
   }
@@ -313,9 +313,9 @@ const breadcrumbSchema = {
 
   /* Stats Bar */
   .stats-bar {
-    background: white;
+    background: var(--surface-primary);
     padding: 2rem 0;
-    border-bottom: 1px solid var(--color-neutral-200);
+    border-bottom: 1px solid var(--border-color);
   }
 
   .stats-grid {
@@ -349,12 +349,12 @@ const breadcrumbSchema = {
 
   .stat-label {
     font-size: 0.875rem;
-    color: var(--color-neutral-500);
+    color: var(--text-muted);
   }
 
   /* Testimonials Section */
   .testimonials-section {
-    background: var(--color-neutral-50);
+    background: var(--surface-body);
   }
 
   /* Filter */
@@ -364,7 +364,7 @@ const breadcrumbSchema = {
     gap: 1rem;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--color-neutral-200);
+    border-bottom: 1px solid var(--border-color);
   }
 
   @media (min-width: 768px) {
@@ -379,7 +379,7 @@ const breadcrumbSchema = {
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
     white-space: nowrap;
   }
 
@@ -391,12 +391,12 @@ const breadcrumbSchema = {
 
   .filter-btn {
     padding: 0.5rem 1rem;
-    background: white;
-    border: 1px solid var(--color-neutral-200);
+    background: var(--surface-card);
+    border: 1px solid var(--border-color);
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     cursor: pointer;
     transition: all var(--transition-fast);
   }

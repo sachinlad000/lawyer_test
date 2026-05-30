@@ -55,7 +55,7 @@ import { Home, Search, Phone, ArrowLeft } from '@lucide/astro';
     align-items: center;
     justify-content: center;
     padding: 4rem 0;
-    background: linear-gradient(180deg, var(--color-neutral-100) 0%, white 100%);
+    background: linear-gradient(180deg, var(--surface-secondary) 0%, var(--surface-primary) 100%);
   }
   
   .error-content {
@@ -80,7 +80,7 @@ import { Home, Search, Phone, ArrowLeft } from '@lucide/astro';
   
   .error-message {
     font-size: 1.125rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     margin-bottom: 2rem;
   }
   
@@ -94,9 +94,9 @@ import { Home, Search, Phone, ArrowLeft } from '@lucide/astro';
   
   .quick-links {
     padding: 2rem;
-    background: white;
+    background: var(--surface-card);
     border-radius: 1rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
   }
   
   .quick-links h3 {
@@ -116,8 +116,8 @@ import { Home, Search, Phone, ArrowLeft } from '@lucide/astro';
   
   .quick-links a {
     padding: 0.5rem 1rem;
-    background: var(--color-neutral-100);
-    color: var(--color-neutral-700);
+    background: var(--surface-secondary);
+    color: var(--text-body);
     border-radius: 9999px;
     font-size: 0.9375rem;
     transition: all var(--transition-fast);

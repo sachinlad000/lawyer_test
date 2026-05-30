@@ -381,9 +381,61 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  @keyframes hv1LMobileSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   @media (max-width: 768px) {
     .hv1L { padding: 5rem 1rem 3rem; }
     .hv1L-btn-primary, .hv1L-btn-outline { width: 100%; justify-content: center; }
+
+    .hv1L-features-wrapper {
+      overflow: visible;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+
+    .hv1L-features-track {
+      animation: none;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      transform: none;
+      width: 100%;
+    }
+
+    .hv1L-features {
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+    }
+
+    .hv1L-feature {
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: hv1LMobileSlideIn 0.6s ease-out forwards;
+      width: 100%;
+      justify-content: flex-start;
+      white-space: normal;
+    }
+
+    .hv1L-feature:nth-child(n+6) {
+      display: none; /* Hide duplicates used for marquee */
+    }
+
+    .hv1L-feature:nth-child(1) { animation-delay: 0.9s; }
+    .hv1L-feature:nth-child(2) { animation-delay: 1.05s; }
+    .hv1L-feature:nth-child(3) { animation-delay: 1.2s; }
+    .hv1L-feature:nth-child(4) { animation-delay: 1.35s; }
+    .hv1L-feature:nth-child(5) { animation-delay: 1.5s; }
   }
   @media (prefers-reduced-motion: reduce) {
     .hv1L-anim, .hv1L-title-accent::after, .hv1L-gradient-orb, .hv1L-shape, .hv1L-features-track { animation: none; transform: none; opacity: 1; width: 100%; }

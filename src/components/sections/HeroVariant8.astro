@@ -1,0 +1,660 @@
+---
+/**
+ * Hero Variant 8: "Luxury Editorial"
+ * Minimal luxury + cinematic motion + editorial typography + subtle interactions.
+ * Features:
+ * - Slow zoom background (Ken Burns)
+ * - Staggered text reveal
+ * - Fade-in CTA
+ * - Scramble text reveal on main elements
+ * - Animated metrics counter rollup
+ */
+---
+
+<section id="hero-v8" class="hv8" aria-labelledby="hv8-heading">
+  <!-- Slow Zoom Background Image -->
+  <div class="hv8-bg-container" aria-hidden="true">
+    <img
+      src="/images/hero-bg.jpg"
+      alt="Cinematic Lawyer Chambers"
+      class="hv8-bg-img"
+    />
+    <div class="hv8-overlay"></div>
+  </div>
+
+  <div class="hv8-container">
+    <div class="hv8-content">
+      <!-- Luxury Badge with Scramble Effect -->
+      <div class="hv8-badge-wrap hv8-fade-up" style="--d: 0.1s">
+        <div class="hv8-badge">
+          <span class="hv8-badge-dot"></span>
+          <span class="scramble-text" data-value="Advocate Pradnya Pednekar">Advocate Pradnya Pednekar</span>
+        </div>
+      </div>
+
+      <!-- Main Editorial Title -->
+      <h1 id="hv8-heading" class="hv8-title hv8-fade-up" style="--d: 0.3s">
+        Defending Your <br class="mobile-only"/>
+        <span class="hv8-accent scramble-text" data-value="Rights With Integrity">Rights With Integrity</span>
+      </h1>
+
+      <!-- Editorial Subtitle -->
+      <p class="hv8-subtitle hv8-fade-up" style="--d: 0.5s">
+        With 22+ years of professional advocacy, we combine rigorous legal expertise 
+        with tailored strategies to protect what matters most to you.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hv8-actions hv8-fade-up" style="--d: 0.7s">
+        <a href="/contact" class="hv8-btn-primary">
+          <span>Get Consultation</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="/practice-areas" class="hv8-btn-secondary">
+          <span>Explore Services</span>
+        </a>
+      </div>
+
+      <!-- Animated Metrics -->
+      <div class="hv8-metrics hv8-fade-up" style="--d: 0.9s">
+        <div class="hv8-metric-item">
+          <span class="hv8-metric-val" data-target="22">0</span><span class="hv8-metric-plus">+</span>
+          <span class="hv8-metric-lbl">Years of Practice</span>
+        </div>
+        <div class="hv8-metric-sep"></div>
+        <div class="hv8-metric-item">
+          <span class="hv8-metric-val" data-target="500">0</span><span class="hv8-metric-plus">+</span>
+          <span class="hv8-metric-lbl">Cases Handled</span>
+        </div>
+        <div class="hv8-metric-sep"></div>
+        <div class="hv8-metric-item">
+          <span class="hv8-metric-val" data-target="98">0</span><span class="hv8-metric-plus">%</span>
+          <span class="hv8-metric-lbl">Success Rate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Cue -->
+  <div class="hv8-scroll" aria-hidden="true">
+    <span class="hv8-scroll-text">Scroll Down</span>
+    <div class="hv8-scroll-bar">
+      <div class="hv8-scroll-dot"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Base section styles */
+  .hv8 {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #020612;
+    color: #ffffff;
+    overflow: hidden;
+    padding: 6rem 1.5rem 5rem;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Slow Zoom Background */
+  .hv8-bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hv8-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+    filter: brightness(0.4) contrast(1.1) saturate(0.85);
+    animation: hv8KenBurns 28s ease-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes hv8KenBurns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.12) translate(-1%, -1%);
+    }
+  }
+
+  /* Linear overlay gradient for maximum text contrast */
+  .hv8-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(13, 18, 34, 0.8) 0%,
+      rgba(10, 13, 24, 0.65) 50%,
+      rgba(158, 158, 158, 0.9) 100%
+    );
+    z-index: 1;
+  }
+
+  /* Main Container */
+  .hv8-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hv8-content {
+    max-width: 860px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Badge */
+  .hv8-badge-wrap {
+    margin-bottom: 2rem;
+  }
+
+  .hv8-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4af37;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hv8-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #d4af37;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #d4af37;
+    animation: hv8Pulse 2.5s infinite;
+  }
+
+  @keyframes hv8Pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.6);
+      opacity: 0.4;
+    }
+  }
+
+  /* Editorial Title */
+  .hv8-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    margin: 0 0 1.5rem;
+  }
+
+  .hv8-accent {
+    color: transparent;
+    background: linear-gradient(135deg, #d4af37 0%, #f7d070 50%, #d4af37 100%);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  /* Subtitle */
+  .hv8-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #cbd5e1;
+    line-height: 1.75;
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  /* Action Buttons */
+  .hv8-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 3.5rem;
+    width: 100%;
+  }
+
+  .hv8-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: #d4af37;
+    color: #020612;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+    border: 1px solid #d4af37;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hv8-btn-primary span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hv8-btn-primary svg {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .hv8-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    background: #e2be4a;
+    border-color: #e2be4a;
+  }
+
+  .hv8-btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  .hv8-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .hv8-btn-secondary:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(212, 175, 55, 0.4);
+    color: #d4af37;
+  }
+
+  /* Animated Metrics */
+  .hv8-metrics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 24px 44px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 680px;
+  }
+
+  .hv8-metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .hv8-metric-val {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .hv8-metric-plus {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #d4af37;
+    line-height: 1;
+    margin-left: 2px;
+  }
+
+  .hv8-metric-lbl {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .hv8-metric-sep {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3), transparent);
+  }
+
+  /* Scroll Cue */
+  .hv8-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .hv8-scroll-text {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #64748b;
+  }
+
+  .hv8-scroll-bar {
+    width: 2px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hv8-scroll-dot {
+    width: 100%;
+    height: 12px;
+    background: #d4af37;
+    position: absolute;
+    top: 0;
+    animation: hv8ScrollProgress 2s infinite ease-in-out;
+  }
+
+  @keyframes hv8ScrollProgress {
+    0% {
+      top: -12px;
+    }
+    50% {
+      top: 100%;
+    }
+    100% {
+      top: -12px;
+    }
+  }
+
+  /* Text Scramble Helper Style */
+  .scramble-ghost {
+    opacity: 0.6;
+    color: #d4af37;
+  }
+
+  /* Page Entrance Fade Up Animations */
+  .hv8-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hv8FadeUpAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--d, 0s);
+  }
+
+  @keyframes hv8FadeUpAnim {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hv8 {
+      padding: 7rem 1.25rem 4rem;
+    }
+
+    .mobile-only {
+      display: block;
+    }
+
+    .hv8-badge-wrap {
+      margin-bottom: 1.5rem;
+    }
+
+    .hv8-title {
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .hv8-subtitle {
+      margin-bottom: 2rem;
+    }
+
+    .hv8-actions {
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hv8-btn-primary,
+    .hv8-btn-secondary {
+      width: 100%;
+    }
+
+    .hv8-metrics {
+      padding: 16px 20px;
+      gap: 12px;
+      border-radius: 16px;
+    }
+
+    .hv8-metric-lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+    }
+
+    .hv8-scroll {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hv8-metrics {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 10px;
+    }
+
+    .hv8-metric-item {
+      flex: 1 1 40%;
+    }
+
+    .hv8-metric-sep {
+      display: none;
+    }
+  }
+
+  /* Reduced Motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .hv8-bg-img,
+    .hv8-badge-dot,
+    .hv8-scroll-dot {
+      animation: none;
+    }
+    .hv8-fade-up {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Scramble Text Animation
+  class TextScrambler {
+    el: HTMLElement;
+    chars: string;
+    queue: Array<{ from: string; to: string; start: number; end: number; char?: string }>;
+    frame: number;
+    frameRequest: number = 0;
+    resolve: () => void = () => {};
+
+    constructor(el: HTMLElement) {
+      this.el = el;
+      this.chars = 'bcdaefghijklmnopqrstuvwxyz';
+      this.update = this.update.bind(this);
+      this.queue = [];
+      this.frame = 0;
+    }
+
+    setText(newText: string) {
+      const oldText = this.el.innerText;
+      const length = Math.max(oldText.length, newText.length);
+      const promise = new Promise<void>((resolve) => (this.resolve = resolve));
+      this.queue = [];
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || '';
+        const to = newText[i] || '';
+        const start = Math.floor(Math.random() * 20);
+        const end = start + Math.floor(Math.random() * 20);
+        this.queue.push({ from, to, start, end });
+      }
+      cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
+    }
+
+    update() {
+      let output = '';
+      let complete = 0;
+      for (let i = 0, n = this.queue.length; i < n; i++) {
+        let { from, to, start, end, char } = this.queue[i];
+        if (this.frame >= end) {
+          complete++;
+          output += to;
+        } else if (this.frame >= start) {
+          if (!char || Math.random() < 0.15) {
+            char = this.randomChar();
+            this.queue[i].char = char;
+          }
+          output += `<span class="scramble-ghost">${char}</span>`;
+        } else {
+          output += from;
+        }
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length) {
+        this.resolve();
+      } else {
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
+      }
+    }
+
+    randomChar() {
+      return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+  }
+
+  // Count Up Animation
+  function animateCounters() {
+    const valueElements = document.querySelectorAll('.hv8-metric-val');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.getAttribute('data-target') || '0', 10);
+          const duration = 1800; // ms
+          const start = 0;
+          let startTime: number | null = null;
+
+          function step(timestamp: number) {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            // Ease out quad
+            const easeProgress = progress * (2 - progress);
+            const current = Math.floor(easeProgress * (target - start) + start);
+            el.textContent = current.toString();
+
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              el.textContent = target.toString();
+            }
+          }
+
+          window.requestAnimationFrame(step);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    valueElements.forEach((el) => observer.observe(el));
+  }
+
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize scramble effects
+    const scrambleElements = document.querySelectorAll('.scramble-text');
+    scrambleElements.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      const originalText = htmlEl.getAttribute('data-value') || htmlEl.innerText;
+      const scrambler = new TextScrambler(htmlEl);
+      
+      // Delay initialization slightly to let load animation run
+      setTimeout(() => {
+        scrambler.setText(originalText);
+      }, 350);
+
+      // Scramble again on hover/touch
+      htmlEl.addEventListener('mouseenter', () => {
+        scrambler.setText(originalText);
+      });
+    });
+
+    // 2. Initialize metrics rollups
+    animateCounters();
+  });
+</script>

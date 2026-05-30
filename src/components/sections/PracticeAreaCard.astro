@@ -56,16 +56,16 @@ const IconComponent = icons[icon] || icons['default'];
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background: white;
+    background: var(--surface-card);
     border-radius: 1rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
     transition: all var(--transition-base);
     text-decoration: none;
-    border: 2px solid transparent;
+    border: 2px solid var(--surface-card-border);
   }
   
   .practice-card:hover {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--card-shadow-hover);
     transform: translateY(-6px);
     border-color: var(--color-accent-500);
   }
@@ -114,14 +114,14 @@ const IconComponent = icons[icon] || icons['default'];
   .card-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-primary-900);
+    color: var(--text-heading);
     margin-bottom: 0.75rem;
   }
   
   .card-description {
     flex: 1;
     font-size: 0.9375rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1.25rem;
   }
@@ -132,7 +132,7 @@ const IconComponent = icons[icon] || icons['default'];
     gap: 0.5rem;
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--color-primary-900);
+    color: var(--text-heading);
     transition: gap var(--transition-fast);
   }
   

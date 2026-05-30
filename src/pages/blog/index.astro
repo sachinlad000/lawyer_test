@@ -388,7 +388,7 @@ function formatDate(dateStr: string) {
 
   /* Featured Section */
   .featured-section {
-    background: var(--color-neutral-100);
+    background: var(--surface-secondary);
     padding: 3rem 0;
   }
 
@@ -410,10 +410,10 @@ function formatDate(dateStr: string) {
   }
 
   .featured-card {
-    background: white;
+    background: var(--surface-card);
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
     transition: all var(--transition-base);
   }
 
@@ -445,7 +445,7 @@ function formatDate(dateStr: string) {
 
   /* Blog Section */
   .blog-section {
-    background: white;
+    background: var(--surface-primary);
   }
 
   .blog-section .section-title {
@@ -475,7 +475,7 @@ function formatDate(dateStr: string) {
   .post-card {
     display: flex;
     flex-direction: column;
-    background: var(--color-neutral-50);
+    background: var(--surface-body);
     border-radius: 1rem;
     overflow: hidden;
     transition: all var(--transition-base);
@@ -488,8 +488,8 @@ function formatDate(dateStr: string) {
   }
 
   .post-card:hover {
-    box-shadow: var(--shadow-md);
-    background: white;
+    box-shadow: var(--card-shadow);
+    background: var(--surface-card);
   }
 
   .post-image {
@@ -567,7 +567,7 @@ function formatDate(dateStr: string) {
 
   .post-excerpt {
     font-size: 0.9375rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1rem;
   }
@@ -578,7 +578,7 @@ function formatDate(dateStr: string) {
     align-items: center;
     margin-top: auto;
     padding-top: 1rem;
-    border-top: 1px solid var(--color-neutral-200);
+    border-top: 1px solid var(--border-color);
   }
 
   .post-meta {
@@ -618,7 +618,7 @@ function formatDate(dateStr: string) {
   }
 
   .sidebar-widget {
-    background: var(--color-neutral-50);
+    background: var(--surface-body);
     border-radius: 1rem;
     padding: 1.5rem;
   }
@@ -645,20 +645,20 @@ function formatDate(dateStr: string) {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
     border-radius: 0.5rem;
     transition: all var(--transition-fast);
   }
 
   .category-list a:hover {
-    background: white;
+    background: var(--surface-card);
     color: var(--color-primary-900);
   }
 
   .category-list .count {
     margin-left: auto;
     padding: 0.125rem 0.5rem;
-    background: var(--color-neutral-200);
+    background: var(--surface-tertiary);
     font-size: 0.75rem;
     border-radius: 9999px;
   }
@@ -712,7 +712,7 @@ function formatDate(dateStr: string) {
   }
   .author-bio {
     font-size: 0.875rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     margin-top: 0.5rem;
   }
 </style>

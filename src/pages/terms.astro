@@ -237,7 +237,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .legal-content {
-    background: white;
+    background: var(--surface-primary);
   }
 
   .content-wrapper {
@@ -247,11 +247,11 @@ import Layout from "../layouts/Layout.astro";
 
   .intro {
     font-size: 1.0625rem;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
     line-height: 1.8;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--color-neutral-200);
+    border-bottom: 1px solid var(--border-color);
   }
 
   .legal-article h2 {
@@ -259,17 +259,17 @@ import Layout from "../layouts/Layout.astro";
     margin-top: 2rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-neutral-100);
+    border-bottom: 2px solid var(--border-light);
   }
 
   .legal-article p {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 1rem;
   }
 
   .legal-article ul {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 1rem;
     padding-left: 1.5rem;
@@ -280,7 +280,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .contact-box {
-    background: var(--color-neutral-50);
+    background: var(--surface-body);
     padding: 1.5rem;
     border-radius: 0.5rem;
     margin: 1rem 0;
@@ -288,6 +288,6 @@ import Layout from "../layouts/Layout.astro";
 
   .contact-box p {
     margin: 0;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
   }
 </style>

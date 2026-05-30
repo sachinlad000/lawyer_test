@@ -1,0 +1,598 @@
+---
+/**
+ * Hero Variant 9: "Editorial Glass"
+ * Minimal luxury glassmorphic card + cinematic background motion + editorial details.
+ * Features:
+ * - Floating background glow orbs (smooth orbit animations)
+ * - Glassmorphic card container (high blur, gold border)
+ * - Scramble text effect on load & hover/touch
+ * - Count-up animated statistics
+ * - Subtle hover transitions
+ */
+---
+
+<section id="hero-v9" class="hv9" aria-labelledby="hv9-heading">
+  <!-- Glowing Background Orbs -->
+  <div class="hv9-orbs-container" aria-hidden="true">
+    <div class="hv9-orb hv9-orb-gold"></div>
+    <div class="hv9-orb hv9-orb-blue"></div>
+    <div class="hv9-orb hv9-orb-amber"></div>
+  </div>
+
+  <!-- Noise Overlay for premium paper/glass feel -->
+  <div class="hv9-noise" aria-hidden="true"></div>
+
+  <!-- Main Wrapper -->
+  <div class="hv9-wrapper">
+    <!-- Floating Glass Card -->
+    <div class="hv9-card hv9-fade-in">
+      <div class="hv9-card-inner">
+        <!-- Badge -->
+        <div class="hv9-badge-wrap">
+          <div class="hv9-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span class="scramble-text-v9" data-value="Trusted Advocacy">Trusted Advocacy</span>
+          </div>
+        </div>
+
+        <!-- Title with Scramble Effect -->
+        <h1 id="hv9-heading" class="hv9-title">
+          Strategic Legal <br/>
+          <span class="hv9-gradient-text scramble-text-v9" data-value="Representation">Representation</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="hv9-subtitle">
+          For over 22 years, Advocate Pradnya Pednekar has delivered exceptional 
+          legal guidance with unwavering integrity and client-first commitment.
+        </p>
+
+        <!-- CTA Actions -->
+        <div class="hv9-actions">
+          <a href="/contact" class="hv9-btn-gold">
+            <span>Book Appointment</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="/practice-areas" class="hv9-btn-glass">
+            <span>Practice Areas</span>
+          </a>
+        </div>
+
+        <!-- Metrics Strip Inside Card -->
+        <div class="hv9-metrics">
+          <div class="hv9-metric-item">
+            <span class="hv9-metric-val" data-target="22">0</span><span class="hv9-metric-plus">+</span>
+            <span class="hv9-metric-lbl">Years Experience</span>
+          </div>
+          <div class="hv9-metric-item">
+            <span class="hv9-metric-val" data-target="500">0</span><span class="hv9-metric-plus">+</span>
+            <span class="hv9-metric-lbl">Cases Won</span>
+          </div>
+          <div class="hv9-metric-item">
+            <span class="hv9-metric-val" data-target="98">0</span><span class="hv9-metric-plus">%</span>
+            <span class="hv9-metric-lbl">Success Rate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Borders Decorative Spark -->
+      <div class="hv9-card-glow-edge"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Base section styling */
+  .hv9 {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #030712;
+    color: #ffffff;
+    overflow: hidden;
+    padding: 6rem 1.5rem 4rem;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Glowing background orbs */
+  .hv9-orbs-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    filter: blur(100px);
+    opacity: 0.85;
+  }
+
+  .hv9-orb {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .hv9-orb-gold {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+    top: 15%;
+    left: 10%;
+    animation: hv9FloatOrb1 20s infinite ease-in-out alternate;
+  }
+
+  .hv9-orb-blue {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 116, 144, 0.15) 0%, transparent 70%);
+    bottom: 10%;
+    right: 15%;
+    animation: hv9FloatOrb2 25s infinite ease-in-out alternate-reverse;
+  }
+
+  .hv9-orb-amber {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, transparent 70%);
+    top: -5%;
+    right: 25%;
+    animation: hv9FloatOrb3 18s infinite ease-in-out alternate;
+  }
+
+  @keyframes hv9FloatOrb1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(80px, 40px) scale(1.1); }
+  }
+
+  @keyframes hv9FloatOrb2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-60px, -80px) scale(0.9); }
+  }
+
+  @keyframes hv9FloatOrb3 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, -40px) scale(1.15); }
+  }
+
+  /* Fine noise texture */
+  .hv9-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* Main wrapper */
+  .hv9-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Glassmorphic card */
+  .hv9-card {
+    position: relative;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 28px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 3.5rem 3rem;
+    box-shadow: 
+      0 20px 50px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+  }
+
+  .hv9-card:hover {
+    border-color: rgba(212, 175, 55, 0.35);
+  }
+
+  .hv9-card-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Badge */
+  .hv9-badge-wrap {
+    margin-bottom: 1.75rem;
+  }
+
+  .hv9-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e2e8f0;
+  }
+
+  .hv9-badge svg {
+    color: #d4af37;
+  }
+
+  /* Title */
+  .hv9-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.3rem, 6vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 0 1.5rem;
+  }
+
+  .hv9-gradient-text {
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #f3f4f6 10%, #d4af37 60%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtitle */
+  .hv9-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 2.25rem;
+    font-weight: 400;
+  }
+
+  /* Actions */
+  .hv9-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+
+  .hv9-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: linear-gradient(135deg, #d4af37, #c49a2a);
+    color: #030712;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  }
+
+  .hv9-btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+    background: #e2be4a;
+  }
+
+  .hv9-btn-gold svg {
+    transition: transform 0.3s ease;
+  }
+
+  .hv9-btn-gold:hover svg {
+    transform: translateX(3px);
+  }
+
+  .hv9-btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hv9-btn-glass:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    background: rgba(212, 175, 55, 0.05);
+    color: #d4af37;
+    transform: translateY(-2px);
+  }
+
+  /* Metrics Panel Inside Card */
+  .hv9-metrics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 580px;
+    padding: 20px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 1rem;
+  }
+
+  .hv9-metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .hv9-metric-val {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .hv9-metric-plus {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: #d4af37;
+    line-height: 1.1;
+    margin-left: 1px;
+  }
+
+  .hv9-metric-lbl {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  /* Card side glow edge effect */
+  .hv9-card-glow-edge {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 28px;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+  }
+
+  /* Scramble ghost styling */
+  .scramble-ghost {
+    opacity: 0.5;
+    color: #d4af37;
+  }
+
+  /* Entrance Fade In */
+  .hv9-fade-in {
+    opacity: 0;
+    transform: scale(0.97) translateY(15px);
+    animation: hv9CardEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes hv9CardEntrance {
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hv9 {
+      padding: 6.5rem 1rem 3.5rem;
+    }
+
+    .hv9-card {
+      padding: 2.5rem 1.5rem 2rem;
+      border-radius: 20px;
+    }
+
+    .hv9-card-glow-edge {
+      border-radius: 20px;
+    }
+
+    .hv9-actions {
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .hv9-btn-gold,
+    .hv9-btn-glass {
+      width: 100%;
+    }
+
+    .hv9-metrics {
+      padding-top: 16px;
+    }
+
+    .hv9-metric-lbl {
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hv9-metrics {
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 20px;
+    }
+
+    .hv9-metric-item {
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding-bottom: 12px;
+    }
+
+    .hv9-metric-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hv9-orb {
+      animation: none;
+    }
+    .hv9-fade-in {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Scramble Animation class for Variant 9
+  class TextScramblerV9 {
+    el: HTMLElement;
+    chars: string;
+    queue: Array<{ from: string; to: string; start: number; end: number; char?: string }>;
+    frame: number;
+    frameRequest: number = 0;
+    resolve: () => void = () => {};
+
+    constructor(el: HTMLElement) {
+      this.el = el;
+      this.chars = '!<>-_\\/[]{}—=+*^?#________';
+      this.update = this.update.bind(this);
+      this.queue = [];
+      this.frame = 0;
+    }
+
+    setText(newText: string) {
+      const oldText = this.el.innerText;
+      const length = Math.max(oldText.length, newText.length);
+      const promise = new Promise<void>((resolve) => (this.resolve = resolve));
+      this.queue = [];
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || '';
+        const to = newText[i] || '';
+        const start = Math.floor(Math.random() * 20);
+        const end = start + Math.floor(Math.random() * 20);
+        this.queue.push({ from, to, start, end });
+      }
+      cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
+    }
+
+    update() {
+      let output = '';
+      let complete = 0;
+      for (let i = 0, n = this.queue.length; i < n; i++) {
+        let { from, to, start, end, char } = this.queue[i];
+        if (this.frame >= end) {
+          complete++;
+          output += to;
+        } else if (this.frame >= start) {
+          if (!char || Math.random() < 0.28) {
+            char = this.randomChar();
+            this.queue[i].char = char;
+          }
+          output += `<span class="scramble-ghost">${char}</span>`;
+        } else {
+          output += from;
+        }
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length) {
+        this.resolve();
+      } else {
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
+      }
+    }
+
+    randomChar() {
+      return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+  }
+
+  // Count Up Animation for Variant 9
+  function initCountersV9() {
+    const valueElements = document.querySelectorAll('.hv9-metrics .hv9-metric-val');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.getAttribute('data-target') || '0', 10);
+          const duration = 2000;
+          const start = 0;
+          let startTime: number | null = null;
+
+          function step(timestamp: number) {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const easeProgress = progress * (2 - progress); // Ease out
+            const current = Math.floor(easeProgress * (target - start) + start);
+            el.textContent = current.toString();
+
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              el.textContent = target.toString();
+            }
+          }
+
+          window.requestAnimationFrame(step);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    valueElements.forEach((el) => observer.observe(el));
+  }
+
+  // Bind events
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Scramble effect on page load & hover
+    const scrambleElements = document.querySelectorAll('.scramble-text-v9');
+    scrambleElements.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      const originalText = htmlEl.getAttribute('data-value') || htmlEl.innerText;
+      const scrambler = new TextScramblerV9(htmlEl);
+      
+      setTimeout(() => {
+        scrambler.setText(originalText);
+      }, 400);
+
+      htmlEl.addEventListener('mouseenter', () => {
+        scrambler.setText(originalText);
+      });
+    });
+
+    // 2. Rollup counters
+    initCountersV9();
+  });
+</script>

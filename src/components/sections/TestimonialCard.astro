@@ -61,14 +61,15 @@ const { name, role, content, rating, caseType, image } = Astro.props;
   .testimonial-card {
     position: relative;
     padding: 2rem;
-    background: white;
+    background: var(--surface-card);
     border-radius: 1rem;
-    box-shadow: var(--shadow-md);
+    border: 1px solid var(--surface-card-border);
+    box-shadow: var(--card-shadow);
     transition: all var(--transition-base);
   }
   
   .testimonial-card:hover {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--card-shadow-hover);
     transform: translateY(-4px);
   }
   
@@ -104,7 +105,7 @@ const { name, role, content, rating, caseType, image } = Astro.props;
   .testimonial-content {
     font-size: 1.0625rem;
     line-height: 1.7;
-    color: var(--color-neutral-700);
+    color: var(--text-body);
     margin-bottom: 1.5rem;
     font-style: italic;
   }
@@ -150,12 +151,12 @@ const { name, role, content, rating, caseType, image } = Astro.props;
   
   .client-name {
     font-weight: 600;
-    color: var(--color-neutral-900);
+    color: var(--text-heading);
   }
   
   .client-role {
     font-size: 0.875rem;
-    color: var(--color-neutral-500);
+    color: var(--text-muted);
   }
   
   .case-badge {

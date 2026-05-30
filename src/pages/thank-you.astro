@@ -72,14 +72,14 @@ import { CheckCircle, ArrowLeft, Phone, MessageCircle } from '@lucide/astro';
     align-items: center;
     justify-content: center;
     padding: 4rem 0;
-    background: linear-gradient(180deg, var(--color-neutral-50) 0%, white 100%);
+    background: linear-gradient(180deg, var(--surface-body) 0%, var(--surface-primary) 100%);
   }
   
   .thank-you-content {
     max-width: 600px;
     text-align: center;
     padding: 3rem;
-    background: white;
+    background: var(--surface-card);
     border-radius: 1.5rem;
     box-shadow: var(--shadow-lg);
   }
@@ -104,12 +104,12 @@ import { CheckCircle, ArrowLeft, Phone, MessageCircle } from '@lucide/astro';
   
   .message {
     font-size: 1.125rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     margin-bottom: 2rem;
   }
   
   .next-steps {
-    background: var(--color-neutral-50);
+    background: var(--surface-body);
     padding: 1.5rem;
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -124,7 +124,7 @@ import { CheckCircle, ArrowLeft, Phone, MessageCircle } from '@lucide/astro';
   .next-steps ol {
     margin: 0;
     padding-left: 1.5rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
   }
   
   .next-steps li {
@@ -132,7 +132,7 @@ import { CheckCircle, ArrowLeft, Phone, MessageCircle } from '@lucide/astro';
   }
   
   .urgent-text {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
   }
   

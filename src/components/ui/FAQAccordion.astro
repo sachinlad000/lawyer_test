@@ -53,16 +53,16 @@ const { items, class: className = '' } = Astro.props;
   }
   
   .faq-item {
-    background: white;
+    background: var(--surface-card);
     border-radius: 0.75rem;
     box-shadow: var(--shadow-sm);
     overflow: hidden;
-    border: 1px solid var(--color-neutral-200);
+    border: 1px solid var(--border-color);
     transition: box-shadow var(--transition-fast);
   }
   
   .faq-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
   }
   
   .faq-item.active {
@@ -81,7 +81,7 @@ const { items, class: className = '' } = Astro.props;
     text-align: left;
     font-size: 1.0625rem;
     font-weight: 600;
-    color: var(--color-neutral-800);
+    color: var(--text-body);
     transition: color var(--transition-fast);
   }
   
@@ -107,7 +107,7 @@ const { items, class: className = '' } = Astro.props;
   
   .faq-answer-inner {
     padding: 0 1.5rem 1.5rem;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     line-height: 1.7;
   }
   

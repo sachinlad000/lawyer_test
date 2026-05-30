@@ -13,6 +13,8 @@ import HeroVariant4 from "../components/sections/HeroVariant4.astro";
 import HeroVariant5 from "../components/sections/HeroVariant5.astro";
 import HeroVariant6 from "../components/sections/HeroVariant6.astro";
 import HeroVariant7 from "../components/sections/HeroVariant7.astro";
+import HeroVariant8 from "../components/sections/HeroVariant8.astro";
+import HeroVariant9 from "../components/sections/HeroVariant9.astro";
 ---
 
 <Layout
@@ -29,7 +31,9 @@ import HeroVariant7 from "../components/sections/HeroVariant7.astro";
       <a href="#hero-v4" class="showcase-nav-link">4 — Luxury</a>
       <a href="#hero-v5" class="showcase-nav-link">5 — Futuristic</a>
       <a href="#hero-v6" class="showcase-nav-link">6 — Video</a>
-      <a href="#hero-v7" class="showcase-nav-link">7 — Video</a>
+      <a href="#hero-v7" class="showcase-nav-link">7 — Personal</a>
+      <a href="#hero-v8" class="showcase-nav-link" style="border-color: rgba(212, 175, 55, 0.4); color: #d4af37;">8 — Luxury Mobile</a>
+      <a href="#hero-v9" class="showcase-nav-link" style="border-color: rgba(212, 175, 55, 0.4); color: #d4af37;">9 — Glass Mobile</a>
       <div style="margin-left: auto; display:flex; gap: 8px;">
         <a
           href="/hero-showcase-light"
@@ -100,31 +104,54 @@ import HeroVariant7 from "../components/sections/HeroVariant7.astro";
     </div>
     <HeroVariant5 />
   </div>
+  <!-- Variant 6: Video Background -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">06</span>
+      <span class="showcase-name">Video Background</span>
+      <span class="showcase-desc"
+        >Cinematic video background with floating particles & glass cards</span
+      >
+    </div>
+    <HeroVariant6 />
+  </div>
+
+  <!-- Variant 7: Personal Portfolio -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">07</span>
+      <span class="showcase-name">Personal Branding</span>
+      <span class="showcase-desc"
+        >Elegant personal portfolio with tags, bio, and social links</span
+      >
+    </div>
+    <HeroVariant7 />
+  </div>
+
+  <!-- Variant 8: Luxury Editorial Mobile-First -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">08</span>
+      <span class="showcase-name">Luxury Editorial</span>
+      <span class="showcase-desc"
+        >Minimal luxury style with Ken Burns background zoom & scramble text reveal</span
+      >
+    </div>
+    <HeroVariant8 />
+  </div>
+
+  <!-- Variant 9: Glassmorphic Editorial Mobile-First -->
+  <div class="showcase-section">
+    <div class="showcase-label">
+      <span class="showcase-num">09</span>
+      <span class="showcase-name">Editorial Glass</span>
+      <span class="showcase-desc"
+        >Frosted-glass main container card with floating gradient orbs background</span
+      >
+    </div>
+    <HeroVariant9 />
+  </div>
 </Layout>
-
-<!-- Variant 6: Video Background -->
-<div class="showcase-section">
-  <div class="showcase-label">
-    <span class="showcase-num">06</span>
-    <span class="showcase-name">Video Background</span>
-    <span class="showcase-desc"
-      >Cinematic video background with floating particles & glass cards</span
-    >
-  </div>
-  <HeroVariant6 />
-</div>
-
-<!-- Variant 7: Video Background -->
-<div class="showcase-section">
-  <div class="showcase-label">
-    <span class="showcase-num">07</span>
-    <span class="showcase-name">Video Background</span>
-    <span class="showcase-desc"
-      >Cinematic video background with floating particles & glass cards</span
-    >
-  </div>
-  <HeroVariant7 />
-</div>
 
 <style>
   /* Sticky navigation */

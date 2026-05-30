@@ -14,6 +14,26 @@ const defaultMessage =
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
 ---
 
+<!-- Floating Theme Toggle -->
+<button class="theme-float" id="themeToggleFloat" aria-label="Toggle theme">
+  <svg class="theme-icon-sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg class="theme-icon-moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+  </svg>
+  <span class="theme-tooltip">Toggle Theme</span>
+</button>
+
+<!-- WhatsApp Float -->
 <a
   href={whatsappUrl}
   class="whatsapp-float"
@@ -35,6 +55,31 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
   </svg>
   <span class="whatsapp-tooltip">Chat with us</span>
 </a>
+
+<script>
+  // Add listener for the new floating theme toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleFloat = document.getElementById('themeToggleFloat');
+    
+    if (themeToggleFloat) {
+      themeToggleFloat.addEventListener('click', () => {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        
+        // Update header if exists
+        const header = document.getElementById("siteHeader");
+        const heroEl = document.querySelector("main.has-hero section:first-of-type, #site-hero, [id^='hero-']");
+        if (heroEl && header) {
+          const isLightHero = next === 'light';
+          header.classList.toggle('header--light-bg', isLightHero);
+        }
+      });
+    }
+  });
+</script>
 
 <style>
   .whatsapp-float {
@@ -65,7 +110,58 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
     height: 32px;
   }
 
-  .whatsapp-tooltip {
+  /* Theme Float */
+  .theme-float {
+    position: fixed;
+    bottom: 96px;
+    right: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--card-shadow);
+    z-index: 1000;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: none;
+  }
+
+  .theme-float:hover {
+    transform: scale(1.1);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  :global([data-theme="dark"]) .theme-icon-moon { display: none; }
+  :global([data-theme="light"]) .theme-icon-sun { display: none; }
+
+  /* Dark theme colors - white logo on dark slate background */
+  :global([data-theme="dark"]) .theme-float {
+    background: var(--surface-secondary);
+    border: 1px solid var(--border-color);
+    color: #ffffff;
+  }
+
+  :global([data-theme="dark"]) .theme-float:hover {
+    color: var(--color-accent-500);
+    border-color: var(--color-accent-500);
+  }
+
+  /* Light theme colors - dark logo on white background */
+  :global([data-theme="light"]) .theme-float {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #050d1a;
+  }
+
+  :global([data-theme="light"]) .theme-float:hover {
+    color: var(--color-primary-700);
+    border-color: var(--color-primary-700);
+  }
+
+  /* Tooltips */
+  .whatsapp-tooltip, .theme-tooltip {
     position: absolute;
     right: 70px;
     background: var(--color-neutral-800);
@@ -73,6 +169,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     font-size: 0.875rem;
+    font-weight: 600;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
@@ -80,7 +177,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
     transition: all var(--transition-fast);
   }
 
-  .whatsapp-tooltip::after {
+  .whatsapp-tooltip::after, .theme-tooltip::after {
     content: "";
     position: absolute;
     right: -6px;
@@ -91,7 +188,20 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
     border-color: transparent transparent transparent var(--color-neutral-800);
   }
 
-  .whatsapp-float:hover .whatsapp-tooltip {
+  /* Dark theme tooltips */
+  :global([data-theme="dark"]) .whatsapp-tooltip,
+  :global([data-theme="dark"]) .theme-tooltip {
+    background: var(--color-accent-500);
+    color: #050d1a; /* Dark text on hover in dark theme */
+  }
+
+  :global([data-theme="dark"]) .whatsapp-tooltip::after,
+  :global([data-theme="dark"]) .theme-tooltip::after {
+    border-color: transparent transparent transparent var(--color-accent-500);
+  }
+
+  .whatsapp-float:hover .whatsapp-tooltip,
+  .theme-float:hover .theme-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
@@ -128,12 +238,24 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
       height: 54px;
     }
 
+    .theme-float {
+      bottom: 82px;
+      right: 16px;
+      width: 46px;
+      height: 46px;
+    }
+
     .whatsapp-float svg {
       width: 28px;
       height: 28px;
     }
 
-    .whatsapp-tooltip {
+    .theme-float svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .whatsapp-tooltip, .theme-tooltip {
       display: none;
     }
   }

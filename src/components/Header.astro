@@ -22,6 +22,11 @@ const phoneClean = siteConfig.contact.phone.primary.replace(/[^0-9+]/g, "");
 const advocateName = siteConfig.advocate.name;
 const firmTagline = "(Kulkarni)";
 const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Years of Experience`;
+
+interface Props {
+  hasHero?: boolean;
+}
+const { hasHero = false } = Astro.props;
 ---
 
 <!-- Header Top Bar — scrolls away naturally, not fixed --><!-- <div class="header-top">
@@ -38,7 +43,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     </div>
   </div>
 </div> --><!-- Fixed Navbar — transparent over hero, solid on scroll -->
-<header class="header header--transparent" id="siteHeader">
+<header class={`header ${hasHero ? "header--transparent" : ""}`} id="siteHeader">
   <nav class="navbar">
     <div class="container">
       <div class="navbar-content">
@@ -83,6 +88,8 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
           Book Appointment
         </a> -->
 
+        <!-- Theme Toggle Moved to Floating Component -->
+
         <!-- Mobile Menu Toggle -->
         <button
           class="mobile-menu-toggle hide-desktop"
@@ -120,6 +127,23 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
             ))
           }
         </ul>
+        <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle theme">
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+          <span>Toggle Theme</span>
+        </button>
         <a href="/contact" class="btn btn-accent btn-lg mobile-cta">
           Book Appointment
         </a>
@@ -279,8 +303,10 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
 
   /* ---- Solid State (scrolled past hero - white background) ---- */
   .header:not(.header--transparent) {
-    background: white;
+    background: var(--surface-header-solid);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .header:not(.header--transparent) .navbar {
@@ -288,7 +314,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header:not(.header--transparent) .navbar-logo {
-    color: var(--color-primary-900);
+    color: var(--text-heading);
   }
 
   .header:not(.header--transparent) .logo-icon {
@@ -296,11 +322,11 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header:not(.header--transparent) .logo-tagline {
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
   }
 
   .header:not(.header--transparent) .nav-link {
-    color: var(--color-primary-900);
+    color: var(--text-heading);
   }
 
   .header:not(.header--transparent) .nav-link:hover {
@@ -312,7 +338,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   }
 
   .header:not(.header--transparent) .mobile-menu-toggle {
-    color: var(--color-primary-900);
+    color: var(--text-heading);
   }
 
   /* ============================================
@@ -411,7 +437,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     top: 100%;
     left: 0;
     min-width: 200px;
-    background: white;
+    background: var(--surface-primary);
     border-radius: 0.5rem;
     box-shadow: var(--shadow-lg);
     list-style: none;
@@ -432,13 +458,13 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   .dropdown-link {
     display: block;
     padding: 0.75rem 1.25rem;
-    color: var(--color-neutral-700);
+    color: var(--text-secondary);
     transition: all var(--transition-fast);
   }
 
   .dropdown-link:hover {
-    background: var(--color-neutral-100);
-    color: var(--color-primary-900);
+    background: var(--surface-secondary);
+    color: var(--text-heading);
   }
 
   /* ============================================
@@ -473,8 +499,8 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     top: 100%;
     left: 0;
     right: 0;
-    background: white;
-    border-top: 1px solid var(--color-neutral-200);
+    background: var(--surface-primary);
+    border-top: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
     max-height: 0;
     overflow: hidden;
@@ -495,10 +521,10 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   .mobile-nav-link {
     display: block;
     padding: 1rem 0;
-    color: var(--color-neutral-800);
+    color: var(--text-body);
     font-size: 1.125rem;
     font-weight: 500;
-    border-bottom: 1px solid var(--color-neutral-100);
+    border-bottom: 1px solid var(--border-light);
   }
 
   .mobile-dropdown {
@@ -511,13 +537,40 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
   .mobile-dropdown-link {
     display: block;
     padding: 0.75rem 0;
-    color: var(--color-neutral-600);
+    color: var(--text-secondary);
     font-size: 1rem;
   }
 
   .mobile-cta {
     width: 100%;
     margin: 1rem 0 2rem;
+  }
+
+  /* Show sun in dark mode, moon in light mode */
+  :global([data-theme="dark"]) .theme-icon-moon { display: none; }
+  :global([data-theme="light"]) .theme-icon-sun { display: none; }
+
+  /* Mobile theme toggle */
+  .theme-toggle-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.875rem;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0.75rem 0;
+    transition: all 0.2s ease;
+  }
+
+  .theme-toggle-mobile:hover {
+    border-color: var(--color-accent-500);
   }
 
   /* ============================================
@@ -566,7 +619,7 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
     // Navbar transparent → solid on scroll
     // ====================================
     const header = document.getElementById("siteHeader");
-    const heroSection = document.querySelector("main section:first-of-type, #site-hero, [id^='hero-']");
+    const heroSection = document.querySelector("main.has-hero section:first-of-type, #site-hero, [id^='hero-']");
 
     if (header && heroSection) {
       const isLightHero = heroSection.id.includes('-light') || heroSection.className.includes('L');
@@ -597,5 +650,29 @@ const barInfo = `Bar Council Registered | ${siteConfig.advocate.experience} Year
       // No hero section on this page → always solid
       header.classList.remove("header--transparent");
     }
+
+    // ====================================
+    // Theme toggle
+    // ====================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+
+      // Update header light-bg class for light hero detection
+      const heroEl = document.querySelector("main.has-hero section:first-of-type, #site-hero, [id^='hero-']");
+      if (heroEl && header) {
+        const isLightHero = next === 'light';
+        header.classList.toggle('header--light-bg', isLightHero);
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
   });
 </script>
