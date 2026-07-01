@@ -2,7 +2,7 @@
  * Site-Wide Configuration
  * =======================
  * Central configuration for the entire website.
- * 
+ *
  * CLIENT EDITABLE: Update all values below with your actual information.
  */
 
@@ -11,8 +11,9 @@ export const siteConfig = {
   // BASIC SITE INFORMATION
   // ========================================
   siteName: "Advocate Pradnya Pednekar",
-  siteTagline: "Trusted Legal Excellence, Dedicated Advocacy",
-  siteDescription: "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Trusted legal representation.",
+  siteTagline: "Legal Excellence, Dedicated Advocacy",
+  siteDescription:
+    "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Trusted legal representation.",
 
   // Domain (without https://)
   domain: "yourdomain.com",
@@ -140,8 +141,10 @@ export const siteConfig = {
   seo: {
     titleTemplate: "%s | Advocate Pradnya Pednekar",
     defaultTitle: "Advocate Pradnya Pednekar | Expert Legal Services",
-    defaultDescription: "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Bar Council registered advocate. Trusted legal representation.",
-    defaultKeywords: "advocate, lawyer, legal services, civil law, criminal law, corporate law, India, High Court, Supreme Court",
+    defaultDescription:
+      "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Bar Council registered advocate. Trusted legal representation.",
+    defaultKeywords:
+      "advocate, lawyer, legal services, civil law, criminal law, corporate law, India, High Court, Supreme Court",
 
     // Open Graph defaults
     ogImage: "/images/og-image.jpg",
@@ -171,7 +174,8 @@ export const siteConfig = {
     copyrightName: "Advocate Pradnya Pednekar",
 
     // Bar Council compliance notice
-    barCouncilDisclaimer: "As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. This website is meant solely for informational purposes and not for the purpose of advertising.",
+    barCouncilDisclaimer:
+      "As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. This website is meant solely for informational purposes and not for the purpose of advertising.",
   },
 
   // ========================================
@@ -190,10 +194,10 @@ export const siteConfig = {
           { label: "Family Law", href: "/practice-areas#family" },
           { label: "Corporate Law", href: "/practice-areas#corporate" },
           { label: "Revenue Law", href: "/practice-areas#revenue" },
-        ]
+        ],
       },
-      { label: "Portfolio", href: "/portfolio" },
-      { label: "Testimonials", href: "/testimonials" },
+      // { label: "Portfolio", href: "/portfolio" },
+      // { label: "Testimonials", href: "/testimonials" },
       { label: "Contact", href: "/contact" },
     ],
     footer: [
