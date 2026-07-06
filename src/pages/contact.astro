@@ -12,9 +12,9 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from "@lucide/astro";
 
 // CLIENT EDITABLE: Contact information
 const contact = {
-  phone: "+91-9833889863",
-  whatsapp: "919833889863",
-  email: "adv.pradnyapednekar@gmail.com",
+  phone: "+91-9152109228",
+  whatsapp: "919152109228",
+  email: "applegalservices26@gmail.com",
   address: {
     line1: "B-19, Shanti Bhavan, Arihant Shopping Center",
     line2: "J.S.D. Road, Next to Mulund Railway Station",
@@ -110,7 +110,7 @@ const breadcrumbSchema = {
         <span>Contact</span>
       </nav>
       <h1 class="page-title">Contact Us</h1>
-      <p class="page-subtitle">Get in touch for a free initial consultation</p>
+      <p class="page-subtitle">Get in touch for a initial consultation</p>
     </div>
   </section>
 
@@ -185,7 +185,7 @@ const breadcrumbSchema = {
           <div class="office-hours">
             <div class="hours-header">
               <Clock size={20} />
-              <h3>Office Hours</h3>
+              <h3>Visiting Hours</h3>
             </div>
             <ul class="hours-list">
               <li>{contact.hours.weekdays}</li>
@@ -247,6 +247,102 @@ const breadcrumbSchema = {
                   name="email"
                   class="form-input"
                   placeholder="your@email.com"
+                />
+              </div>
+
+              <!-- Age & Gender Row -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="age" class="form-label">Age</label>
+                  <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    class="form-input"
+                    placeholder="e.g. 35"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="gender" class="form-label">Gender</label>
+                  <select id="gender" name="gender" class="form-select">
+                    <option value="">Select gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Occupation & Address -->
+              <div class="form-group">
+                <label for="occupation" class="form-label">Occupation</label>
+                <input
+                  type="text"
+                  id="occupation"
+                  name="occupation"
+                  class="form-input"
+                  placeholder="Your profession"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="address" class="form-label">Address</label>
+                <textarea
+                  id="address"
+                  name="address"
+                  class="form-textarea"
+                  placeholder="Your full address..."
+                  rows="2"></textarea>
+              </div>
+
+              <hr class="form-divider" />
+              <h3 class="form-section-title">Legal Matter Details</h3>
+
+              <div class="form-group">
+                <label for="is_pending" class="form-label"
+                  >Is the matter pending before any court or authority?</label
+                >
+                <select id="is_pending" name="is_pending" class="form-select">
+                  <option value="">Select option</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="court" class="form-label"
+                    >Mention Court/Forum</label
+                  >
+                  <input
+                    type="text"
+                    id="court"
+                    name="court"
+                    class="form-input"
+                    placeholder="e.g. Bombay High Court"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="case_no" class="form-label">Case No. / Year</label
+                  >
+                  <input
+                    type="text"
+                    id="case_no"
+                    name="case_no"
+                    class="form-input"
+                    placeholder="e.g. WP 1234/2023"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="stage" class="form-label">Stage / Next Date</label>
+                <input
+                  type="text"
+                  id="stage"
+                  name="stage"
+                  class="form-input"
+                  placeholder="e.g. Hearing on 15 Oct"
                 />
               </div>
 
@@ -515,6 +611,19 @@ const breadcrumbSchema = {
   .form-subtitle {
     color: var(--text-muted);
     margin-bottom: 2rem;
+  }
+
+  .form-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 2rem 0 1.5rem;
+  }
+
+  .form-section-title {
+    font-size: 1.125rem;
+    color: var(--text-heading);
+    margin-bottom: 1.25rem;
   }
 
   .form-row {

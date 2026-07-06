@@ -79,7 +79,7 @@ export const contactConfig = {
             },
             phone: {
                 label: "Phone Number",
-                placeholder: "+91-XXXXXXXXXX",
+                placeholder: "+91-9152109228",
                 required: true,
             },
             caseType: {

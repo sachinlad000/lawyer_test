@@ -43,21 +43,21 @@ export const siteConfig = {
   contact: {
     // Phone numbers
     phone: {
-      primary: "+91-9833889863",
-      secondary: "+91-9833889863",
-      display: "+91-9833-889863", // Formatted for display
+      primary: "+91-9152109228",
+      secondary: "+91-9152109228",
+      display: "+91-9152109228", // Formatted for display
     },
 
     // WhatsApp (without + sign, just numbers)
     whatsapp: {
-      number: "919833889863",
+      number: "919152109228",
       message: "Hello, I would like to schedule a consultation.", // Pre-filled message
     },
 
     // Email addresses
     email: {
-      primary: "adv.pradnyapednekar@gmail.com",
-      form: "adv.pradnyapednekar@gmail.com", // Where form submissions go
+      primary: "applegalservices26@gmail.com",
+      form: "applegalservices26@gmail.com", // Where form submissions go
     },
 
     // Office address
@@ -102,7 +102,7 @@ export const siteConfig = {
   // ========================================
   analytics: {
     // Google Analytics 4
-    googleAnalyticsId: "G-XXXXXXXXXX",
+    googleAnalyticsId: "G-9152109228",
 
     // Google Tag Manager (optional)
     googleTagManagerId: "",
@@ -124,7 +124,7 @@ export const siteConfig = {
     // Resend configuration (if using Resend)
     resend: {
       apiEndpoint: "/api/send-email", // Your API endpoint
-      toEmail: "contact@yourdomain.com",
+      toEmail: "applegalservices26@gmail.com",
       fromEmail: "noreply@yourdomain.com",
     },
 
@@ -196,8 +196,10 @@ export const siteConfig = {
           { label: "Revenue Law", href: "/practice-areas#revenue" },
         ],
       },
+      { label: "Pre-Marital Counselling", href: "/premarital-counselling" },
       // { label: "Portfolio", href: "/portfolio" },
       // { label: "Testimonials", href: "/testimonials" },
+      { label: "Careers", href: "/join-our-team" },
       { label: "Contact", href: "/contact" },
     ],
     footer: [

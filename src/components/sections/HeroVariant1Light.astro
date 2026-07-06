@@ -43,25 +43,21 @@
       22+ Years of unwavering commitment to legal excellence. Providing expert counsel with integrity.
     </p> -->
 
-    <!-- Moving features ticker for more animation -->
-    <div class="hv1L-features-wrapper hv1L-anim" data-delay="3">
-      <div class="hv1L-features-track">
-        <ul class="hv1L-features" role="list">
-          <!-- <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Trusted Legal Advisor</li>
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> 22+ Years of Experience</li> -->
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Results That Speak Excellence</li>
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Client-Centric Approach</li>
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Committed to Legal Awareness</li>
-        </ul>
-        <ul class="hv1L-features" aria-hidden="true" role="list">
-          <!-- <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Trusted Legal Advisor</li>
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> 22+ Years of Experience</li> -->
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Results That Speak Excellence</li>
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Client-Centric Approach</li>
-          <li class="hv1L-feature"><span class="hv1L-feature-bar"></span> Committed to Legal Awareness</li>
-        </ul>
-      </div>
-    </div>
+    <!-- Feature bullets -->
+    <ul class="hv1L-features hv1L-anim" data-delay="3" role="list">
+      <li class="hv1L-feature">
+        <span class="hv1L-feature-bar"></span>
+        <span>Practicing since 2004</span>
+      </li>
+      <li class="hv1L-feature">
+        <span class="hv1L-feature-bar"></span>
+        <span>Client-Centric Approach</span>
+      </li>
+      <li class="hv1L-feature">
+        <span class="hv1L-feature-bar"></span>
+        <span>Committed to Legal Awareness</span>
+      </li>
+    </ul>
 
     <div class="hv1L-actions hv1L-anim" data-delay="4">
       <a href="/contact" class="hv1L-btn-primary">
@@ -83,8 +79,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    color: #0a2463;
+    background: var(--surface-primary);
+    color: var(--text-heading);
     overflow: hidden;
     text-align: center;
     padding: 6rem 1.5rem 4rem;
@@ -226,7 +222,7 @@
     font-weight: 800;
     line-height: 1.1;
     margin: 0 0 1.5rem;
-    color: #0a2463;
+    color: var(--text-heading);
   }
 
   .hv1L-title-accent {
@@ -297,7 +293,7 @@
     gap: 10px;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #0a2463;
+    color: transparent; -webkit-text-stroke: 1.5px var(--text-heading);
     padding: 10px 20px;
     background: #fff;
     border: 1px solid rgba(10, 36, 99, 0.08);
@@ -331,7 +327,7 @@
     align-items: center;
     gap: 10px;
     padding: 16px 36px;
-    background: #0a2463;
+    background: var(--color-primary-900);
     color: #fff;
     font-weight: 700;
     font-size: 1rem;
@@ -351,7 +347,7 @@
     display: inline-flex;
     align-items: center;
     padding: 16px 36px;
-    color: #0a2463;
+    color: var(--text-secondary);
     font-weight: 600;
     font-size: 1rem;
     border: 2px solid #0a2463;

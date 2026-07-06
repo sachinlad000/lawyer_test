@@ -124,7 +124,8 @@ export const aboutConfig = {
         list: [
             { language: "English", proficiency: "Fluent" },
             { language: "Hindi", proficiency: "Fluent" },
-            { language: "Regional Language", proficiency: "Native" },
+            { language: "Marathi", proficiency: "Fluent" },
+            // { language: "Regional Language", proficiency: "Native" },
         ],
     },
 
