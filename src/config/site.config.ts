@@ -62,13 +62,13 @@ export const siteConfig = {
 
     // Office address
     address: {
-      line1: "B-19, Shanti Bhavan, Arihant Shopping Center",
+      line1: "B-19, 2nd Floor,Shanti Bhavan, Arihant Shopping Center",
       line2: "J.S.D. Road, Next to Mulund Railway Station",
       city: "Mumbai",
       state: "Maharashtra",
-      pincode: "400081",
+      pincode: "400080",
       landmark: "Next to Mulund Railway Station",
-      full: "B-19, Shanti Bhavan, Arihant Shopping Center, J.S.D. Road, Next to Mulund Railway Station, Mulund(W), Mumbai - 400081",
+      full: "B-19, 2nd Floor, Shanti Bhavan, Arihant Shopping Center, J.S.D. Road, Next to Mulund Railway Station, Mulund(W), Mumbai - 400080",
     },
 
     // Office hours

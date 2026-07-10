@@ -17,13 +17,37 @@
   <!-- Floating geometric shapes -->
   <div class="hv1L-shapes" aria-hidden="true">
     <div class="hv1L-shape hv1L-shape-1">
-      <svg viewBox="0 0 80 80" fill="none"><polygon points="40,5 75,65 5,65" stroke="currentColor" stroke-width="1.5" opacity="0.4"/></svg>
+      <svg viewBox="0 0 80 80" fill="none"
+        ><polygon
+          points="40,5 75,65 5,65"
+          stroke="currentColor"
+          stroke-width="1.5"
+          opacity="0.4"></polygon></svg
+      >
     </div>
     <div class="hv1L-shape hv1L-shape-2">
-      <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>
+      <svg viewBox="0 0 60 60" fill="none"
+        ><circle
+          cx="30"
+          cy="30"
+          r="28"
+          stroke="currentColor"
+          stroke-width="1"
+          opacity="0.3"></circle></svg
+      >
     </div>
     <div class="hv1L-shape hv1L-shape-3">
-      <svg viewBox="0 0 100 100" fill="none"><rect x="10" y="10" width="80" height="80" stroke="currentColor" stroke-width="1" opacity="0.2" transform="rotate(45 50 50)"/></svg>
+      <svg viewBox="0 0 100 100" fill="none"
+        ><rect
+          x="10"
+          y="10"
+          width="80"
+          height="80"
+          stroke="currentColor"
+          stroke-width="1"
+          opacity="0.2"
+          transform="rotate(45 50 50)"></rect></svg
+      >
     </div>
   </div>
 
@@ -35,7 +59,7 @@
     </div> -->
 
     <h1 id="hv1-heading" class="hv1-title hv1-anim" data-delay="1">
-      Protecting Rights,Providing Solutions<br/>
+      Protecting Rights,Providing Solutions<br />
       <span class="hv1-title-accent">& Creating Legal Awareness</span>
     </h1>
 
@@ -62,11 +86,16 @@
     <div class="hv1L-actions hv1L-anim" data-delay="4">
       <a href="/contact" class="hv1L-btn-primary">
         Get Consultation
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+        >
       </a>
-      <a href="/practice-areas" class="hv1L-btn-outline">
-        Explore Services
-      </a>
+      <a href="/practice-areas" class="hv1L-btn-outline"> Explore Services </a>
     </div>
   </div>
 </section>
@@ -103,7 +132,11 @@
   .hv1L-orb-1 {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(212, 175, 55, 0.15) 0%,
+      transparent 70%
+    );
     top: -200px;
     left: -100px;
     animation: hv1LFloat 15s ease-in-out infinite;
@@ -112,7 +145,11 @@
   .hv1L-orb-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(10, 36, 99, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(10, 36, 99, 0.08) 0%,
+      transparent 70%
+    );
     bottom: -100px;
     right: -100px;
     animation: hv1LFloat 18s ease-in-out infinite reverse;
@@ -121,16 +158,27 @@
   .hv1L-orb-3 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(212, 175, 55, 0.1) 0%,
+      transparent 70%
+    );
     top: 40%;
     left: 60%;
     animation: hv1LFloat 20s ease-in-out infinite 2s;
   }
 
   @keyframes hv1LFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(40px, -40px) scale(1.05); }
-    66% { transform: translate(-30px, 30px) scale(0.95); }
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(40px, -40px) scale(1.05);
+    }
+    66% {
+      transform: translate(-30px, 30px) scale(0.95);
+    }
   }
 
   .hv1L-shapes {
@@ -169,8 +217,13 @@
   }
 
   @keyframes hv1LShapeAnim {
-    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-    50% { transform: translateY(-30px) rotate(15deg) scale(1.1); }
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translateY(-30px) rotate(15deg) scale(1.1);
+    }
   }
 
   .hv1L-content {
@@ -195,7 +248,9 @@
     color: #0a2463;
     margin-bottom: 2rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .hv1L-badge:hover {
@@ -212,12 +267,19 @@
   }
 
   @keyframes hv1LPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.3; transform: scale(1.3); }
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(1.3);
+    }
   }
 
   .hv1L-title {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.1;
@@ -232,7 +294,7 @@
   }
 
   .hv1L-title-accent::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
@@ -243,7 +305,9 @@
   }
 
   @keyframes hv1LUnderline {
-    to { width: 100%; }
+    to {
+      width: 100%;
+    }
   }
 
   .hv1L-subtitle {
@@ -260,8 +324,20 @@
     position: relative;
     width: 100%;
     max-width: 800px;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
   }
 
   .hv1L-features-track {
@@ -276,7 +352,9 @@
   }
 
   @keyframes hv1LScrollTrack {
-    to { transform: translateX(-50%); }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   .hv1L-features {
@@ -293,14 +371,17 @@
     gap: 10px;
     font-size: 0.95rem;
     font-weight: 600;
-    color: transparent; -webkit-text-stroke: 1.5px var(--text-heading);
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--text-heading);
     padding: 10px 20px;
     background: #fff;
     border: 1px solid rgba(10, 36, 99, 0.08);
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     white-space: nowrap;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .hv1L-feature:hover {
@@ -367,14 +448,27 @@
     animation: hv1LFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
-  .hv1L-anim[data-delay="0"] { animation-delay: 0.1s; }
-  .hv1L-anim[data-delay="1"] { animation-delay: 0.3s; }
-  .hv1L-anim[data-delay="2"] { animation-delay: 0.5s; }
-  .hv1L-anim[data-delay="3"] { animation-delay: 0.7s; }
-  .hv1L-anim[data-delay="4"] { animation-delay: 0.9s; }
+  .hv1L-anim[data-delay="0"] {
+    animation-delay: 0.1s;
+  }
+  .hv1L-anim[data-delay="1"] {
+    animation-delay: 0.3s;
+  }
+  .hv1L-anim[data-delay="2"] {
+    animation-delay: 0.5s;
+  }
+  .hv1L-anim[data-delay="3"] {
+    animation-delay: 0.7s;
+  }
+  .hv1L-anim[data-delay="4"] {
+    animation-delay: 0.9s;
+  }
 
   @keyframes hv1LFadeUp {
-    to { opacity: 1; transform: translateY(0); }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes hv1LMobileSlideIn {
@@ -389,8 +483,14 @@
   }
 
   @media (max-width: 768px) {
-    .hv1L { padding: 5rem 1rem 3rem; }
-    .hv1L-btn-primary, .hv1L-btn-outline { width: 100%; justify-content: center; }
+    .hv1L {
+      padding: 5rem 1rem 3rem;
+    }
+    .hv1L-btn-primary,
+    .hv1L-btn-outline {
+      width: 100%;
+      justify-content: center;
+    }
 
     .hv1L-features-wrapper {
       overflow: visible;
@@ -423,17 +523,36 @@
       white-space: normal;
     }
 
-    .hv1L-feature:nth-child(n+6) {
+    .hv1L-feature:nth-child(n + 6) {
       display: none; /* Hide duplicates used for marquee */
     }
 
-    .hv1L-feature:nth-child(1) { animation-delay: 0.9s; }
-    .hv1L-feature:nth-child(2) { animation-delay: 1.05s; }
-    .hv1L-feature:nth-child(3) { animation-delay: 1.2s; }
-    .hv1L-feature:nth-child(4) { animation-delay: 1.35s; }
-    .hv1L-feature:nth-child(5) { animation-delay: 1.5s; }
+    .hv1L-feature:nth-child(1) {
+      animation-delay: 0.9s;
+    }
+    .hv1L-feature:nth-child(2) {
+      animation-delay: 1.05s;
+    }
+    .hv1L-feature:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+    .hv1L-feature:nth-child(4) {
+      animation-delay: 1.35s;
+    }
+    .hv1L-feature:nth-child(5) {
+      animation-delay: 1.5s;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hv1L-anim, .hv1L-title-accent::after, .hv1L-gradient-orb, .hv1L-shape, .hv1L-features-track { animation: none; transform: none; opacity: 1; width: 100%; }
+    .hv1L-anim,
+    .hv1L-title-accent::after,
+    .hv1L-gradient-orb,
+    .hv1L-shape,
+    .hv1L-features-track {
+      animation: none;
+      transform: none;
+      opacity: 1;
+      width: 100%;
+    }
   }
 </style>
