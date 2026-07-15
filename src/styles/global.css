@@ -102,11 +102,11 @@
   --surface-header-solid: rgba(10, 22, 40, 0.95);
   --surface-page-header: linear-gradient(135deg, #0a1628 0%, #0f1d32 100%);
 
-  --text-body: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-body: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.7);
   --text-heading: #ffffff;
-  --text-link: #e2e8f0;
+  --text-link: #ffffff;
 
   --border-color: rgba(255, 255, 255, 0.1);
   --border-light: rgba(255, 255, 255, 0.05);

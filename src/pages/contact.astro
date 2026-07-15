@@ -20,6 +20,7 @@ const contact = {
     line2: "J.S.D. Road, Next to Mulund Railway Station",
     city: "Mulund(W), Mumbai",
     state: "Maharashtra",
+    country: "India",
     pincode: "400081",
   },
   hours: {
@@ -29,7 +30,7 @@ const contact = {
   },
   // Replace with actual embed URL from Google Maps
   mapEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.123456789!2d72.8777!3d19.0760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzM0LjAiTiA3MsKwNTInMzkuOCJF!5e0!3m2!1sen!2sin!4v1234567890",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.0580108456484!2d72.9572994!3d19.173900800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b91f7ce4509b%3A0x6a5f190b2e9aa561!2sAdvocate%20Pradnya%20Pednekar!5e1!3m2!1sen!2sin!4v1784107491163!5m2!1sen!2sin",
 };
 
 const caseTypes = [
@@ -173,7 +174,7 @@ const breadcrumbSchema = {
                 <span class="method-label">Visit Office</span>
                 <span class="method-value">
                   {contact.address.line1}, {contact.address.line2}<br />
-                  {contact.address.city}, {contact.address.state} - {
+                  {contact.address.city}, {contact.address.state} , {contact.address.country} - {
                     contact.address.pincode
                   }
                 </span>
@@ -246,7 +247,7 @@ const breadcrumbSchema = {
                   id="email"
                   name="email"
                   class="form-input"
-                  placeholder="your@email.com"
+                  placeholder="abc@email.com"
                 />
               </div>
 
@@ -259,7 +260,7 @@ const breadcrumbSchema = {
                     id="age"
                     name="age"
                     class="form-input"
-                    placeholder="e.g. 35"
+                    placeholder="Your Age"
                   />
                 </div>
                 <div class="form-group">
@@ -330,7 +331,7 @@ const breadcrumbSchema = {
                     id="case_no"
                     name="case_no"
                     class="form-input"
-                    placeholder="e.g. WP 1234/2023"
+                    placeholder="e.g. ABC 1234/YYYY"
                   />
                 </div>
               </div>
@@ -342,7 +343,7 @@ const breadcrumbSchema = {
                   id="stage"
                   name="stage"
                   class="form-input"
-                  placeholder="e.g. Hearing on 15 Oct"
+                  placeholder="e.g. DD/MM/YYYY"
                 />
               </div>
 
