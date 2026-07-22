@@ -163,6 +163,16 @@ const gaId = siteConfig.analytics.googleAnalyticsId;
         
         animatedElements.forEach(el => observer.observe(el));
       });
+
+      // Force scroll to hash on page load (Fixes cross-page hash navigation)
+      if (window.location.hash) {
+        setTimeout(() => {
+          const target = document.querySelector(window.location.hash);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 200);
+      }
     </script>
   </body>
 </html>

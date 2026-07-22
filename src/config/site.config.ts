@@ -193,7 +193,7 @@ export const siteConfig = {
           { label: "Criminal Law", href: "/practice-areas#criminal" },
           { label: "Family Law", href: "/practice-areas#family" },
           { label: "Corporate Law", href: "/practice-areas#corporate" },
-          { label: "Property Law", href: "/practice-areas#revenue" },
+          { label: "Property Law", href: "/practice-areas#property" },
         ],
       },
       { label: "Pre-Marital Counselling", href: "/premarital-counselling" },
