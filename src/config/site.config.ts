@@ -68,7 +68,7 @@ export const siteConfig = {
       state: "Maharashtra",
       pincode: "400080",
       landmark: "Next to Mulund Railway Station",
-      full: "B-19, 2nd Floor, Shanti Bhavan, Arihant Shopping Center, J.S.D. Road, Next to Mulund Railway Station, Mulund(W), Mumbai - 400080",
+      full: "B-19, 2nd Floor, Shanti Bhavan, Arihant Shopping Center, J.S.D. Road, Next to Mulund Railway Station, Mulund(W), Mumbai - 400080 , Maharashtra, india",
     },
 
     // Office hours
@@ -194,6 +194,7 @@ export const siteConfig = {
           { label: "Family Law", href: "/practice-areas#family" },
           { label: "Corporate Law", href: "/practice-areas#corporate" },
           { label: "Property Law", href: "/practice-areas#property" },
+          { label: "Consumer Protection", href: "/practice-areas#consumer" },
         ],
       },
       { label: "Pre-Marital Counselling", href: "/premarital-counselling" },

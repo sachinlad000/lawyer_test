@@ -37,7 +37,7 @@ const icons: Record<string, any> = {
 const IconComponent = icons[icon] || icons['default'];
 ---
 
-<a href={href} class:list={['practice-card', featured && 'featured']}>
+<a href={href} class="practice-card">
   <div class="card-icon">
     <IconComponent size={28} />
   </div>
@@ -73,29 +73,6 @@ const IconComponent = icons[icon] || icons['default'];
   .practice-card:hover .card-icon {
     background: var(--color-accent-500);
     color: var(--color-primary-900);
-  }
-  
-  .practice-card.featured {
-    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
-    color: white;
-  }
-  
-  .practice-card.featured .card-title,
-  .practice-card.featured .card-description {
-    color: white;
-  }
-  
-  .practice-card.featured .card-description {
-    opacity: 0.9;
-  }
-  
-  .practice-card.featured .card-icon {
-    background: var(--color-accent-500);
-    color: var(--color-primary-900);
-  }
-  
-  .practice-card.featured .card-link {
-    color: var(--color-accent-500);
   }
   
   .card-icon {
