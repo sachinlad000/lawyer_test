@@ -112,7 +112,7 @@ const teamMembers = [
     font-size: 1.0625rem;
   }
 
-  /* Team Grid — responsive: 1 col → 2 col → 3–5 col */
+  /* Team Grid — responsive: 1 col (mobile) → 2 col (tablet/iPad) → 3 col (desktop) */
   .team-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -130,12 +130,6 @@ const teamMembers = [
   @media (min-width: 1024px) {
     .team-grid {
       grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .team-grid {
-      grid-template-columns: repeat(5, 1fr);
     }
   }
 

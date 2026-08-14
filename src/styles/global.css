@@ -62,34 +62,50 @@
   --transition-base: 300ms ease;
   --transition-slow: 500ms ease;
 
-  /* ---- Semantic Theme Tokens (Light defaults) ---- */
-  --surface-body: #f9fafb;
-  --surface-primary: #ffffff;
-  --surface-secondary: #f3f4f6;
-  --surface-tertiary: #e5e7eb;
-  --surface-card: #ffffff;
-  --surface-card-border: #e5e7eb;
-  --surface-input: #ffffff;
-  --surface-input-border: #e5e7eb;
-  --surface-header-solid: rgba(255, 255, 255, 0.95);
-  --surface-page-header: linear-gradient(135deg, #0A2463 0%, #1b3a7b 100%);
+  /* ---- Semantic Theme Tokens (Dark Mode Default) ---- */
+  --surface-body: #050d1a;
+  --surface-primary: #0a1628;
+  --surface-secondary: #0f1d32;
+  --surface-tertiary: #152238;
+  --surface-card: rgba(255, 255, 255, 0.03);
+  --surface-card-border: rgba(255, 255, 255, 0.08);
+  --surface-input: rgba(255, 255, 255, 0.05);
+  --surface-input-border: rgba(255, 255, 255, 0.12);
+  --surface-header-solid: rgba(10, 22, 40, 0.95);
+  --surface-page-header: linear-gradient(135deg, #0a1628 0%, #0f1d32 100%);
 
-  --text-body: #1f2937;
-  --text-secondary: #4b5563;
-  --text-muted: #6b7280;
-  --text-heading: #0A2463;
-  --text-link: #0A2463;
+  --text-body: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-heading: #ffffff;
+  --text-link: #ffffff;
 
-  --border-color: #e5e7eb;
-  --border-light: #f3f4f6;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.05);
 
-  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --card-shadow-hover: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+
+  /* Neutral overrides for Dark Mode */
+  --color-neutral-50: #050d1a;
+  --color-neutral-100: #0a1628;
+  --color-neutral-200: rgba(255, 255, 255, 0.1);
+  --color-neutral-300: rgba(255, 255, 255, 0.15);
+  --color-neutral-400: #475569;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #94a3b8;
+  --color-neutral-700: #cbd5e1;
+  --color-neutral-800: #e2e8f0;
+  --color-neutral-900: #ffffff;
+
+  --color-accent-100: rgba(212, 175, 55, 0.15);
+  --color-accent-700: #d4af37;
 }
 
 /* ========================================
    DARK THEME OVERRIDES
    ======================================== */
+:root,
 [data-theme="dark"] {
   --surface-body: #050d1a;
   --surface-primary: #0a1628;
