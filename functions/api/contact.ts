@@ -59,7 +59,7 @@ export const onRequestPost = async ({ request, env }: any) => {
             },
             body: JSON.stringify({
                 from: "AP Legal Services Contact <onboarding@resend.dev>",
-                to: ["applegalservices26@gmail.com", "adv.pradnyapednekar@gmail.com", "sachinlad000@gmail.com"],
+                to: ["sachinlad000@gmail.com"],
                 subject: `New Case Enquiry: ${caseType} - ${name}`,
                 html: `
             <h2>New Contact Form Submission - AP Legal Services</h2>
