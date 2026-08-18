@@ -16,10 +16,10 @@ export const siteConfig = {
     "Expert legal services in Civil, Criminal & Corporate Law. 22+ years of experience. Trusted legal representation.",
 
   // Domain (without https://)
-  domain: "yourdomain.com",
+  domain: "applegalservices.com",
 
   // Full site URL (with https://)
-  siteUrl: "https://yourdomain.com",
+  siteUrl: "https://applegalservices.com",
 
   // ========================================
   // ADVOCATE/FIRM INFORMATION
@@ -91,10 +91,10 @@ export const siteConfig = {
   // SOCIAL MEDIA LINKS
   // ========================================
   social: {
-    linkedin: "https://linkedin.com/in/your-profile",
-    twitter: "https://twitter.com/your-handle",
-    facebook: "https://facebook.com/your-page",
-    instagram: "", // Leave empty if not used
+    linkedin: "",
+    twitter: "",
+    facebook: "",
+    instagram: "",
   },
 
   // ========================================
@@ -116,16 +116,16 @@ export const siteConfig = {
   // ========================================
   forms: {
     // Provider: 'netlify' | 'formspree' | 'resend'
-    provider: "netlify",
+    provider: "resend",
 
     // Formspree endpoint (if using Formspree)
-    formspreeEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
+    formspreeEndpoint: "",
 
     // Resend configuration (if using Resend)
     resend: {
-      apiEndpoint: "/api/send-email", // Your API endpoint
+      apiEndpoint: "/api/contact",
       toEmail: "applegalservices26@gmail.com",
-      fromEmail: "noreply@yourdomain.com",
+      fromEmail: "applegalservices26@gmail.com",
     },
 
     // Netlify Forms settings
@@ -147,23 +147,23 @@ export const siteConfig = {
       "advocate, lawyer, legal services, civil law, criminal law, corporate law, India, High Court, Supreme Court",
 
     // Open Graph defaults
-    ogImage: "/images/og-image.jpg",
+    ogImage: "/images/about_image.jpeg",
     ogType: "website",
 
     // Twitter Card
     twitterCard: "summary_large_image",
-    twitterHandle: "@your-handle",
+    twitterHandle: "",
   },
 
   // ========================================
   // IMAGES & ASSETS
   // ========================================
   images: {
-    logo: "/images/logo.png",
+    logo: "/favicon.svg",
     favicon: "/favicon.svg",
-    advocatePhoto: "/images/advocate-photo.jpg",
-    officePhoto: "/images/office.jpg",
-    ogImage: "/images/og-image.jpg",
+    advocatePhoto: "/images/about_image.jpeg",
+    officePhoto: "/images/home_about.jpeg",
+    ogImage: "/images/about_image.jpeg",
   },
 
   // ========================================

@@ -8,46 +8,41 @@
  */
 
 import Layout from "../layouts/Layout.astro";
-import HeroVariant3 from "../components/sections/HeroVariant3.astro";
-import HeroVariant6 from "../components/sections/HeroVariant6.astro";
 import HeroVariant1 from "../components/sections/HeroVariant1.astro";
 import HeroVariant1Light from "../components/sections/HeroVariant1Light.astro";
-import HeroVariant6Light from "../components/sections/HeroVariant6Light.astro";
-import HeroVariant8 from "../components/sections/HeroVariant8.astro";
 import PracticeAreas from "../components/sections/PracticeAreas.astro";
 import TrustIndicators from "../components/sections/TrustIndicators.astro";
 import Testimonials from "../components/sections/Testimonials.astro";
 import FAQAccordion from "../components/ui/FAQAccordion.astro";
 import { Phone, MessageCircle, MapPin, Mail, ArrowRight } from "@lucide/astro";
-import HeroVariant9 from "../components/sections/HeroVariant9.astro";
 
 const schemaData = {
   name: "Advocate Pradnya Pednekar",
   alternateName: "Advocate Pradnya Pednekar",
   description:
     "Experienced Advocate in India providing expert legal services in Civil, Criminal, Corporate Law. Trusted legal representation.",
-  url: "https://yourdomain.com",
+  url: "https://applegalservices.com",
   telephone: "+91-9152109228",
   email: "applegalservices26@gmail.com",
   address: {
-    streetAddress: "123, Law Chambers, High Court Road",
-    addressLocality: "Your City",
-    addressRegion: "Your State",
-    postalCode: "400001",
+    streetAddress: "B-19, 2nd Floor, Shanti Bhavan, Arihant Shopping Center, J.S.D. Road, Next to Mulund Railway Station, Mulund (W)",
+    addressLocality: "Mumbai",
+    addressRegion: "Maharashtra",
+    postalCode: "400080",
     addressCountry: "IN",
   },
   geo: {
-    latitude: "19.0760", // Replace with actual coordinates
-    longitude: "72.8777",
+    latitude: "19.1726",
+    longitude: "72.9565",
   },
-  openingHours: "Mo-Sa 09:00-19:00",
+  openingHours: "Mo-Sa 17:00-20:00",
   priceRange: "₹₹",
-  foundingDate: "2009",
-  areaServed: ["Your City", "Your District", "Your State"],
+  foundingDate: "2004",
+  areaServed: ["Mumbai", "Thane", "Navi Mumbai", "Maharashtra"],
   founder: {
-    name: "Advocate Name",
+    name: "Advocate Pradnya Pednekar",
     jobTitle: "Advocate",
-    education: "LL.B., LL.M.",
+    education: "LL.B.",
     barCouncilNumber: "MAH/1117/2004",
   },
 };
@@ -242,7 +237,10 @@ const faqSchema = {
               src="/images/home_about.jpeg"
               alt="Advocate Pradnya Pednekar - Professional Portrait"
               class="about-photo"
+              width="600"
+              height="750"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="experience-badge">

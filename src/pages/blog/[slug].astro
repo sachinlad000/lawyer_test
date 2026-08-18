@@ -49,11 +49,11 @@ const articleSchema = {
   publisher: {
     "@type": "Organization",
     name: "Advocate Pradnya Pednekar",
-    url: "https://yourdomain.com",
+    url: "https://applegalservices.com",
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `https://yourdomain.com/blog/${post.slug}`,
+    "@id": `https://applegalservices.com/blog/${post.slug}`,
   },
 };
 
@@ -65,19 +65,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://yourdomain.com",
+      item: "https://applegalservices.com",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Blog",
-      item: "https://yourdomain.com/blog",
+      item: "https://applegalservices.com/blog",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: post.title,
-      item: `https://yourdomain.com/blog/${post.slug}`,
+      item: `https://applegalservices.com/blog/${post.slug}`,
     },
   ],
 };

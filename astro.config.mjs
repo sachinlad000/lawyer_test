@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
@@ -6,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   // IMPORTANT: Update this to your actual domain before deployment
-  site: 'https://yourdomain.com',
+  site: 'https://applegalservices.com',
 
   output: 'static',
 
@@ -29,6 +28,6 @@ export default defineConfig({
 
   // Build settings
   build: {
-    inlineStylesheets: 'never',
+    inlineStylesheets: 'auto',
   },
 });
